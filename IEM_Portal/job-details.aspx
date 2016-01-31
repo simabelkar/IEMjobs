@@ -61,7 +61,7 @@
 			<div id="header-background"></div>
 			<div class="container">
 				<div class="pull-right">
-					<div id="logo"><a href="index.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
+					<div id="logo"><a href="homepage.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
 				</div>
 				<div id="menu-open" class="pull-left">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
