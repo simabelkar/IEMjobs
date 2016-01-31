@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace IEM_Portal
 {
-    public partial class Homepage : System.Web.UI.Page
+    public partial class homepage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void display_search(object sender, EventArgs e)
-        {
-            
-        }
-
     }
 }

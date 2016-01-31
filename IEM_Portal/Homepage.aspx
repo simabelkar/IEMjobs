@@ -1,663 +1,796 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="IEM_Portal.Homepage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="IEM_Portal.homepage" %>
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Home | IEMjobs</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Jobseek - Job Board Responsive HTML Template">
+		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu">
+		<title>IEM jobs</title>
+		<link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/animate.min.css" rel="stylesheet" />
-    <link href="css/prettyPhoto.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/responsive.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
-</head>
-<!--/head-->
+		<!-- Main Stylesheet -->
+		<link href="css/style.css" rel="stylesheet">
 
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <header id="header">
-                <!--top-bar (shortcut)-->
-                <div class="top-bar">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-4">
-                            </div>
-                            <div class="col-sm-6 col-xs-8">
-                                <div class="social">
-                                    <ul class="social-share">
-                                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="https://www.jce.com/"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="https://www.skype.com/"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                    <div class="search">
-                                        <input type="text" class="search-form" autocomplete="off" placeholder="Search" />
-                                        <i class="fa fa-search"></i>
+		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body id="home">
+
+		<!-- ============ PAGE LOADER START ============ -->
+
+		<div id="loader">
+			<i class="fa fa-cog fa-4x fa-spin"></i>
+		</div>
+
+		<!-- ============ PAGE LOADER END ============ -->
+
+		<!-- ============ NAVBAR START ============ -->
+
+		<div class="fm-container">
+			<!-- Menu -->
+			<div class="menu">
+                <!--close button-->
+				<div class="button-close text-right">
+					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
+				</div>
+                <!--menu options-->
+				<ul class="nav">
+					<li class="active"><a href="#home">דף הבית</a></li>
+					<li><a href="jobs.aspx">משרות</a></li>
+					<li><a href="post-a-job.aspx">פרסם משרה</a></li>
+					<li><a href="candidates.aspx">מועמדים</a></li>
+					<li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
+                    <li><a href="resume.aspx">פרופיל משתמש</a></li>
+					<li><a class="link-register">הירשם</a></li>
+					<li><a class="link-login">התחבר</a></li>
+				</ul>		
+			</div>
+			<!-- end Menu -->
+		</div>
+
+		<!-- ============ NAVBAR END ============ -->
+
+		<!-- ============ HEADER START ============ -->
+
+		<header>
+			<div id="header-background"></div>
+			<div class="container">
+				<div class="pull-right">
+					<div id="logo"><a href="homepage.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
+				</div>
+				<div id="menu-open" class="pull-left">
+					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
+				</div>
+				<div id="searchbox" class="pull-right">
+					<form>
+						<div class="form-group">
+							<label class="sr-only" for="searchfield">Searchbox</label>
+							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+						</div>
+					</form>
+				</div>
+				<div id="search" class="pull-right">
+					<a><i class="fa fa-search fa-lg"></i></a>
+				</div>
+			</div>
+		</header>
+
+		<!-- ============ HEADER END ============ -->
+
+		<!-- ============ SLIDES START ============ -->
+
+		<div id="slider" class="sl-slider-wrapper">
+
+			<div class="sl-slider">
+			
+				<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+					<div class="sl-slide-inner">
+						<div class="bg-img bg-img-1"></div>
+						<div class="tint"></div>
+						<div class="slide-content">
+							<h2>מחפש עבודה?</h2>
+							<h3>הגעת למקום הנכון</h3>
+							<p><a href="jobs.aspx" class="btn btn-lg btn-default">חפש משרה</a></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+					<div class="sl-slide-inner">
+						<div class="bg-img bg-img-2"></div>
+						<div class="tint"></div>
+						<div class="slide-content">
+							<h2>מגייס עובדים?</h2>
+							<h3>יש לנו מועמדים מתאימים</h3>
+							<p><a href="candidates.aspx" class="btn btn-lg btn-default">פרסם משרה</a></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+					<div class="sl-slide-inner">
+						<div class="bg-img bg-img-3"></div>
+						<div class="tint"></div>
+						<div class="slide-content">
+							<h2>מפתח את הקריירה?</h2>
+							<h3>מצא הזדמנות חדשה כאן</h3>
+							<p><a href="jobs.aspx" class="btn btn-lg btn-default">מצא עבודה</a></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+					<div class="sl-slide-inner">
+						<div class="bg-img bg-img-4"></div>
+						<div class="tint"></div>
+						<div class="slide-content">
+							<h2>מרחיב את הצוות?</h2>
+							<h3>מצא את ההתאמה המושלמת</h3>
+							<p><a href="candidates.aspx" class="btn btn-lg btn-default">מצא מועמד</a></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<nav id="nav-arrows" class="nav-arrows">
+				<span class="nav-arrow-prev">Previous</span>
+				<span class="nav-arrow-next">Next</span>
+			</nav>
+
+			<nav id="nav-dots" class="nav-dots">
+				<span class="nav-dot-current"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</nav>
+
+		</div>
+
+		<!-- ============ SLIDES END ============ -->
+
+		<!-- ============ JOBS START ============ -->
+
+		<section id="jobs">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>משרות שנוספו לאחרונה</h2>
+
+						<div class="jobs">
+							
+                            <!-- Job offer 1 -->
+                            <a href="job-details.aspx">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="https://media.licdn.com/mpr/mpr/shrink_60_60/p/3/000/01f/19a/2c01d7b.png" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מנתח/ת מערכות</h5>
+                                        <p>מלם תים</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>ירושלים</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge full-time">משרה מלאה</p>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+							
+                            <!-- Job offer 2 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMGRsUIRAWIB0rJiAdHx8kJDQsLCYuJx8fLTEtMSw3OjowLys/RDkvOC81PCwBCgoKDg0OGRAQGi0lHR8sLC4vLCw3Ly0uLzcsLCwsNywuLC4sLCwsLCwvLC0sNzc3LCwsLCwtNywsNiwsLDQsLP/AABEIADwAPAMBEQACEQEDEQH/xAAaAAADAAMBAAAAAAAAAAAAAAADBgcCBAUI/8QAOhAAAQIEAwQIAwUJAAAAAAAAAQIDAAQFEQYSIQcxQYETFSJRYXGRoRQyQiRSYrHyFlNyg5KissHR/8QAGgEAAwEBAQEAAAAAAAAAAAAAAgMEBQEABv/EACsRAAICAgEDAwIGAwAAAAAAAAECAAMEERIhMUETIlFxgSNCQ1Kx8BQVMv/aAAwDAQACEQMRAD8ASRvj6ETLMImDEUZv0iTdqFTlZNgkOPupQCOFzqeQuY87BVLHxFhSzADzHbavV1tVGTpEm+6hEozmcyKIJURoCePZHvEGDVsF2HeW5b60o8TbxXMrwvs3laY48oz9RGVwrJJse05v7hZMKTVt5YdhHqpSoA95J0xoRLQqd8EIowgjsUYIb4ERpm9SqdNVWdakpFouvuGwSOHeSeAHfHndUHJu0WFLHQljwxgmn4YR1nPOl+cZQpanTolsW1yjyvqfaMq7Ke32r0Euqx1r9x7yf4YZcxdjz4qYTmaW8Zp4HWyAeyn/ABEW2sKadD6SdR6lvWW2akpScSEzcsy+BwdSFfnGOGI7GaOom4k2Z0epNLcpaE0+a3jo/kUfFPDzFucU1Zbr/wBdRFvUD2kfqdNm6RPuyU+yWn2zqN4I4EHiD3xq1uHXkshdSp0YAQyJMEN8CI0y3bKqAim0JFRdR9rnhnufpb+kc9/p3Rk5lvJ+PgSzHr0u/mZ7WKv1dhdUq2qz0+roR/BvV7ac45h18rN/EK9tLqTOXok3J4U/aIVFcoHXOiaZbzJL2tvmBGmhPKNE2g2+nrck4EJy3GvZrXJqTpVcnqk869JSqEuZnFFRz2PZF+8W9onzKlLIq9zCxnYBiewm0Nrsvxozw/mJ/wCQP+vP7oZywPE4mKq/T8ZySuikXZapSaFOsqJC+lbGq0kjdYdoeRh1VD0He9qYpr1t6a0YiiLJOYNKcygnv0gRGmeoJVlMtLNMIFkNoCAPAC0fPk7O5pgaGpF9pU67X8atUqTOb4cplWwP3iiCo8tByjTxVCVcj9ZLd7m0JltQmmZV+m4dkz9npkuM9uKyNL8tecFhqW3Ye5g5HQBR4mOJFdRYIpVDHZmp4/GTY8PpB9v6Y7X+Jcz+B0EEjhWF+es2MAtt0bDtYxNMtpUpCOglQvW6v1FI5GBydu61D7z1XsVnMNspo/WNQnqhNDOhttTQJ+pbg7R9L+sFnW8VCj+6i8SvkxYyerTkUUfdJT6G0WjqIkwQJBuN/CAEaZ6Up8+qeoLFQk0B5bssHEIvbMrL8t+GukYLrxcqZpK3JQRJ/gLBdZlMTrq+IZdKCkLcQc6V53VnU6HgCfaLMi9DXwSKSs8tmCVs5rM9iNVTq8zJKYemumfShSicl75RdPcAI6MtFTiogtSWOzEzFtVVX8TzUyyMyFOBmXT+EaJ9d/OK6E9OsAxFrcmjFj59ql0ikYYlXEqRKtB6ZUk3zLN/95jzELxQXdrT57TmQeKhI94YlkYXwKHpiyHEMKmn7/eIvb0sIiub1btD6SmlfTq6yFXJ1O86nzjamcTBjfACNMqOyfFDbSeoZ5wIuoqlFq7zvR66jmIgzaCfxB94/Ht17TKtGbLYrbR6z1NhWaW2rLMTA+HZ81bzyFzD8avnYIFjaWTrZZhWVrsxNzVUY6aTl0htCCSMzh14dw/OLsu41gBT1k1VYYkmUyXwRhqWdS61R5cKSbjNdVj5EkRCcm0jRaP9CvvqJu1jFLa0dQSDgWcwM4pPC2oR53sTyEVYVH6jfaJyLPyiTERpSEwQ3wIjTCJNiCN8GIox+w5tKqNPbRLVJr49pOiV3ssc9x56+MR24CudqdfxGpmMvRus1NrVbVUq3LyDaVJRJtArbOpDqwCRpxAsPWF4lfFS3zK7W3KXhiQawpg9tMzZBYZVMTKvxWzK9N3KIbWNtnSOReKyc4j2o1GpMqYpTJp7KhYuXzLI8DuTy18Ytqw1U7brEPaSOkRQSVEk3J1JMXiSmZiOxRghvgRGmETBiKM7+B5ZqbxZTGX05m+mzEd+UXHuBC8gkVMROVAG0AyvnAuHjUzUlySlzfTdOVrWs3Xe9yL238Ixf8izjx307TX4De5zdr8y7L4OcQ0rKH322l+KTckf2iDxADaJyw+2QsRryRoVO+CEUYQR2KM//9k=" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מיישם/ת Oracle applications לוגיסטי </h5>
+                                        <p>HP</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>רמת השרון</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge full-time">משרה מלאה</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 3 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="http://placehold.it/60x60.jpg" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5> תוכניתן/ית CRM</h5>
+                                        <p>דיסקל</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>פתח תקווה</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge internship">משמרות</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 4 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="http://www.coursim.co.il/ui/site/pages/picturehandler.ashx?picid=659&pic=" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מטמיע/ה מערכות מידע</h5>
+                                        <p>אומגה</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>כפר סבא</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge part-time">משרה חלקית</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 5 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="https://lh3.googleusercontent.com/-r-c76gbdAPQ/AAAAAAAAAAI/AAAAAAAAAAA/Pw182XdgX4k/s46-c-k-no/photo.jpg" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מנתח נתונים</h5>
+                                        <p>ש.כ. מאגרי אנוש בע"מ</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>חולון</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge temporary">לפי שעות</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 6 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="http://placehold.it/60x60.jpg" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מיישמים/ות תומכים/ות לתוכנת SAP Business One</h5>
+                                        <p>RELS Advanced Technologies</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>רמת גן</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge full-time">משרה מלאה</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 7 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="https://i.vimeocdn.com/portrait/9194295_60x60.jpg" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מנתח/ת בסיס נתונים</h5>
+                                        <p>Ebay Inc.</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>נתניה</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge part-time">משרה חלקית</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 8 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAA21BMVEX////qQzU0qFNChfT7vAV9q/hlnPb///7rRjj//Pyv3bv/+OX8/vz72db4/PnsVEdCrl/92G780VXuZFmOz6D94pLrSjz8yz38z0/8whz8yDLweG5uoffxhXxdlvbzl4/60c74v7ry9v6qyPqi2LB8x5BwrjxkvXxYuHI7lqf96+rI6NFLi/Xc7O7J3fz81GDs7ctXrEbp9ezT7NqOtvi74sY4noRBiOe81Ps2o2s/jNQ9kbxwtrDtWS7vcGb3tK/95Mj1p6DwZyf0iRnLtxhOq0mmtCb3oBDuXStGrXxfAAABn0lEQVRIie2Wa1eCMBiA2aK4ZEBBlhqmhkHaTcuyixLd//8vCmHgdBubnjp94fm48fhed46SVFLyf2iaso7Wixq2WQWgatqNqLdSwJarAgzVbWnC7hQQTAXt0CRdAMy2SNhjmjoj4rsNlqvucGVmXLXFrxf73Hajdjty7aTxJj+uNu+VnQ+3ZwvljM0oxEajhQI5Sy+TbC5LgURW7Ep+TWWBQMtsy7L8JjZRkv1Ylr8moLrSQ0Acygnf4RquVE9lGWv0JkGH7iq11D3AzjYILhkyCrxXKI/pcgXJu4XyyR/IYmmzZKGGMWrORlWvzI+2cs6Lu42WpDbQaZdHSGbMOV3P9w9oDcm7DnKbDDd5GJ8wxiPvxki+ZcnxkzyFCX0iMK9kSboepC60bpZusoqZJcdr4sMM3cDOL5qcKae2ldtB3jXFgWe8diXocE7Q9UYjz/FnP3h3X7ghCAfSeXgsbDXK0WfY8ImTNKqQwTO701jdFtV1DL4qLUwsh5g82+53F9VAp6w7m6HnB9YsfyvwHeGoGIpiGBVlrT9TJSW/wQ9E/iBW+2oVuwAAAABJRU5ErkJggg==" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>מנתח/ת בסיס נתונים</h5>
+                                        <p>Google</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>תל אביב</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge full-time">משרה מלאה</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 9 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAZlBMVEUAhcUEh8b////7/f6Kx+X3+/3p9PoNi8gJicdNqNbx+PwxnNCf0OkSjckomM7b7vcbksvs9vvH5PPT6vU5oNKw2e1Yrtlfstq63vBzvN9GpdWSy+Zuut7N5/Obz+nh8fmq1ux/weJEsoOEAAADfklEQVRIic2X6bKjIBCFpRFUFDdw14jv/5LTaBLXxDszNVVzfsRE/Vib7hPHJ38s3yHOH4v8O1iifh8mMuyNyhgqU6YP5fVbV7Bsp5zBRiyf2oshXMBeaUYKQHluOpTJuf01mtK7h1MjsK+xC1IpPd/3pEyDbsRbwqQ3sFdyHOVQHQYpqwHnwQ+dH+DUZTjB6jRAbLXCZWDurvM9LCMBwo3PqFXs4sNoO6QdTAoKIrjo9tl5IIAW2/c3sBcBJPoTaqUTgGhtfAN7EwMVfGMdJ1DApje9wiRIICv977BfZpAEb+QNyxpguj0lZAIoXou2whVA/YMTRrCP6gjLBMbwnnWccIREHuAGqHsz4UW+S6HZw1JB0v6EdZw2ASV3MO6/+XbuN5IGI2kHu1T0x7fSD631grpbOC2Ah44MrdJl6kQXxq4gicNwjvYUr/OjkEORbuBQwUCclluNtV6mRmmNfcuc8xp/+x3nam6FDKDCDRxweODnK+tUxOspsDouSx/3EHJniXy+HLgH8GADlwz6BU4UJhJePRhwN+yEmC7gHli5wqSiUC5wpSeO+YtBUgU1BVXq7ASXQHuywjjIdoFbRxbz2PsyoZDr0ibDA9ye4PAF+9EMU8w6RdjMKfgAhx97Jnp4rhvtwgdmHsRzrGpyhvHLqed1zsVjwHU2iYVrnHTSY9rlURQFCDMTRc0854psVlvYYLcwxSlCLbVaeq/jNFm+NdHzjj1EYrPaTjtChDC1YpnBRCMLHC6LUjwy813aPJYrwgbGdhthGDQ+JlerqZ2DUE7jOGGEec1819Xlcq0cH8NxG2G4PfyYN70yuM4smj8z0ftUMdZcvnmhhrHdqXLabM1rN8JRZu0O9nIYb3L2S8EIubeDMXnSx89y2IO+0ucb9gcQX0vNS1rA4B9gJ2AwfKxxq7wB2Gt+m4oRUehu10x2QKNzxSAYkaK5q1WNAKXPtQpPh0Dj8B1G0yGqldgWd/QUX+ukrZHP+DjDxBqH5uh53kobazo+OANb37Fp82HHtMGBTdsNObghr0fbwd2LRZcuejnR7zbzZOJaZQ3XFG/dJpHxZO2ZOpTCCwfoKkwm3DSBjlNUrIPGIEqVe+cAUb6ecchUXqNylcGM6tM+XLpeP63qveutq/RiCz+a9bTsajWiVN2VH3bvq9Mn1ul/e/6f/kH5j+G/+Tv4CwCBL6lp5b7xAAAAAElFTkSuQmCC" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>ראשי/ות צוות ERP</h5>
+                                        <p>Dell Inc.</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>הרצליה</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge full-time">משרה מלאה</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Job offer 10 -->
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <img src="http://placehold.it/60x60.jpg" alt="" class="img-responsive" />
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5>סטודנט/ית מצטיין/ת למערכת מידע</h5>
+                                        <p>Dell Inc.</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p><strong>הרצליה</strong></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="badge temporary">לפי שעות</p>
+                                    </div>
+                                </div>
+                            </a>
+
+						</div>
+
+						<a class="btn btn-primary" id="more-jobs">
+							<span class="more">הצג עוד משרות <i class="fa fa-arrow-down"></i></span>
+							<span class="less">הצג פחות משרות <i class="fa fa-arrow-up"></i></span>
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ JOBS END ============ -->
+
+		<!-- ============ COMPANIES START ============ -->
+
+		<!--<section id="companies" class="color1">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>חברות מומלצות</h2>
+						<ul id="featured-companies" class="row">
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">12</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">4</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">8</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">9</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">13</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">6</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">7</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">15</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">6</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">11</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li class="col-sm-4 col-md-3">
+								<a href="company.html">
+									<img src="http://placehold.it/220x100.jpg" alt="" />
+									<span class="badge">3</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>-->
+
+		<!-- ============ COMPANIES END ============ -->
+
+		<!-- ============ STATS START ============ -->
+
+		<section id="stats" class="parallax text-center">
+			<div class="tint"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>IEM jobs</h1>
+						<h4>לכמה אנשים עזרנו</h4>
+					</div>
+				</div>
+				<div class="row" id="counter">
+					
+					<div class="counter">
+						<div class="number">4,329</div>
+						<div class="description">משתמשים</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">1,482</div>
+						<div class="description">משרות</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">894</div>
+						<div class="description">משרות בלעדיות</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">83</div>
+						<div class="description">חברות</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<p><a class="link-register btn btn-primary">הצטרף אלינו</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ STATS END ============ -->
+
+		<!-- ============ HOW DOES IT WORK START ============ -->
+
+		<section id="how">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>אז איך זה עובד?</h2>
+					</div>
+				</div>
+				<div class="row">
+                    <div class="col-sm-6">
+                        <div class="video-wrapper">
+                            <iframe src="https://player.vimeo.com/video/121698707" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <!--/.container-->
-                </div>
-                <!--/.top-bar-->
+					<div class="col-sm-6">
+						<p>כל שעליך לעשות הוא להירשם לאתר, מרגע זה מעסיקים יוכלו לפנות אלייך</p>
+						<p>על מנת להגדיל את הסיכוי שלך אנו ממליצים לך לציין את הידע והניסיון שלך בדף הפרופיל. ככל שתשתף יותר פרטים יותר מגייסים יפנו אליך וכך יגדל הסיכוי שלך למצוא עבודה</p>
+						<p><a href="#" class="btn btn-primary">קרא עוד</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-                <!--navigation menu-->
-                <nav class="navbar navbar-inverse" role="banner">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <!--logo-->
-                            <!--<a class="navbar-brand" href="Homepage.aspx">
-                                <img src="images/logo.png" alt="logo" /></a>-->
-                        </div>
+		<!-- ============ HOW DOES IT WORK END ============ -->
 
-                        <div class="collapse navbar-collapse navbar-right">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="Homepage.aspx">דף הבית</a></li>
-                                <li><a href="#JobSearch">חיפוש משרה</a></li>
-                                <li><a href="#PostJob">פרסום משרה</a></li>
-                                <%--<li><a href="#">Portfolio</a></li>--%>
-                                <%--<li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-item.html">Blog Single</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="shortcodes.html">Shortcodes</a></li>
-                                </ul>
-                            </li>--%>
-                                <%--<li><a href="blog.html">Blog</a></li> 
-                            <li><a href="contact-us.html">Contact</a></li> --%>
-                            </ul>
+        <!-- ============ TESTIMONIALS START ============ -->
+        <section id="testimonials" class="parallax text-center">
+            <div class="tint"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>המלצות</h1>
+                        <h4>כמה מילים טובות ממשתמשים מרוצים</h4>
+                        <div class="owl-carousel">
+                            <!-- Testimonial 1 -->
+                            <div>
+                                <div class="col-sm-3 col-md-2">
+                                    <img src="/images/Face1.png" class="img-circle img-responsive" alt="testimonial" />
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <blockquote>
+                                        <p>
+                                            תודה על השירות מעולה. IEM Jobs עלה על הציפיות שלי.
+                                            IEM Jobs הוא המשאב העסקי החשוב ביותר שאי פעם רכשו!
+                                        </p>
+                                        <footer>
+                                            סוזי וולש
+                                            <cite title="Brand Manager in Ebay Inc.">מנהלת מותג בEbay</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <!-- Testimonial 2 -->
+                            <div>
+                                <div class="col-sm-3 col-md-2">
+                                    <img src="/images/girl-1037881_1920.jpg" class="img-circle img-responsive" alt="testimonial" />
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <blockquote>
+                                        <p>
+                                            אני אפילו לא צריכה הכשרה . אני לא יכולתי לבקש יותר מזה .
+                                            זה באמת חוסך לי זמן ומאמץ . IEM Jobs היא בדיוק מה העסק שלנו היה צריך .
+                                            הייתי הולכת לאיבוד בלי IEM Jobs.
+                                        </p>
+                                        <footer>
+                                            בקי דניאלס
+                                            <cite title="HR Manager in Apple Inc.">מנהלת כוח אדם בApple</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <!-- Testimonial 3 -->
+                            <div>
+                                <div class="col-sm-3 col-md-2">
+                                    <img src="/images/cowboy-67630_1920.jpg" class="img-circle img-responsive" alt="testimonial" />
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <blockquote>
+                                        <p>IEM Jobs אף פעם לא מאכזב. אני רוצה לקבל חולצת טריקו עם IEM Jobs על זה אז אני יכול להראות את זה לכולם . זה פשוט לא יאומן !</p>
+                                        <footer>
+                                            אריק אולסון
+                                            <cite title="Key Account Manager in Twitter Inc.">מנהל פרוייקט בTwitter</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <!-- Testimonial 4 -->
+                            <div>
+                                <div class="col-sm-3 col-md-2">
+                                    <img src="/images/pixie-1087034_1280.png" class="img-circle img-responsive" alt="testimonial" />
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <blockquote>
+                                        <p>IEM Jobs הוא אתר מעולה, לא יכולתי לבקש יותר. והכי כיף שהוא בחינם!</p>
+                                        <footer>
+                                            נדין בויד
+                                            <cite title="CEO in Company Name">מנתחת מערכות בCisco</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
                         </div>
+                        <p><a href="#" class="btn btn-primary">קרא הכל</a></p>
                     </div>
-                    <!--/.container-->
-                </nav>
-                <!--/.navigation menu-->
-            </header>
-            <!--/.header-->
-
-
-            <!--section1 - main-slider (carousel picture)-->
-            <section id="main-slider" class="no-margin">
-                <div class="carousel slide">
-                    <ol class="carousel-indicators">
-                        <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                        <li data-target="#main-slider" data-slide-to="1"></li>
-                        <li data-target="#main-slider" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active" style="background-image: url(images/slider/bg1.jpg)">
-                            <div class="container">
-                                <div class="row slide-margin">
-                                    <div class="col-sm-6">
-                                        <div class="carousel-content">
-                                            <h1 class="animation animated-item-1">חיפוש משרה</h1>
-                                            
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="animation animated-item-2"><asp:Label ID="Label1" runat="server" Text="בחר תחום"></asp:Label></h2>
-                                                    </td>
-                                                    <td>
-                                                        <select size="1" name="Availability" id="Select1" runat="server" style="width:100%;">
-                                                            <option selected="selected" disabled="disabled">בחר תחום</option>
-                                                            <option value="01">מערכות מידע</option>
-                                                            <option value="02">ייצור ותעשיה</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="animation animated-item-2"><asp:Label ID="Label2" runat="server" Text="בחר מיקום"></asp:Label></h2>
-                                                    </td>
-                                                    <td>
-                                                        <select size="1" name="Availability" id="Select2" runat="server" style="width:100%;">
-                                                            <option value="01" selected="selected">כל האיזורים</option>
-                                                            <option value="02" style="color: red;">צפון</option>
-                                                            <option value="03">חיפה והסביבה</option>
-                                                            <option value="04">קריות והסביבה</option>
-                                                            <option value="05">עכו-נהריה והסביבה</option>
-                                                            <option value="06">גליל עליון</option>
-                                                            <option value="07">הכנרת והסביבה</option>
-                                                            <option value="08">כרמיאל והסביבה</option>
-                                                            <option value="09">נצרת-שפרעם והסביבה</option>
-                                                            <option value="10">גליל תחתון</option>
-                                                            <option value="11">הגולן</option>
-                                                            <option value="12" style="color: red;">חדרה זכרון והעמקים</option>
-                                                            <option value="13">זכרון וחוף הכרמל</option>
-                                                            <option value="14">חדרה והסביבה</option>
-                                                            <option value="15">קיסריה והסביבה</option>
-                                                            <option value="16">יקנעם טבעון והסביבה</option>
-                                                            <option value="17">עמק בית שאן</option>
-                                                            <option value="18">עפולה והעמקים</option>
-                                                            <option value="19">רמת מנשה</option>
-                                                            <option value="20" style="color: red;">השרון</option>
-                                                            <option value="21">נתניה והסביבה</option>
-                                                            <option value="22">רמת השרון - הרצליה</option>
-                                                            <option value="23">רעננה - כפר סבא</option>
-                                                            <option value="24">הוד השרון והסביבה</option>
-                                                            <option value="25" style="color: red;">מרכז</option>
-                                                            <option value="26">תל אביב</option>
-                                                            <option value="27">ראשון לציון והסביבה</option>
-                                                            <option value="28">חולון - בת ים</option>
-                                                            <option value="29">רמת גן - גבעתיים</option>
-                                                            <option value="30">פתח תקווה והסביבה</option>
-                                                            <option value="31">ראש העין והסביבה</option>
-                                                            <option value="32">בקעת אונו</option>
-                                                            <option value="33">רמלה - לוד</option>
-                                                            <option value="34">בני ברק - גבעת שמואל</option>
-                                                            <option value="35">עמק איילון</option>
-                                                            <option value="36">שוהם והסביבה</option>
-                                                            <option value="37">מודיעין והסביבה</option>
-                                                            <option value="38" style="color: red;">אזור ירושלים</option>
-                                                            <option value="39">ירושלים</option>
-                                                            <option value="40">בית שמש והסביבה</option>
-                                                            <option value="41">מבשרת והסביבה</option>
-                                                            <option value="42">מעלה אדומים והסביבה</option>
-                                                            <option value="43" style="color: red;">יהודה שומרון ובקעת הירדן</option>
-                                                            <option value="44">ישובי שומרון</option>
-                                                            <option value="45">גוש עציון</option>
-                                                            <option value="46">בקעת הירדן וצפון ים המלח</option>
-                                                            <option value="47">אריאל והסביבה</option>
-                                                            <option value="48" style="color: red;">שפלה והסביבה</option>
-                                                            <option value="49">נס ציונה - רחובות</option>
-                                                            <option value="50">אשדוד - אשקלון</option>
-                                                            <option value="51">גדרה - יבנה</option>
-                                                            <option value="52">קרית גת והסביבה</option>
-                                                            <option value="53" style="color: red;">דרום</option>
-                                                            <option value="54">באר שבע והסביבה</option>
-                                                            <option value="55">אילת וערבה</option>
-                                                            <option value="56">ישובי הנגב</option>
-                                                            <option value="57" style="color: red;">חו"ל</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="animation animated-item-2"><asp:Label ID="Label3" runat="server" Text="בחר היקף משרה"></asp:Label>&nbsp&nbsp</h2>
-                                                    </td>
-                                                    <td>
-                                                        <select size="1" name="Availability" id="Select3" runat="server" style="width:100%;">
-                                                            <option selected="selected" disabled="disabled">בחר היקף משרה</option>
-                                                            <option value="01">משרה מלאה</option>
-                                                            <option value="02">משרה חלקית</option>
-                                                            <option value="03">משמרות</option>
-                                                            <option value="04">לפי שעות</option>
-                                                            <option value="05">פרילנס</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a class="btn-slide animation animated-item-3" href="#JobSearch">חפש משרה</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                        <div class="slider-img">
-                                            <img src="images/slider/img3.png" class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.item-->
-
-                        <div class="item" style="background-image: url(images/slider/bg2.jpg)">
-                            <div class="container">
-                                <div class="row slide-margin">
-                                    <div class="col-sm-6">
-                                        <div class="carousel-content">
-                                            <h1 class="animation animated-item-1">חיפוש עובדים</h1>
-                                            <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                            <a class="btn-slide animation animated-item-3" href="#">חפש</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                        <div class="slider-img">
-                                            <img src="images/slider/img2.png" class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.item-->
-
-                        <div class="item" style="background-image: url(images/slider/bg3.jpg)">
-                            <div class="container">
-                                <div class="row slide-margin">
-                                    <div class="col-sm-6">
-                                        <div class="carousel-content">
-                                            <h1 class="animation animated-item-1">פרופיל משתמש</h1>
-                                            <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                            <a class="btn-slide animation animated-item-3" href="#">Read More</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                        <div class="slider-img">
-                                            <img src="images/slider/img1.png" class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.item-->
-
-                    </div>
-                    <!--/.carousel-inner-->
-                </div>
-                <!--/.carousel slide-->
-                <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-                <a class="next hidden-xs" href="#main-slider" data-slide="next">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-            </section>
-            <!--/.main-slider-->
-        
-            <!--status (numbers)-->
-            <div class="row" id="counter" style="text-align:center;">
-                <div class="counter">
-                    <div class="number">4,325</div>
-                    <div class="description">משתמשים</div>
-                </div>
-                <div class="counter">
-                    <div class="number">894</div>
-                    <div class="description">משרות</div>
-                </div>
-                <div class="counter">
-                    <div class="number">1482</div>
-                    <div class="description">קורות חיים</div>
-                </div>
-                <div class="counter">
-                    <div class="number">83</div>
-                    <div class="description">חברות</div>
                 </div>
             </div>
-            
-                
-            <!--section2 - JobSearch-->
-            <section id="JobSearch">
-                <div class="container">
-                    <div class="center wow fadeInDown">
-                        <h2>חיפוש משרה</h2>
-                        <p class="lead">שנה קריטריונים לחיפוש</p>
-                    </div>
-                    <div class="row">
-                        <div class="features" dir="rtl">
-                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                <div class="feature-wrap">
-                                    <asp:Label ID="TypeLabel" runat="server" Text="שנה תחום"></asp:Label>
-                                    <select size="1" name="jobTitle" id="jobTitle" runat="server">
-                                        <option selected="selected" disabled="disabled">שנה תחום</option>
-                                        <option value="01">מערכות מידע</option>
-                                        <option value="02">ייצור ותעשייה</option>
-                                    </select>
-                                    <!--<i class="fa fa-bullhorn"></i>
-                                    <h2>Fresh and Clean</h2>
-                                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>-->
-                                </div>
-                            </div>
-                            <!--/.col-md-4-->
+        </section>
+        <!-- ============ TESTIMONIALS END ============ -->
 
-                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                <div class="feature-wrap">
-                                    <asp:Label ID="cityLable" runat="server" Text="שנה איזור"></asp:Label>
-                                    <select size="1" name="City" id="City" runat="server">
-                                        <option selected="selected" disabled="disabled">שנה איזור</option>
-                                        <option value="01">תל אביב</option>
-                                        <option value="02">ירושלים</option>
-                                        <option value="03">חיפה</option>
-                                    </select>
-                                    <!--<i class="fa fa-comments"></i>
-                                    <h2>Retina ready</h2>
-                                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>-->
-                                </div>
-                            </div>
-                            <!--/.col-md-4-->
+		<!-- ============ REGISTER START ============ -->
 
-                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                <div class="feature-wrap">
-                                    <asp:Label ID="avaiLable" runat="server" Text="שנה היקף משרה"></asp:Label>
-                                    <select size="1" name="Availability" id="Availability" runat="server">
-                                        <option selected="selected" disabled="disabled">שנה היקף משרה</option>
-                                        <option value="01">משרה מלאה</option>
-                                        <option value="02">משרה חלקית</option>
-                                        <option value="03">משמרות</option>
-                                    </select>
-                                    <!--<i class="fa fa-cloud-download"></i>
-                                    <h2>Easy to customize</h2>
-                                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>-->
-                                </div>
-                            </div>
-                            <!--/.col-md-4-->
-                        </div>
-                        <!--/.services-->
-                    </div>
-                    <!--/.row-->
-                </div>
-                <!--/.container-->
-            
-                <!--result list-->
-                <div class="container" style="width: 100%;">
-                    <div class="col-sm-6 wow fadeInDown" style="width: 100%;">
-                        <div class="accordion">
-                            <h2>משרות שנמצאו</h2>
-                            <div class="panel-group" id="accordion1">
-                                <!--Table Header-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
-                                                <asp:Table Width="100%" runat="server" >
-                                                    <asp:TableRow Font-Bold="true" ForeColor="#14b1bb">
-                                                        <asp:TableCell Width="50%">תיאור המשרה</asp:TableCell>
-                                                        <asp:TableCell Width="20%">מיקום המשרה</asp:TableCell>
-                                                        <asp:TableCell Width="20%">היקף המשרה</asp:TableCell>
-                                                        <asp:TableCell></asp:TableCell>
-                                                    </asp:TableRow>
-                                                </asp:Table>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <!--/.Table Header-->
+		<section id="register_section" class="color2">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-5">
+					</div>
+					<div class="col-sm-offset-1 col-sm-6">
+						<h2>עדיין לא רשום?</h2>
+                        <a class="link-register">הירשם עכשיו</a>
+						<p>&nbsp;</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-                                <!--Table Row1-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
-                                            <asp:Table Width="100%" runat="server" >
-                                                <asp:TableRow>
-                                                    <asp:TableCell Width="50%">איש/אשת תפ"י</asp:TableCell>
-                                                    <asp:TableCell Width="20%">קרית שמונה</asp:TableCell>
-                                                    <asp:TableCell Width="20%">משרה מלאה</asp:TableCell>
-                                                    <asp:TableCell><i class="fa fa-angle-left pull-left"></i></asp:TableCell>
-                                                </asp:TableRow>
-                                            </asp:Table>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="collapseOne1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="media accordion-inner">
-                                                <!--<div class="pull-left">
-                                                    <img class="img-responsive" src="images/accordion1.png" />
-                                                </div>-->
-                                                <div class="media-body">
-                                                    <h4>איש/אשת תפ"י</h4>
-                                                    <p>לחברה ביוטכנולוגיה יוקרתית שעוסקת בפיתוח תרופות, באזור הצפון, דרוש /ה איש /אשת תפ"י.
-התפקיד כולל - בניית אוטומציה של בקרות ודיווחים, יכולת ניתוח נתונים והסקת מסקנות, ניהול מלאים, תכנון תוכניות עבודה, תזמון חומרים, פיקוח על הייצור, סגירת ופתיחת פק"עות ועוד.</p>
-                                                    <p>דרישות:<br />      
-                                                    מהנדס /ת תעשייה וניהול - חובה.<br />
-                                                    ניסיון של שנתיים - שלוש בתחום התפ"י - חובה. <br />
-                                                    ניסיון מתחום הפרמצבטיקה - יתרון משמעותי. המשרה מיועדת לנשים וגברים כאחד.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Table Row1-->
-                                <!--Table Row2-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
-                                                <asp:Table Width="100%" runat="server" >
-                                                    <asp:TableRow>
-                                                        <asp:TableCell Width="50%">מנהל /ת מפעל למפעל מתכת מוביל בתחומו</asp:TableCell>
-                                                        <asp:TableCell Width="20%">באר שבע</asp:TableCell>
-                                                        <asp:TableCell Width="20%">משרה מלאה</asp:TableCell>
-                                                        <asp:TableCell><i class="fa fa-angle-left pull-left"></i></asp:TableCell>
-                                                    </asp:TableRow>
-                                                </asp:Table>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="collapseTwo1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>למפעל מתכת מוביל דרוש /ה מנהל /ת מפעל.<br /> 
-                                            התפקיד כולל: <br />
-                                            אחראי /ת לתפעול שוטף ותקין של המפעל.<br />
-                                            בניה של תהליכי עבודה.<br />
-                                            ניהול מערך מערך כוח אדם.<br />
-                                            קביעה ויישום כללי הבטיחות המפעל.<br />
-                                            ניהול מערך הייצור, לוגיסטיקה, אחזקה, הנדסה תוכניות עבודה ועוד.</p>
-                                            <p>דרישות: <br />
-                                            בעל /ת ניסיון בניהול מפעל בתחום המתכת /מסגריה גדולה.<br />
-                                            בעל /ת יכולת ניהולית מובהקת של צוותי עבודה.<br />
-                                            בעל /ת יכולת לתעדף עבודות / משימות.    <br />
-                                            ממשק צמוד להנדסת החברה ועם מנהלי התחומים בחברה. <br />
-                                            יתרון - מהנדס /ת תעשיה וניהול. המשרה מיועדת לנשים וגברים כאחד. <br />
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Table Row2-->
-                                <!--Table Row3-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
-                                                <asp:Table Width="100%" runat="server" >
-                                                    <asp:TableRow>
-                                                        <asp:TableCell Width="50%">מהנדס /ת תעשיה וניהול לחברה בתחום הלוגיסטיקה</asp:TableCell>
-                                                        <asp:TableCell Width="20%">לוד</asp:TableCell>
-                                                        <asp:TableCell Width="20%">משרה חלקית</asp:TableCell>
-                                                        <asp:TableCell><i class="fa fa-angle-left pull-left"></i></asp:TableCell>
-                                                    </asp:TableRow>
-                                                </asp:Table>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="collapseThree1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>דרוש /ה מהנדס /ת תעשיה וניהול לחברה בתחום הלוגיסטיקה.<br />
-                                                ניהול מערך ארגון ושיטות בחברה.<br />
-                                                ניהול מעקב ובקרה על תהליכי עבודה בחברה.<br />
-                                                זיהוי, הובלה ויישום שיונוי תהליכי עבודה בחברה.<br />
-                                            </p>
-                                            <p>דרישות:<br />
-                                                בוגר /ת הנדסת תעשייה וניהול - חובה.<br />
-                                                ניסיון קודם של 3-4 שנים בארגון ושיטות - חובה.<br />
-                                                ניסיון קודם בחברה בתחום הלוגיסטיקה - יתרון.<br />
-                                                אסרטיביות בקידום פרוייקטים ותהליכים<br />
-                                                מוכנות לשעות נוספות ועבודה תחת לחץ.<br />
-                                                יכולת עבודה עצמאית. המשרה מיועדת לנשים וגברים כאחד.<br />
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Table Row3-->
-                                <!--Table Row4-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
-                                                <asp:Table Width="100%" runat="server" >
-                                                    <asp:TableRow>
-                                                        <asp:TableCell Width="50%">אחראי/ת ייצור</asp:TableCell>
-                                                        <asp:TableCell Width="20%">אלישמע</asp:TableCell>
-                                                        <asp:TableCell Width="20%">משמרות</asp:TableCell>
-                                                        <asp:TableCell><i class="fa fa-angle-left pull-left"></i></asp:TableCell>
-                                                    </asp:TableRow>
-                                                 </asp:Table>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="collapseFour1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>לחברת סטארט אפ צעירה ודינאמית בתחום הבנייה הירוקה דרוש /ה אחראי /ת ייצור.
-התפקיד כולל ליווי פיתוח קו מוצרים לרבות התאמות טכנולוגיות יעודיות. התפקיד דורש עבודה פיזית, דייקנות, משימתיות וריכוז. העבודה מתנהלת בכפוף למנהל מחקר - דוקטור בתחום ההנדסה. העבודה במשרה חלקית בין 2-3 ימים מלאים בשבוע המתאימה במיוחד גם לסטודנטים /ות.</p>
-                                            <p>תנאים טובים למתאים /ה.</p>
-                                            <p>דרישות:<br />
-                                                בעל /ת רכב - חובה.<br />
-                                                סטודנט /ית להנדסת תעשייה וניהול - יתרון.<br />
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Table Row4-->
-                            </div>
-                            <!--/#accordion1-->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--/.JobSearch-->
+		<!-- ============ REGISTER END ============ -->
 
-            <section id="PostJob">
-                <div class="container">
-                    <div class="center wow fadeInDown">
-                        <h2>פרסום משרה</h2>
-                        <p class="lead">הוספת משרה חדשה</p>
-                    </div>
-                    <!--JobTitle-->
-                    <div class="row">
-                        כותרת המשרה
-                        <span style="color:red">*</span>
-                    </div>
-                    <div class="row">
-                        <input id="txtJobTitle" runat="server" placeholder="הזן כותרת משרה" style="width:80%;" required="required"/>
-                    </div>
-                    <div id="txtJobTitleErrorMsg" style="width:80%; color:red;" hidden="hidden">
-                           לא הוזן כותרת משרה
-                    </div>
-                    <br />
-                    <!--JobDesc-->
-                    <div class="row">
-                        תיאור התפקיד
-                        <span style="color:red">*</span>
-                    </div>
-                    <div class="row">
-                        <textarea id="txtJobDesc" runat="server" placeholder="הזן תיאור תפקיד" style="width:80%;" required="required"></textarea>
-                    </div>
-                    <div id="txtJobDescErrorMsg" style="width:80%; color:red;" hidden="hidden">
-                           לא הוזן תיאור התפקיד
-                    </div>
-                    <br />
-                    <!--JobRequirement-->
-                    <div class="row">
-                         דרישות התפקיד
-                    </div>
-                    <div class="row">
-                        <textarea id="txtJobReq" runat="server" placeholder="הזן דרישות תפקיד" style="width:80%;"></textarea>
-                    </div>
-                    <br />
-                    <table style="width=100%;">
-                        <tr>
-                            <td>
-                                <div class="row">
-                                     היקף משרה
-                                    <span style="color:red">*</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="row">
-                                     תחום משרה
-                                    <span style="color:red">*</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="row">
-                                     מיקום משרה
-                                    <span style="color:red">*</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <!--JobSizeType-->
-                                <select size="1" name="jobSizeType" runat="server" required="required" style="width:100%;">
-                                    <option selected="selected" disabled="disabled">בחר</option>
-                                    <option value="01">משרה מלאה</option>
-                                    <option value="02">משרה חלקית</option>
-                                    <option value="03">משמרות</option>
-                                </select>
-                            </td>
-                            <td>
-                                <!--JobType-->
-                                <select size="1" name="jobType" runat="server" required="required" style="width:100%;">
-                                    <option selected="selected" disabled="disabled">בחר</option>
-                                    <option value="01">ייצור ותעשייה</option>
-                                    <option value="02">מערכות מידע</option>
-                                    <option value="03">אחר</option>
-                                </select>
-                            </td>
-                            <td>
-                                <!--JobLocation-->
-                                <select size="1" name="jobType" runat="server" required="required" style="width:100%;">
-                                    <option selected="selected" disabled="disabled">בחר</option>
-                                    <option value="01">תל אביב</option>
-                                    <option value="02">רעננה</option>
-                                    <option value="03">רחובות</option>
-                                    <option value="04">ירושלים</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="row">
-                    
-                </div>
-            </section>
 
-            <br />
-            <br />
-            <footer id="footer" class="midnight-blue">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="pull-right">
-                                <li><a href="Homepage.aspx">דף הבית</a></li>
-                                <li><a href="#JobSearch">חיפוש משרה</a></li>
-                                <li><a href="#">חיפוש עובדים</a></li>
-                                <li><a href="#">פרופיל משתמש</a></li>
-                                <li><a href="#">עלינו</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!--/#footer-->
-        </div>
-    </form>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
-</body>
+		<!-- ============ FOOTER START ============ -->
+
+		<footer>
+			<div id="prefooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" id="social-networks">
+							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="credits">
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-sm-12">
+							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
+							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- ============ FOOTER END ============ -->
+
+		<!-- ============ LOGIN START ============ -->
+
+		<div class="popup" id="login">
+			<div class="popup-form">
+				<div class="popup-header">
+					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
+					<h2>התחבר</h2>
+				</div>
+				<form>
+					<!--<ul class="social-login">
+						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
+						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
+						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
+					</ul>-->
+					<hr>
+					<div class="form-group">
+						<label for="login-username">שם משתמש</label>
+						<input type="text" class="form-control" id="login-username">
+					</div>
+					<div class="form-group">
+						<label for="login-password">סיסמא</label>
+						<input type="password" class="form-control" id="login-password">
+					</div>
+					<button type="submit" class="btn btn-primary">התחבר</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- ============ LOGIN END ============ -->
+
+		<!-- ============ REGISTER START ============ -->
+
+		<div class="popup" id="register">
+			<div class="popup-form">
+				<div class="popup-header">
+					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
+					<h2>הרשמה</h2>
+				</div>
+				<form>
+					<!---<ul class="social-login">
+						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
+						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
+						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
+					</ul>-->
+					<hr>
+					<div class="form-group">
+						<label for="register-name">שם פרטי</label>
+						<input type="text" class="form-control" id="register-name">
+					</div>
+					<div class="form-group">
+						<label for="register-surname">שם משפחה</label>
+						<input type="text" class="form-control" id="register-surname">
+					</div>
+					<div class="form-group">
+						<label for="register-email">אימייל</label>
+						<input type="email" class="form-control" id="register-email">
+					</div>
+					<hr>
+					<div class="form-group">
+						<label for="register-username">שם משתמש</label>
+						<input type="text" class="form-control" id="register-username">
+					</div>
+					<div class="form-group">
+						<label for="register-password1">סיסמא</label>
+						<input type="password" class="form-control" id="register-password1">
+					</div>
+					<div class="form-group">
+						<label for="register-password2">הקלד סיסמא שנית</label>
+						<input type="password" class="form-control" id="register-password2">
+					</div>
+					<button type="submit" class="btn btn-primary">הירשם</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- ============ REGISTER END ============ -->
+
+		<!-- Modernizr Plugin -->
+		<script src="js/modernizr.custom.79639.js"></script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+
+		<!-- Bootstrap Plugins -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Retina Plugin -->
+		<script src="js/retina.min.js"></script>
+
+		<!-- ScrollReveal Plugin -->
+		<script src="js/scrollReveal.min.js"></script>
+
+		<!-- Flex Menu Plugin -->
+		<script src="js/jquery.flexmenu.js"></script>
+
+		<!-- Slider Plugin -->
+		<script src="js/jquery.ba-cond.min.js"></script>
+		<script src="js/jquery.slitslider.js"></script>
+
+		<!-- Carousel Plugin -->
+		<script src="js/owl.carousel.min.js"></script>
+
+		<!-- Parallax Plugin -->
+		<script src="js/parallax.js"></script>
+
+		<!-- Counterup Plugin -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<script src="js/waypoints.min.js"></script>
+
+		<!-- No UI Slider Plugin -->
+		<script src="js/jquery.nouislider.all.min.js"></script>
+
+		<!-- Bootstrap Wysiwyg Plugin -->
+		<script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+
+		<!-- Flickr Plugin -->
+		<script src="js/jflickrfeed.min.js"></script>
+
+		<!-- Fancybox Plugin -->
+		<script src="js/fancybox.pack.js"></script>
+
+		<!-- Magic Form Processing -->
+		<script src="js/magic.js"></script>
+
+		<!-- jQuery Settings -->
+		<script src="js/settings.js"></script>
+
+
+	</body>
 </html>

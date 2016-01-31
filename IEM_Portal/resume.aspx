@@ -1,0 +1,396 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="resume.aspx.cs" Inherits="IEM_Portal.resume" %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Jobseek - Job Board Responsive HTML Template">
+		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu">
+        <title>IEM jobs</title>
+		<link rel="shortcut icon" href="images/favicon.png">
+
+		<!-- Main Stylesheet -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+
+		<!-- ============ PAGE LOADER START ============ -->
+
+		<div id="loader">
+			<i class="fa fa-cog fa-4x fa-spin"></i>
+		</div>
+
+		<!-- ============ PAGE LOADER END ============ -->
+
+		<!-- ============ NAVBAR START ============ -->
+
+		<div class="fm-container">
+			<!-- Menu -->
+			<div class="menu">
+                <!--close button-->
+				<div class="button-close text-right">
+					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
+				</div>
+                <!--menu options-->
+                <ul class="nav">
+                    <li><a href="homepage.aspx">דף הבית</a></li>
+                    <li><a href="jobs.aspx">משרות</a></li>
+                    <li><a href="post-a-job.aspx">פרסם משרה</a></li>
+                    <li><a href="candidates.aspx">מועמדים</a></li>
+                    <li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
+                    <li class="active"><a href="resume.aspx">פרופיל משתמש</a></li>
+                    <li><a class="link-register">הירשם</a></li>
+                    <li><a class="link-login">התחבר</a></li>
+                </ul>	
+			</div>
+			<!-- end Menu -->
+		</div>
+
+		<!-- ============ NAVBAR END ============ -->
+
+		<!-- ============ HEADER START ============ -->
+
+		<header>
+			<div id="header-background"></div>
+			<div class="container">
+				<div class="pull-right">
+					<div id="logo"><a href="homepage.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
+				</div>
+				<div id="menu-open" class="pull-left">
+					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
+				</div>
+				<div id="searchbox" class="pull-right">
+					<form>
+						<div class="form-group">
+							<label class="sr-only" for="searchfield">Searchbox</label>
+							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+						</div>
+					</form>
+				</div>
+				<div id="search" class="pull-right">
+					<a><i class="fa fa-search fa-lg"></i></a>
+				</div>
+			</div>
+		</header>
+
+		<!-- ============ HEADER END ============ -->
+
+		<!-- ============ TITLE START ============ -->
+
+		<section id="title">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h1>סוזי ג'ונסון</h1>
+						<h4>מנהלת פרוייקט</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ TITLE END ============ -->
+
+		<!-- ============ CONTENT START ============ -->
+
+		<section id="jobs">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+						<article>
+							<h2>פרופיל משתמש</h2>
+							<img src="/images/profile1.jpg" alt="" class="pull-right" />
+							<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי. </p>
+							<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.  </p>
+                            <p>&nbsp;</p>
+							<h3>מיומנויות</h3>
+							<ul>
+								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
+								<li>Quisque pretium convallis pulvinar.</li>
+								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
+								<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
+								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
+								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
+								<li>Morbi rhoncus luctus interdum.</li>
+							</ul>
+							<h3>ניסיון תעסוקתי</h3>
+							<div class="row work-experience">
+								<div class="col-sm-2">
+									<div class="img-circle">
+										<i class="fa fa-briefcase"></i>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<h4>April 2014 - Now</h4>
+									<h5>Google Inc - Senior Web Designer</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
+								</div>
+							</div>
+							<div class="row work-experience">
+								<div class="col-sm-2">
+									<div class="img-circle">
+										<i class="fa fa-briefcase"></i>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<h4>April 2014 - Now</h4>
+									<h5>Google Inc - Senior Web Designer</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
+								</div>
+							</div>
+							<div class="row work-experience">
+								<div class="col-sm-2">
+									<div class="img-circle">
+										<i class="fa fa-briefcase"></i>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<h4>April 2014 - Now</h4>
+									<h5>Google Inc - Senior Web Designer</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
+								</div>
+							</div>
+							<h3>השכלה</h3>
+							<div class="row work-experience">
+								<div class="col-sm-2">
+									<div class="img-circle">
+										<i class="fa fa-graduation-cap"></i>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<h4>April 2014 - Now</h4>
+									<h5>Google Inc - Senior Web Designer</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
+								</div>
+							</div>
+							<div class="row work-experience">
+								<div class="col-sm-2">
+									<div class="img-circle">
+										<i class="fa fa-graduation-cap"></i>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<h4>April 2014 - Now</h4>
+									<h5>Google Inc - Senior Web Designer</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
+								</div>
+							</div>
+							<!--<p>&nbsp;</p>
+							<p><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-arrow-down"></i> הורד קורות חיים</a></p>-->
+						</article>
+					</div>
+					<div class="col-sm-4" id="sidebar">
+						<div class="sidebar-widget" id="share">
+							<h2>שתף קורות חיים</h2>
+							<ul>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+						<hr>
+						<div class="sidebar-widget" id="widget-contact">
+							<h2>יצירת קשר</h2>
+							<ul>
+								<li><i class="fa fa-user"></i>סוזי ג'ונסון</li>
+								<li><i class="fa fa-briefcase"></i>מנהלת פרוייקט</li>
+								<li><i class="fa fa-birthday-cake"></i>10/08/1983</li>
+								<li><i class="fa fa-map-marker"></i>תל אביב</li>
+								<li><i class="fa fa-phone"></i>054-5873492</li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:suzi.jhonson@gmail.com">שלח אימייל</a></li>
+							</ul>
+						</div>
+						<hr>
+						<div class="sidebar-widget" id="skills">
+							<h2>כישורי מפתח</h2>
+							<a class="badge">Photoshop</a>
+							<a class="badge">HTML5</a>
+							<a class="badge">CSS3</a>
+							<a class="badge">Javascript</a>
+							<a class="badge">jQuery</a>
+							<a class="badge">User Experience</a>
+							<a class="badge">User Interface</a>
+							<a class="badge">UX</a>
+							<a class="badge">UI</a>
+							<a class="badge">Front End Development</a>
+							<a class="badge">Responsive Design</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ CONTENT END ============ -->
+
+
+		<!-- ============ FOOTER START ============ -->
+
+		<footer>
+			<div id="prefooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" id="social-networks">
+							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="credits">
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-sm-12">
+							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
+							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- ============ FOOTER END ============ -->
+
+		<!-- ============ LOGIN START ============ -->
+
+        <div class="popup" id="login">
+            <div class="popup-form">
+                <div class="popup-header">
+                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
+                    <h2>התחבר</h2>
+                </div>
+                <form>
+                    <!--<ul class="social-login">
+                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
+                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
+                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
+                </ul>-->
+                    <hr>
+                    <div class="form-group">
+                        <label for="login-username">שם משתמש</label>
+                        <input type="text" class="form-control" id="login-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">סיסמא</label>
+                        <input type="password" class="form-control" id="login-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">התחבר</button>
+                </form>
+            </div>
+        </div>
+
+		<!-- ============ LOGIN END ============ -->
+
+		<!-- ============ REGISTER START ============ -->
+
+        <div class="popup" id="register">
+            <div class="popup-form">
+                <div class="popup-header">
+                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
+                    <h2>הרשמה</h2>
+                </div>
+                <form>
+                    <!---<ul class="social-login">
+                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
+                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
+                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
+                </ul>-->
+                    <hr>
+                    <div class="form-group">
+                        <label for="register-name">שם פרטי</label>
+                        <input type="text" class="form-control" id="register-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-surname">שם משפחה</label>
+                        <input type="text" class="form-control" id="register-surname">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">אימייל</label>
+                        <input type="email" class="form-control" id="register-email">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="register-username">שם משתמש</label>
+                        <input type="text" class="form-control" id="register-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password1">סיסמא</label>
+                        <input type="password" class="form-control" id="register-password1">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password2">הקלד סיסמא שנית</label>
+                        <input type="password" class="form-control" id="register-password2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">הירשם</button>
+                </form>
+            </div>
+        </div>
+
+		<!-- ============ REGISTER END ============ -->
+
+		<!-- Modernizr Plugin -->
+		<script src="js/modernizr.custom.79639.js"></script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+
+		<!-- Bootstrap Plugins -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Retina Plugin -->
+		<script src="js/retina.min.js"></script>
+
+		<!-- ScrollReveal Plugin -->
+		<script src="js/scrollReveal.min.js"></script>
+
+		<!-- Flex Menu Plugin -->
+		<script src="js/jquery.flexmenu.js"></script>
+
+		<!-- Slider Plugin -->
+		<script src="js/jquery.ba-cond.min.js"></script>
+		<script src="js/jquery.slitslider.js"></script>
+
+		<!-- Carousel Plugin -->
+		<script src="js/owl.carousel.min.js"></script>
+
+		<!-- Parallax Plugin -->
+		<script src="js/parallax.js"></script>
+
+		<!-- Counterup Plugin -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<script src="js/waypoints.min.js"></script>
+
+		<!-- No UI Slider Plugin -->
+		<script src="js/jquery.nouislider.all.min.js"></script>
+
+		<!-- Bootstrap Wysiwyg Plugin -->
+		<script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+
+		<!-- Flickr Plugin -->
+		<script src="js/jflickrfeed.min.js"></script>
+
+		<!-- Fancybox Plugin -->
+		<script src="js/fancybox.pack.js"></script>
+
+		<!-- Magic Form Processing -->
+		<script src="js/magic.js"></script>
+
+		<!-- jQuery Settings -->
+		<script src="js/settings.js"></script>
+
+
+	</body>
+</html>
