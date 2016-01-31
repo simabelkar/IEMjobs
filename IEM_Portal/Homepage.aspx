@@ -80,8 +80,6 @@
                                 <li class="active"><a href="Homepage.aspx">דף הבית</a></li>
                                 <li><a href="#JobSearch">חיפוש משרה</a></li>
                                 <li><a href="#PostJob">פרסום משרה</a></li>
-                                <li><a href="#">פרופיל משתמש</a></li>
-                                <li><a href="#">עלינו</a></li>
                                 <%--<li><a href="#">Portfolio</a></li>--%>
                                 <%--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
