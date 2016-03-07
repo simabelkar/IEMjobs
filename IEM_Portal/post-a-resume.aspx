@@ -93,12 +93,13 @@
 						<h1>פרסם קורות חיים</h1>
 						<h4>מצא את המשרה המושלמת בשבילך</h4>
                         <p>&nbsp;</p>
-						<!--<div class="jumbotron">
-							<h3>Have an account?</h3>
-							<p>If you don’t have an account you can create one below by entering your email address/username.<br>
-							A password will be automatically emailed to you.</p>
-							<p><a href="#" class="btn btn-primary">Sign In</a></p>
-						</div>-->
+                        <div class="jumbotron">
+							<h3>רשום כבר?</h3>
+							<p>אם אין לך חשבון אתה יכול להירשם בלחיצה על "הרשמה" בקלות ובחינם!
+                            <br />
+                            אם נרשמת כבר אנא התחבר על מנת לפרסם קורות חיים</p>
+							<p><a href="#" class="btn btn-primary link-register">הירשם</a></p>
+						</div>
 					</div>
 				</div>
 
@@ -116,15 +117,15 @@
                     <!--row1-->
 					<div class="row">
 						<div class="col-sm-3">
-							<div class="form-group" id="resume-name-group">
+							<div class="form-group" id="resume-first-name-group">
 								<label for="resume-name">שם פרטי</label>
-								<input type="text" class="form-control" id="resume-name" placeholder="הקלד שם פרטי">
+								<input type="text" class="form-control" id="resume-first-name" placeholder="הקלד שם פרטי">
 							</div>
 						</div>
                         <div class="col-sm-3">
-                            <div class="form-group" id="resume-name-group">
+                            <div class="form-group" id="resume-last-name-group">
                                 <label for="resume-name">שם משפחה</label>
-                                <input type="text" class="form-control" id="resume-name" placeholder="הקלד שם פרטי">
+                                <input type="text" class="form-control" id="resume-last-name" placeholder="הקלד שם פרטי">
                             </div>
                         </div>
                         <div class="col-sm-6">
