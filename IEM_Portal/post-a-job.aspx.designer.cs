@@ -13,156 +13,246 @@ namespace IEM_Portal {
     public partial class post_a_job {
         
         /// <summary>
-        /// postjoberror control.
+        /// postJobForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl postjoberror;
+        protected global::System.Web.UI.HtmlControls.HtmlForm postJobForm;
         
         /// <summary>
-        /// postjobform control.
+        /// postJobError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm postjobform;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl postJobError;
         
         /// <summary>
-        /// jobtitle control.
+        /// jobTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jobtitle;
+        protected global::System.Web.UI.WebControls.TextBox jobTitle;
         
         /// <summary>
-        /// valjobtitle control.
+        /// jobTitleValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valjobtitle;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator jobTitleValidator;
         
         /// <summary>
-        /// jobdescription control.
+        /// jobDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jobdescription;
+        protected global::System.Web.UI.WebControls.TextBox jobDescription;
         
         /// <summary>
-        /// valjobdescription control.
+        /// jobDescriptionValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valjobdescription;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator jobDescriptionValidator;
         
         /// <summary>
-        /// jobrequirement control.
+        /// jobRequirement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jobrequirement;
+        protected global::System.Web.UI.WebControls.TextBox jobRequirement;
         
         /// <summary>
-        /// valjobrequirement control.
+        /// jobRequirementValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valjobrequirement;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator jobRequirementValidator;
         
         /// <summary>
-        /// companyname control.
+        /// jobCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox companyname;
+        protected global::System.Web.UI.WebControls.DropDownList jobCategory;
         
         /// <summary>
-        /// valcompanyname control.
+        /// jobCategoryValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valcompanyname;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator jobCategoryValidator;
         
         /// <summary>
-        /// companydescription control.
+        /// jobSubCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox companydescription;
+        protected global::System.Web.UI.WebControls.DropDownList jobSubCategory;
         
         /// <summary>
-        /// valcompanydescription control.
+        /// jobSubCategoryValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valcompanydescription;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator jobSubCategoryValidator;
         
         /// <summary>
-        /// companyemail control.
+        /// jobLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox companyemail;
+        protected global::System.Web.UI.WebControls.DropDownList jobLocation;
         
         /// <summary>
-        /// valcompanyemail control.
+        /// jobLocationValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valcompanyemail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator jobLocationValidator;
         
         /// <summary>
-        /// companywebsite control.
+        /// jobScope control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox companywebsite;
+        protected global::System.Web.UI.WebControls.DropDownList jobScope;
         
         /// <summary>
-        /// valcompanywebsite control.
+        /// jobScopeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valcompanywebsite;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator jobScopeValidator;
         
         /// <summary>
-        /// postjobbutton control.
+        /// companyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button postjobbutton;
+        protected global::System.Web.UI.WebControls.TextBox companyName;
+        
+        /// <summary>
+        /// companyNameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyNameValidator;
+        
+        /// <summary>
+        /// companyDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox companyDescription;
+        
+        /// <summary>
+        /// companyDescriptionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyDescriptionValidator;
+        
+        /// <summary>
+        /// companyEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox companyEmail;
+        
+        /// <summary>
+        /// companyEmailValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyEmailValidator;
+        
+        /// <summary>
+        /// companyWebsite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox companyWebsite;
+        
+        /// <summary>
+        /// companyWebsiteValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyWebsiteValidator;
+        
+        /// <summary>
+        /// companyLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox companyLogo;
+        
+        /// <summary>
+        /// companyLogoValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyLogoValidator;
+        
+        /// <summary>
+        /// postJobButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button postJobButton;
     }
 }

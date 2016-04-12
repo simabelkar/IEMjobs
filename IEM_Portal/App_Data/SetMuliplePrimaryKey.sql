@@ -1,0 +1,1 @@
+﻿ALTER TABLE Companies ADD CONSTRAINT pk_companies PRIMARY KEY (company_name)

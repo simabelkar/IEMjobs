@@ -84,15 +84,11 @@
 
 		<!-- ============ TITLE START ============ -->
 
-		<section id="title">
+		<section id="titleSection">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>מנתח/ת מערכות</h1>
-						<h4>
-							<span><i class="fa fa-map-marker"></i>ירושלים</span>
-							<span><i class="fa fa-clock-o"></i>משרה מלאה</span>
-						</h4>
+                        <div id="title" runat="server"></div>
 					</div>
 				</div>
 			</div>
@@ -102,32 +98,14 @@
 
 		<!-- ============ CONTENT START ============ -->
 
-		<section id="jobs">
+		<section id="jobsSection">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
 						<article>
 							<h2>פרטי משרה</h2>
-							<p>למלם מערכות דרוש /ה מנתח /ת מערכות לעבודה בארגון ממשלתי בירושלים התפקיד כולל אפיון ועיצוב מערכות Web בסביבת NET.</p>
-							<h3>דרישות תפקיד</h3>
-							<ul>
-								<li>בעל /ת תואר ראשון בהנדסת תוכנה /הנדסאי/ת /קורסים מתקדמים במערכות מידע.</li>
-								<li>ניסיון של 5 שנים בניתוח מערכות.</li>
-								<li>יסיון בעבודה עם מתודולגית UML.</li>
-								<li>רקע בפיתוח NET. - יתרון.</li>
-								<li>יסיון בעבודה מול SQL - יתרון.</li>
-							</ul>
-							<h3>הטבות</h3>
-							<ul>
-								<li>המשרה כוללת רכב חברה</li>
-							</ul>
-							<h3>כיצד להגיש מועמדות</h3>
-							<p>ניתן לשלוח קובץ קורות חיים ישירות במייל או באמצעות</p>
-							<p>
-								<a href="#" class="btn btn-primary btn-lg">שלח קורות חיים</a>
-								&nbsp;
-								<a href="#" class="btn btn-default btn-lg">הגש באמצעות Linkedin</a>
-							</p>
+                            <div id="jobDetails" runat="server"></div>
+							
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
@@ -141,20 +119,16 @@
 							</ul>
 						</div>
 						<hr>
-						<div class="sidebar-widget" id="company">
-							<h2>על החברה</h2>
-							<p><img src="http://placehold.it/300x109.gif" alt="" class="img-responsive"></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique euismod lorem, a consequat orci consequat a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque porta. In neque erat, malesuada sit amet orci ac, laoreet laoreet mauris.</p>
-							<p><a href="#" class="btn btn-primary">קרא עוד</a></p>
+						<div class="sidebar-widget" id="company" runat="server">
 						</div>
 						<hr>
-						<div class="sidebar-widget" id="company-jobs">
+						<!--<div class="sidebar-widget" id="company-jobs">
 							<h2>עוד משרות בחברה זו</h2>
 							<ul>
 								<li><a href="#">מפתח</a></li>
 								<li><a href="#">מנתח מערכות</a></li>
 								<li><a href="#">מנהל פרוייקט</a></li>
-							</ul>
+							</ul>-->
 						</div>
 					</div>
 				</div>

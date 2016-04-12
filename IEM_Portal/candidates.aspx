@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="candidates.aspx.cs" Inherits="IEM_Portal.candidates" %>
 
+<%@ Register TagPrefix="asp" Namespace="Saplin.Controls" Assembly="DropDownCheckBoxes" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -109,7 +111,7 @@
                         <div class="sidebar-widget" id="jobsearch">
                             <!--title-->
                             <h2>חיפוש מועמד</h2>
-                            <form>
+                            <form runat="server">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group" id="job-search-group">
@@ -123,72 +125,32 @@
                                         <hr>
                                     </div>
                                 </div>
+                                <!--error message-->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="alert alert-danger" id="cadidateSearchError" runat="server" style="display:none;">
+                               
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--row1-->
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <h5>השכלה</h5>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> כל האפשרויות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> 12 שנות לימוד
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> סטודנט
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> דיפלומה
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> תואר ראשון
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> תואר שני
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> דוקטורט
-                                            </label>
+                                        <div class="form-group">
+                                            <asp:DropDownCheckBoxes ID="candidateSearchEducation" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
+                                                <Texts SelectBoxCaption="--בחר השכלה--" />
+                                            </asp:DropDownCheckBoxes>
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
                                         <h5>זמינות</h5>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> כל האפשרויות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> משרה מלאה
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> משרה חלקית
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> משמרות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> לפי שעות
-                                            </label>
+                                        <div class="form-group">
+                                            <asp:DropDownCheckBoxes ID="candidateSearchScope" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
+                                                <Texts SelectBoxCaption="--בחר זמינות--" />
+                                            </asp:DropDownCheckBoxes>
                                         </div>
                                     </div>
                                 </div>
@@ -201,150 +163,31 @@
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <h5>תפקיד</h5>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> כל האפשרויות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מנתח מערכות מידע
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מתכנת
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מיישם מערכות מידע
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מהנדס ארגון ושיטות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מהנדס מוצר
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מהנדס אנוש
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מהנדס איכות
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> קניין
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מנהל סניף
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> מנהל מחלקה
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> יועץ
-                                            </label>
+                                        <div class="form-group">
+                                            <asp:DropDownCheckBoxes ID="candidateSearchSubCategory" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
+                                                <Texts SelectBoxCaption="--בחר תפקיד--" />
+                                            </asp:DropDownCheckBoxes>
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
                                         <h5>איזור</h5>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> כל האיזורים
-                                            </label>
+                                        <div class="form-group">
+                                            <asp:DropDownCheckBoxes ID="candidateSearchLocation" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
+                                                <Texts SelectBoxCaption="--בחר איזור--" />
+                                            </asp:DropDownCheckBoxes>
                                         </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> איזור המרכז
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> איזור ירושלים
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> איזור חיפה
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> השפלה
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> צפון
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> דרום
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> חו"ל
-                                            </label>
-                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <hr>
-                                    </div>
-                                </div>                               
-                                <!--row3-->
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h5>ניסיון</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <p>יותר מ <b><span id="years-field"></span></b> שנים</p>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="form-slider" id="years"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h5>Salary</h5>
-                                        <div class="form-slider" id="salary"></div>
-                                        <p>מ <b><span id="salary-field-lower"></span></b> עד  <b><span id="salary-field-upper"></span></b></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <a class="btn btn-primary">אפס סינון</a>
+                                        <asp:Button ID="searchCandidatesBotton" runat="server" OnClick="Search_Candidates" Text="חפש" CssClass="btn btn-primary" /> 
                                     </div>
                                 </div>
                             </form>
@@ -355,409 +198,7 @@
                     <!--candidate list start-->
 					<div class="col-sm-8">
 						<h2>רשימת מועמדים</h2>
-
-						<div class="jobs">
-							
-							<!-- Candidate 1 -->
-							<a href="resume.aspx" class="applied">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>סוזי ג'ונסון</h5>
-										<p><strong>מנהלת פרוייקט</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>תל אביב</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 3 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">ניהול</span>
-											<span class="badge">תפעול</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 2 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>מאט ברי</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>ירושלים</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 2 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 3 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>תום קונר</h5>
-										<p><strong>מיישם מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>גבעתיים</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 1 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 4 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>רון בירד</h5>
-										<p><strong>מנתח בסיס נתונים</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>רעננה</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 5 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 5 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>גרייס ביילי</h5>
-										<p><strong>סטודנטית</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>ירושלים</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 5 ימים</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-											<span class="badge">תפעול</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 6 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>ג'ימי ברן</h5>
-										<p><strong>מפתח</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>תל אביב</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 3 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 7 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>ג'יימס בירד</h5>
-										<p><strong>רכז/ת מערכות מידע</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>ירושלים</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 2 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-											<span class="badge">ניהול</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 8 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>דינה ביק</h5>
-										<p><strong>מפתח/ת מערכות מידע</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>כפר סבא</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 1 שבועות</p>
-										<p class="candidate-tags">
-											<span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 9 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>רוס יצחקי</h5>
-										<p><strong>מנתח בסיס נתונים</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>אשדוד</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 5 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 10 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>יאיר כהן</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>כפר סבא</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 1 ימים</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 11 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>אמיר לוי</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>רמת גן</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 2 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 12 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>חיים לוי</h5>
-										<p><strong>מנתח בסיס נתונים</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>תל אביב</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 3 ימים</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 13 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>בוב ג'ונסון</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>מודיעין</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 1 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 14 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>רפי ברי</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>רמת גן</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 4 ימים</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 15 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>יוסי טל</h5>
-										<p><strong>מנתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>הרצליה</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 1 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 16 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>ברנדון ג'ונס</h5>
-										<p><strong>מנהל פרויקט</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>באר שבע</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 5 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">תפעול</span>
-                                            <span class="badge">ניהול</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 17 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>מילי טל</h5>
-										<p><strong>מנתחת מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>פתח תקווה</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 2 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Candidate 18 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-circle img-responsive" />
-									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>שימי לוי</h5>
-										<p><strong>מפתח מערכות</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>ירושלים</strong></p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">עודכן לפני 3 שבועות</p>
-										<p class="candidate-tags">
-                                            <span class="badge">מערכות מידע</span>
-										</p>
-									</div>
-								</div>
-							</a>
-							
+						<div id="candidatesList" class="jobs" runat="server">
 						</div>
 
 						<nav>

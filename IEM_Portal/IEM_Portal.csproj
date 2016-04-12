@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DropDownCheckBoxes">
+      <HintPath>..\..\..\..\..\..\Downloads\DropDownCheckBoxes.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -152,8 +155,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="login.aspx" />
     <Content Include="post-a-job.aspx" />
     <Content Include="post-a-resume.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="resume.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +190,13 @@
     <Compile Include="jobs.aspx.designer.cs">
       <DependentUpon>jobs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="post-a-job.aspx.cs">
       <DependentUpon>post-a-job.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +212,13 @@
       <DependentUpon>post-a-resume.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="resume.aspx.cs">
       <DependentUpon>resume.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +235,9 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

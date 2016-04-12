@@ -12,7 +12,6 @@ C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEM
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEM_Portal\IEM_Portal\obj\Debug\IEM_Portal.pdb
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\bin\IEM_Portal.dll
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\bin\IEM_Portal.pdb
-C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\obj\Debug\IEM_Portal.csprojResolveAssemblyReference.cache
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\obj\Debug\IEM_Portal.dll
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\obj\Debug\IEM_Portal.pdb
 C:\Users\amalia\Documents\limudim\FinalProject\IndustrialAndManagementPortal\IEMjobs\IEM_Portal\bin\IEM_Portal.dll.config

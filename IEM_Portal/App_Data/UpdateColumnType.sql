@@ -1,0 +1,2 @@
+﻿ALTER TABLE Users 
+ALTER COLUMN user_photo NVARCHAR (MAX);

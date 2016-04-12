@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post-a-resume.aspx.cs" Inherits="IEM_Portal.post_a_resume" %>
 
+<%@ Register TagPrefix="asp" Namespace="Saplin.Controls" Assembly="DropDownCheckBoxes" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +12,7 @@
 		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu">
         <title>IEM jobs</title>
 		<link rel="shortcut icon" href="images/favicon.png">
+        <script src="js/jquery-1.11.2.min.js"></script>
 
 		<!-- Main Stylesheet -->
 		<link href="css/style.css" rel="stylesheet">
@@ -19,7 +22,65 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+    <script>
+        $(document).ready(function(){
+            var HighlightCount = 2;
+            $('.highlight').hide();
 
+            $('#add-highlight').click(function () {
+                $('#resume-highlight-group' + HighlightCount).show();
+                HighlightCount = HighlightCount + 1;
+                if (HighlightCount == 5) { $('#add-highlight').hide() }
+            });
+            $('#Del-highlight4').click(function () {
+                $('#resume-highlight-group4').hide();
+                HighlightCount = 4;
+                $('#add-highlight').show() 
+            });
+            $('#Del-highlight3').click(function () {
+                $('#resume-highlight-group3').hide();
+                HighlightCount = 3;
+                $('#add-highlight').show()
+            });
+            $('#Del-highlight2').click(function () {
+                $('#resume-highlight-group2').hide();
+                HighlightCount = 2;
+                $('#add-highlight').show()
+            });
+
+            var SocialCount = 2;
+            $('.social-network2').hide();
+            $('#add-social-network1').click(function () {
+                $('#social-network-div-' + SocialCount).show();
+                SocialCount = SocialCount + 1;
+                if (SocialCount == 3) { $('#add-social-network1').hide() }
+            });
+            $('#Del-Social2').click(function () {
+                $('#social-network-div-2').hide();
+                SocialCount = 2;
+                $('#add-social-network1').show()
+            });
+
+            var ExperienceCount = 1;
+            $('.experience-work-add').hide();
+            $('#add-experience1').click(function () {
+                $('#experience-work-add-' + ExperienceCount).show();
+                ExperienceCount = ExperienceCount + 1;
+                if (ExperienceCount == 3) { $('#add-experience1').hide() }
+            });
+            $('#Del-Expr1').click(function () {
+                $('#experience-work-add-1').hide();
+                ExperienceCount = 1;
+                $('#add-experience1').show()
+            });
+            $('#Del-Expr2').click(function () {
+                $('#experience-work-add-2').hide();
+                ExperienceCount = 2;
+                $('#add-experience1').show()
+            });
+            
+        });
+    </script>
 	</head>
 	<body>
 
@@ -93,17 +154,28 @@
 						<h1>פרסם קורות חיים</h1>
 						<h4>מצא את המשרה המושלמת בשבילך</h4>
                         <p>&nbsp;</p>
-                        <div class="jumbotron">
+                        <!--<div id="registerLink" runat="server" class="jumbotron">
 							<h3>רשום כבר?</h3>
-							<p>אם אין לך חשבון אתה יכול להירשם בלחיצה על "הרשמה" בקלות ובחינם!
+                            <p>עלייך להתחבר למערכת על מנת לפרסם קורות חיים
+                                <br />
+                                אם אין לך חשבון אתה יכול להירשם בלחיצה על "הרשמה" בקלות ובחינם!
                             <br />
-                            אם נרשמת כבר אנא התחבר על מנת לפרסם קורות חיים</p>
-							<p><a href="#" class="btn btn-primary link-register">הירשם</a></p>
-						</div>
+                             אם נרשמת כבר אנא התחבר</p>
+							<p><a href="login.aspx" class="btn btn-primary">התחבר</a></p>
+						</div>-->
 					</div>
 				</div>
 
-				<form>
+				<form id="postResumeForm" runat="server">
+
+                    <!--error message-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="alert alert-danger" id="postResumeError" runat="server" style="display:none;">
+                               
+                            </div>
+                        </div>
+                    </div>
 
 					<!-- Resume Details Start -->
 					<div class="row">
@@ -114,122 +186,257 @@
 							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> LinkedIn Import</a>
 						</div>
 					</div>
-                    <!--row1-->
+
+                    <!------User details------>
 					<div class="row">
+
+                        <!--first name (required), limit: 50 characters-->
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-first-name-group">
-								<label for="resume-name">שם פרטי</label>
-								<input type="text" class="form-control" id="resume-first-name" placeholder="הקלד שם פרטי">
-							</div>
+								<label>שם פרטי</label>
+                                <asp:TextBox ID="resumeFirstName" runat="server" CssClass="form-control" TextMode="SingleLine" disabled="disabled"/>
+                            </div>
 						</div>
+
+                        <!--last name (required), limit: 50 characters-->
                         <div class="col-sm-3">
                             <div class="form-group" id="resume-last-name-group">
-                                <label for="resume-name">שם משפחה</label>
-                                <input type="text" class="form-control" id="resume-last-name" placeholder="הקלד שם פרטי">
+                                <label>שם משפחה</label>
+                                <asp:TextBox ID="resumeLastName" runat="server" CssClass="form-control" TextMode="SingleLine" disabled="disabled" />
                             </div>
                         </div>
+
+                        <!--photo (URL), limit: 255 characters-->
                         <div class="col-sm-6">
                             <div class="form-group" id="resume-photo-group">
-                                <label for="resume-photo">תמונה</label>
-                                <input type="text" class="form-control" id="resume-photo" placeholder="Photo URL">
+                                <label>תמונה</label>
+                                <asp:TextBox ID="resumePhoto" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL"/>
+                                <asp:RegularExpressionValidator ID="resumePhotoValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumePhoto"
+                                    ErrorMessage="לא ניתן להזין יותר 255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
                             </div>
                         </div>
 					</div>
-                    <!--row2-->
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-title-group">
-								<label for="resume-title">תפקיד</label>
-								<input type="text" class="form-control" id="resume-title" placeholder="לדוגמה: מנתח מערכות">
-							</div>
-						</div>
-                        <div class="col-sm-6">
-                            <div class="form-group" id="resume-category-group">
-                                <label for="resume-category">תחום תפקיד</label>
-                                <select class="form-control" id="resume-category">
-                                    <option>בחר תחום</option>
-                                    <option>מערכות מידע</option>
-                                    <option>תפעול</option>
-                                    <option>ניהול</option>
-                                    <option>ייעוץ</option>
-                                </select>
+
+                    <div class="row">
+                        <!--birthday, limit: date format-->
+                        <div class="col-sm-3">
+                            <div class="form-group" id="resume-birthday-group">
+                                <label>תאריך לידה</label>
+                                <asp:TextBox ID="resumeBirthday" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="DD/MM/YYYY"/>
+                                <asp:RegularExpressionValidator ID="resumeBirthdayValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeBirthday"
+                                    ErrorMessage="תאריך לא חוקי"
+                                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" />
                             </div>
                         </div>
-					</div>
-                    <!--row3-->
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-email-group">
-								<label for="resume-email">אימייל</label>
-								<input type="email" class="form-control" id="resume-email" placeholder="you@yourdomain.com">
-							</div>
-						</div>
+                        <!--phone, limit: phone format-->
+                        <div class="col-sm-3">
+                            <div class="form-group" id="resume-phone-group">
+                                <label>טלפון</label>
+                                <asp:TextBox ID="resumePhone" runat="server" CssClass="form-control" TextMode="Phone" placeholder="1234567899"/>
+                                <asp:RegularExpressionValidator ID="resumePhoneValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                     ControlToValidate="resumePhone"
+                                     ErrorMessage="פורמט לא חוקי" 
+                                    ValidationExpression="^([0-9]{10})"/>
+                            </div>
+                        </div>
+
+                        <!--city (required), dropdown list-->
                         <div class="col-sm-6">
                             <div class="form-group" id="resume-location-group">
-                                <label for="resume-location">עיר מגורים</label>
-                                <input type="text" class="form-control" id="resume-location" placeholder="לדוגמה: ירושלים">
-                            </div>
-                        </div>
-					</div>
-                    <!--row4-->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group" id="resume-content-group">
-                                <label for="resume-content">תוכן קורות חיים</label>
-                                <div class="textarea form-control" id="resume-content"></div>
+                                <label>עיר מגורים <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="resumeLocation" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="resumeLocationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeLocation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
                         </div>
                     </div>
-                    <!--row5-->
+
+                    <div class="row">
+                        <!--email (required), limit: email address format-->
+						<div class="col-sm-6">
+							<div class="form-group" id="resume-email-group">
+								<label>אימייל</label>
+							    <asp:TextBox ID="resumeEmail" runat="server" CssClass="form-control" TextMode="SingleLine" disabled="disabled"/>
+                            </div>
+						</div>
+
+                        <!--skills, check box list-->
+                        <div class="col-sm-6">
+                            <div class="form-group" id="resume-skills-group" style="text-align:right !important; direction:rtl !important;">
+                                <label>מיומנויות</label>
+                                <asp:DropDownCheckBoxes id="resumeSkills" runat="server" class="form-control" UseSelectAllNode="True">
+                                    <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox" DropDownBoxCssClass="checkbox"/>  
+                                    <Texts SelectBoxCaption="--בחר מיומנויות--" /> 
+                                </asp:DropDownCheckBoxes>
+                            </div>
+                        </div>
+                        
+					</div>
+                    
+					<div class="row">
+                        <!--current position (required), limit: 100 characters-->
+						<div class="col-sm-6">
+							<div class="form-group" id="resume-title-group">
+								<label>תפקיד <span style="color:red;">*</span></label>
+							    <asp:TextBox ID="resumeTitle" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מנתח מערכות" required="required"/>
+                                <asp:RegularExpressionValidator ID="resumeTitleValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeTitle"
+                                    ErrorMessage="לא ניתן להזין יותר מ100 תווים"
+                                    ValidationExpression="^.{1,100}$" />
+                            </div>
+						</div>
+
+                        <!--job category (required), dropdown list-->
+                        <div class="col-sm-6">
+                            <div class="form-group" id="resume-category-group">
+                                <label>תחום תפקיד <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="resumeCategory" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="resumeCategoryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeCategory" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
+                            </div>
+                        </div>
+					</div>
+
+                    <!--summary, limit: 255 characters-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group" id="resume-content-group">
+                                <label>קצת על עצמי</label>
+                                <asp:TextBox ID="resumeSummary" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="קצת על עצמי" />
+                                <asp:RegularExpressionValidator ID="resumeSummaryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSummary"
+                                    ErrorMessage="לא ניתן להזין יותר 255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--highlight, limit: 150 characters-->
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-skills-group">
-								<label for="resume-skills">מיומנויות</label>
-								<input type="text" class="form-control" id="resume-skills" placeholder="לדוגמה: HTML, SQL, Oracle">
+							<div class="form-group" id="resume-highlight-group1">
+								<label>דגשים עיקריים</label>
+                                <asp:TextBox ID ="resumeHighlight1" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: 3 שנות ניסון בפיתוח אתרים"/>
+                                <asp:RegularExpressionValidator ID="resumeHighlightValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeHighlight1"
+                                    ErrorMessage="לא ניתן להזין יותר 100 תווים"
+                                    ValidationExpression="^.{1,100}$" />
 							</div>
 						</div>
 					</div>
+
+                    <!--add highlight number 2-->
+                    <div class="row">
+						<div class="col-sm-6">
+							<div class="form-group highlight" id="resume-highlight-group2">
+                                <table style="width:100%;"><tr><td><asp:TextBox ID ="resumeHighlight2" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="דגש נוסף"/></td><td style="width:7%;"><a id="Del-highlight2">- מחק דגש</a></td></tr></table>
+                                <asp:RegularExpressionValidator ID="resumeHighlightValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeHighlight2"
+                                    ErrorMessage="לא ניתן להזין יותר 100 תווים"
+                                    ValidationExpression="^.{1,100}$" />
+							</div>
+						</div>
+					</div>
+
+                    <!--add highlight number 3-->
+                    <div class="row">
+						<div class="col-sm-6">
+							<div class="form-group highlight" id="resume-highlight-group3">
+                                <table style="width:100%;"><tr><td><asp:TextBox ID ="resumeHighlight3" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="דגש נוסף"/></td><td style="width:7%;"><a id="Del-highlight3">- מחק דגש</a></td></tr></table>
+                                <asp:RegularExpressionValidator ID="resumeHighlightValidator3" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeHighlight3"
+                                    ErrorMessage="לא ניתן להזין יותר 100 תווים"
+                                    ValidationExpression="^.{1,100}$" />
+							</div>
+						</div>
+					</div>
+
+                    <!--add highlight number 4-->
+                    <div class="row">
+						<div class="col-sm-6">
+							<div class="form-group highlight" id="resume-highlight-group4">
+                                <table style="width:100%;"><tr><td><asp:TextBox ID ="resumeHighlight4" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="דגש נוסף"/></td><td style="width:7%;"><a id="Del-highlight4">- מחק דגש</a></td></tr></table>
+                                <asp:RegularExpressionValidator ID="resumeHighlightValidator4" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeHighlight4"
+                                    ErrorMessage="לא ניתן להזין יותר 100 תווים"
+                                    ValidationExpression="^.{1,100}$" />
+							</div>
+						</div>
+					</div>
+
+                    <!--add another social NW-->
 					<div class="row">
 						<div class="col-sm-12">
-							<hr class="dashed">
+							<p><a id="add-highlight">+ הוסף דגש</a></p>
+							<hr>
 						</div>
 					</div>
-                    <!--row6-->
+
 					<div class="row social-network">
-						<div class="col-sm-6">
+                        <!--social NW name, dropdown list-->
+						<div class="col-sm-4">
 							<div class="form-group" id="resume-social-network-group">
-								<label for="resume-social-network">לינקים לפרופיל שלך ברשתות חברתיות</label>
-								<select  class="form-control" id="resume-social-network">
-									<option>בחר רשת חברתית</option>
-									<option>Facebook</option>
-									<option>Twitter</option>
-									<option>Google+</option>
-									<option>LinkedIn</option>
-									<option>Github</option>
-								</select>
+								<label>לינקים לפרופיל שלך ברשתות חברתיות</label>
+                                <asp:DropDownList ID="resumeSocialNetwork" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
 							</div>
 						</div>
+
+                        <!--social NW link, limit: 255 characters-->
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-social-network-url-group">
-								<label for="resume-social-network-url">URL</label>
-								<input type="text" class="form-control" id="resume-social-network-url" placeholder="http://">
-							</div>
+								<label>URL</label>
+							    <asp:TextBox ID="resumeSocialNetworkURL" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL" />
+                                <asp:RegularExpressionValidator ID="resumeSocialNetworkURLValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSocialNetworkURL"
+                                    ErrorMessage="כתובת האתר לא חוקית"
+                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
+                            </div>
 						</div>
 					</div>
-					<div class="row">
+
+                    <div class="row social-network social-network2" id="social-network-div-2">
+                        <!--social NW name, dropdown list-->
+						<div class="col-sm-4">
+							<div class="form-group" id="resume-social-network-group2">
+                                <asp:DropDownList ID="resumeSocialNetwork2" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+							</div>
+						</div>
+
+                        <!--social NW link, limit: 255 characters-->
+						<div class="col-sm-6">
+							<div class="form-group" id="resume-social-network-url-group2">
+							    <table style="width:100%;"><tr><td><asp:TextBox ID="resumeSocialNetworkURL2" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL" /></td><td style="width:12%;"><a id="Del-Social2">- מחק רשת</a></td></tr></table>
+                                <asp:RegularExpressionValidator ID="resumeSocialNetworkURLValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSocialNetworkURL2"
+                                    ErrorMessage="כתובת האתר לא חוקית"
+                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
+                            </div>
+						</div>
+					</div>
+
+<%--					<div class="row">
 						<div class="col-sm-12">
 							<hr class="dashed">
 						</div>
-					</div>                    
-                    <!--row7-->
+					</div>     --%>
+
+                    <!--add another social NW-->
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-social-network">+ הוסף רשת חברתית</a></p>
+							<p><a id="add-social-network1">+ הוסף רשת חברתית</a></p>
 							<hr>
 						</div>
 					</div>
 					<!-- Resume Details End -->
 
+                    
 					<!-- Experience Start -->
 					<div class="row">
 						<div class="col-sm-12">
@@ -237,45 +444,204 @@
 							<h2>ניסיון מעשי</h2>
 						</div>
 					</div>
-                    <!--row1-->
-					<div class="row experience">
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-employer-group">
-								<label for="resume-employer">מעסיק</label>
-								<input type="text" class="form-control" id="resume-employer" placeholder="שם החברה">
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-experience-dates-group">
-								<label for="resume-experience-dates">תאריך התחלה/סיום</label>
-								<input type="text" class="form-control" id="resume-experience-dates" placeholder="לדוגמה: אפריל 2010 - יוני 2013">
-							</div>
-						</div>
-					</div>
-                    <!--row2-->
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-job-title-group">
-								<label for="resume-job-title">תפקיד</label>
-                                <input type="text" class="form-control" id="resume-job-title" placeholder="לדוגמה: מפתח מערכות">
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-responsibilities-group">
-								<label for="resume-responsibilities">תחומי אחריות</label>
-                                <input type="text" class="form-control" id="resume-responsibilities" placeholder="לדוגמה: פיתוח אתרי אינטרנט">
-							</div>
-						</div>
-					</div>
+                    <!------experience details------>
+					<div class="experience-work">
+                        <div class="row experience">
+                            <!--employer name, limit: 50 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-employer-group">
+								    <label>מעסיק</label>
+							        <asp:TextBox ID="resumeEmployer" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="שם החברה" />
+                                    <asp:RegularExpressionValidator ID="resumeEmployerValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeEmployer"
+                                        ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                        ValidationExpression="^.{1,50}$" />
+                                </div>
+						    </div>
+
+                            <!--start date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-start-date-group">
+								    <label>תאריך התחלה</label>
+                                    <asp:TextBox ID="resumeExperienceStartDate" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                </div>
+						    </div>
+
+                            <!--end date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-end-date-group">
+								    <label>תאריך סיום</label>
+                                    <asp:TextBox ID="resumeExperienceEndDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                </div>
+						    </div>
+					    </div>
+                    
+					    <div class="row">
+                            <!--job title, limit: 100 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-job-title-group">
+								    <label>תפקיד</label>
+                                    <asp:TextBox ID="resumeJobTitle" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מפתח מערכות" />
+                                    <asp:RegularExpressionValidator ID="resumeJobTitleValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeJobTitle"
+                                        ErrorMessage="לא ניתן להזין יותר מ100 תווים"
+                                        ValidationExpression="^.{1,100}$" />
+							    </div>
+						    </div>
+                        </div>
+                        <div class="row">
+                            <!--responsibilities, limit: 255 characters-->
+						    <div class="col-sm-12">
+							    <div class="form-group" id="resume-responsibilities-group">
+								    <label>תיאור התפקיד</label>
+                                    <asp:TextBox ID="resumeResponsibilities" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
+                                    <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeResponsibilities"
+                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                        ValidationExpression="^.{1,255}$" />
+							    </div>
+						    </div>
+					    </div>
+					    <div class="row">
+						    <div class="col-sm-12">
+							    <hr class="dashed">
+						    </div>
+					    </div>
+                    </div>
+                    <!------experience details more------>
+                    <div class="experience-work experience-work-add" id="experience-work-add-1">
+                        <div class="row experience">
+                            <!--employer name, limit: 50 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-employer-group1">
+								    <label>מעסיק</label>
+							        <asp:TextBox ID="resumeEmployer1" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="שם החברה" />
+                                    <asp:RegularExpressionValidator ID="resumeEmployerValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeEmployer1"
+                                        ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                        ValidationExpression="^.{1,50}$" />
+                                </div>
+						    </div>
+
+                            <!--start date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-start-date-group1">
+								    <label>תאריך התחלה</label>
+                                    <asp:TextBox ID="resumeExperienceStartDate1" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                </div>
+						    </div>
+
+                            <!--end date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-end-date-group1">
+								    <label>תאריך סיום</label>
+                                    <asp:TextBox ID="resumeExperienceEndDate1" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                </div>
+						    </div>
+					    </div>
+                    
+					    <div class="row">
+                            <!--job title, limit: 100 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-job-title-group1">
+								    <label>תפקיד</label>
+                                    <asp:TextBox ID="resumeJobTitle1" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מפתח מערכות" />
+                                    <asp:RegularExpressionValidator ID="resumeJobTitleValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeJobTitle1"
+                                        ErrorMessage="לא ניתן להזין יותר מ100 תווים"
+                                        ValidationExpression="^.{1,100}$" />
+							    </div>
+						    </div>
+                        </div>
+                        <div class="row">
+                            <!--responsibilities, limit: 255 characters-->
+						    <div class="col-sm-12">
+							    <div class="form-group" id="resume-responsibilities-group1">
+								    <label>תיאור התפקיד</label>
+                                    <asp:TextBox ID="resumeResponsibilities1" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
+                                    <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeResponsibilities1"
+                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                        ValidationExpression="^.{1,255}$" />
+							    </div>
+						    </div>
+					    </div>
+                        <a id="Del-Expr1">- מחק נסיון מעשי</a>
+					    <div class="row">
+						    <div class="col-sm-12">
+							    <hr class="dashed">
+						    </div>
+					    </div>
+                    </div>
+                    <!------experience details more------>
+                    <div class="experience-work experience-work-add" id="experience-work-add-2">
+                        <div class="row experience">
+                            <!--employer name, limit: 50 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-employer-group2">
+								    <label>מעסיק</label>
+							        <asp:TextBox ID="resumeEmployer2" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="שם החברה" />
+                                    <asp:RegularExpressionValidator ID="resumeEmployerValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeEmployer2"
+                                        ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                        ValidationExpression="^.{1,50}$" />
+                                </div>
+						    </div>
+
+                            <!--start date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-start-date-group2">
+								    <label>תאריך התחלה</label>
+                                    <asp:TextBox ID="resumeExperienceStartDate2" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                </div>
+						    </div>
+
+                            <!--end date, limit: date format-->
+						    <div class="col-sm-3">
+							    <div class="form-group" id="resume-experience-end-date-group2">
+								    <label>תאריך סיום</label>
+                                    <asp:TextBox ID="resumeExperienceEndDate2" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                </div>
+						    </div>
+					    </div>
+                    
+					    <div class="row">
+                            <!--job title, limit: 100 characters-->
+						    <div class="col-sm-6">
+							    <div class="form-group" id="resume-job-title-group2">
+								    <label>תפקיד</label>
+                                    <asp:TextBox ID="resumeJobTitle2" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מפתח מערכות" />
+                                    <asp:RegularExpressionValidator ID="resumeJobTitleValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeJobTitle2"
+                                        ErrorMessage="לא ניתן להזין יותר מ100 תווים"
+                                        ValidationExpression="^.{1,100}$" />
+							    </div>
+						    </div>
+                        </div>
+                        <div class="row">
+                            <!--responsibilities, limit: 255 characters-->
+						    <div class="col-sm-12">
+							    <div class="form-group" id="resume-responsibilities-group2">
+								    <label>תיאור התפקיד</label>
+                                    <asp:TextBox ID="resumeResponsibilities2" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
+                                    <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                        ControlToValidate="resumeResponsibilities2"
+                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                        ValidationExpression="^.{1,255}$" />
+							    </div>
+						    </div>
+					    </div>
+                        <a id="Del-Expr2">- מחק נסיון מעשי</a>
+					    <div class="row">
+						    <div class="col-sm-12">
+							    <hr class="dashed">
+						    </div>
+					    </div>
+                    </div>
+                    <!--add experience-->
 					<div class="row">
 						<div class="col-sm-12">
-							<hr class="dashed">
-						</div>
-					</div>
-                    <!--row3-->
-					<div class="row">
-						<div class="col-sm-12">
-							<p><a id="add-experience">+ הוסף ניסיון מעשי</a></p>
+							<p><a id="add-experience1">+ הוסף ניסיון מעשי</a></p>
 							<hr>
 						</div>
 					</div>
@@ -288,34 +654,74 @@
 							<h2>השכלה</h2>
 						</div>
 					</div>
-                    <!--row1-->
+                    <!------education details------>
 					<div class="row education">
+                        <!--school name (required), limit: 50 characters-->
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-school-group">
-								<label for="resume-school">שם מוסד הלימודים</label>
-								<input type="text" class="form-control" id="resume-school">
+								<label>שם מוסד הלימודים<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeSchool" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"/>
+                                <asp:RegularExpressionValidator ID="resumeSchoolValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSchool"
+                                    ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                    ValidationExpression="^.{1,50}$" />
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-education-dates-group">
-								<label for="resume-education-dates">תאריך התחלה/סיום</label>
-                                <input type="text" class="form-control" id="resume-education-dates" placeholder="לדוגמה: אפריל 2010 - יוני 2013">
-							</div>
+
+                        <!--start date (required), date format-->
+						<div class="col-sm-3">
+							<div class="form-group" id="resume-education-strat-date-group">
+								<label>תאריך התחלה<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeEducationStratDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010" resuired="required"/>
+                            </div>
 						</div>
+
+                        <!--end date, date format-->
+						<div class="col-sm-3">
+							<div class="form-group" id="resume-education-end-date-group">
+								<label>תאריך סיום</label>
+                                <asp:TextBox ID="resumeEducationEndDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                            </div>
+						</div>
+
 					</div>
-                    <!--row2-->
+                    
 					<div class="row">
+                        <!--qualification, limit: 20 characters-->
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-qualifications-group">
-								<label for="resume-qualifications">סמכות</label>
-								<input type="text" class="form-control" id="resume-qualifications" placeholder="לדוגמה: מהנדס">
-							</div>
+								<label>סמכות</label>
+                                <asp:DropDownList ID="resumeEducation" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="resumeEducationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeEducation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
+                            </div>
 						</div>
-						<div class="col-sm-6">
+
+                        <!--average, limit: 0-100-->
+                        <div class="col-sm-1">
+                            <div class="form-group" id="resume-avarage-group">
+                                <label>ממוצע</label>
+                                <asp:TextBox ID="resumeAvarage" runat="server" CssClass="form-control" TextMode="SingleLine" />
+                                <asp:RegularExpressionValidator ID="resumeAvarageValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeAvarage"
+                                    ErrorMessage="ציון לא חוקי"
+                                    ValidationExpression="^(?:(?!0)\d{1,2}|100)$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--notes, limit: 255 characters-->
+						<div class="col-sm-12">
 							<div class="form-group" id="resume-notes-group">
-								<label for="resume-notes">הערות נוספות</label>
-								<input type="text" class="form-control" id="resume-notes" placeholder="הישגים נוספים">
-							</div>
+								<label>הערות נוספות</label>
+							    <asp:TextBox ID="resumeNotes" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="הישגים נוספים" />
+                                <asp:RegularExpressionValidator ID="resumeNotesValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeNotes"
+                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
+                            </div>
 						</div>
 					</div>
 					<div class="row">
@@ -323,7 +729,8 @@
 							<hr class="dashed">
 						</div>
 					</div>
-                    <!--row3-->
+                    
+                    <!--add education-->
 					<div class="row">
 						<div class="col-sm-12">
 							<p><a id="add-education">+ הוסף השכלה</a></p>
@@ -332,6 +739,7 @@
 					</div>
 					<!-- Education End -->
 
+                    <!--fix:no DB field for this option-->
 					<!-- Resume File Start -->
 					<div class="row">
 						<div class="col-sm-12">
@@ -356,7 +764,7 @@
                             <a href="resume.aspx" class="btn btn-primary btn-lg" style="background-color:grey;">צפה בפרופיל <i class="fa fa-arrow-left"></i></a>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="#" class="btn btn-primary btn-lg">פרסם קורות חיים </a>
+                            <asp:Button ID="postResumeButton" runat="server" OnClick="Post_Resume" Text="פרסם קורות חיים" CssClass="btn btn-primary btn-lg" ValidationGroup="postResumeValidation" />
                         </div>
 					</div>
 
@@ -399,83 +807,6 @@
 		</footer>
 
 		<!-- ============ FOOTER END ============ -->
-
-		<!-- ============ LOGIN START ============ -->
-
-        <div class="popup" id="login">
-            <div class="popup-form">
-                <div class="popup-header">
-                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
-                    <h2>התחבר</h2>
-                </div>
-                <form>
-                    <!--<ul class="social-login">
-                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
-                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
-                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
-                </ul>-->
-                    <hr>
-                    <div class="form-group">
-                        <label for="login-username">שם משתמש</label>
-                        <input type="text" class="form-control" id="login-username">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">סיסמא</label>
-                        <input type="password" class="form-control" id="login-password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">התחבר</button>
-                </form>
-            </div>
-        </div>
-
-		<!-- ============ LOGIN END ============ -->
-
-		<!-- ============ REGISTER START ============ -->
-
-        <div class="popup" id="register">
-            <div class="popup-form">
-                <div class="popup-header">
-                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
-                    <h2>הרשמה</h2>
-                </div>
-                <form>
-                    <!---<ul class="social-login">
-                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
-                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
-                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
-                </ul>-->
-                    <hr>
-                    <div class="form-group">
-                        <label for="register-name">שם פרטי</label>
-                        <input type="text" class="form-control" id="register-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-surname">שם משפחה</label>
-                        <input type="text" class="form-control" id="register-surname">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-email">אימייל</label>
-                        <input type="email" class="form-control" id="register-email">
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="register-username">שם משתמש</label>
-                        <input type="text" class="form-control" id="register-username">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-password1">סיסמא</label>
-                        <input type="password" class="form-control" id="register-password1">
-                    </div>
-                    <div class="form-group">
-                        <label for="register-password2">הקלד סיסמא שנית</label>
-                        <input type="password" class="form-control" id="register-password2">
-                    </div>
-                    <button type="submit" class="btn btn-primary">הירשם</button>
-                </form>
-            </div>
-        </div>
-
-		<!-- ============ REGISTER END ============ -->
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>
@@ -525,7 +856,7 @@
 		<script src="js/magic.js"></script>
 
 		<!-- jQuery Settings -->
-		<script src="js/settings.js"></script>
+		<script src="js/settings.js" charset="utf-8"></script>
 
 
 	</body>

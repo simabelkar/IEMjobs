@@ -10,42 +10,42 @@
 namespace IEM_Portal {
     
     
-    public partial class homepage {
+    public partial class login {
         
         /// <summary>
-        /// loggedInUser control.
+        /// loginError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedInUser;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginError;
         
         /// <summary>
-        /// loginBtn control.
+        /// loginUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor loginBtn;
+        protected global::System.Web.UI.WebControls.TextBox loginUsername;
         
         /// <summary>
-        /// logoutBtn control.
+        /// loginPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logoutBtn;
+        protected global::System.Web.UI.WebControls.TextBox loginPassword;
         
         /// <summary>
-        /// registerBtn control.
+        /// loginSubmitBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor registerBtn;
+        protected global::System.Web.UI.WebControls.Button loginSubmitBtn;
     }
 }

@@ -86,12 +86,11 @@
 
 		<!-- ============ TITLE START ============ -->
 
-		<section id="title">
+		<section id="titleSection">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>סוזי ג'ונסון</h1>
-						<h4>מנהלת פרוייקט</h4>
+                        <div id="title" runat="server"></div>
 					</div>
 				</div>
 			</div>
@@ -101,128 +100,39 @@
 
 		<!-- ============ CONTENT START ============ -->
 
-		<section id="jobs">
+		<section id="jobsSection">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
 						<article>
 							<h2>פרופיל משתמש</h2>
-							<img src="/images/profile1.jpg" alt="" class="pull-right" />
-							<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי. </p>
-							<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.  </p>
-                            <p>&nbsp;</p>
-							<h3>מיומנויות</h3>
-							<ul>
-								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
-								<li>Quisque pretium convallis pulvinar.</li>
-								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
-								<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
-								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
-								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
-								<li>Morbi rhoncus luctus interdum.</li>
-							</ul>
-							<h3>ניסיון תעסוקתי</h3>
-							<div class="row work-experience">
-								<div class="col-sm-2">
-									<div class="img-circle">
-										<i class="fa fa-briefcase"></i>
-									</div>
-								</div>
-								<div class="col-sm-10">
-									<h4>April 2014 - Now</h4>
-									<h5>Google Inc - Senior Web Designer</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
-								</div>
-							</div>
-							<div class="row work-experience">
-								<div class="col-sm-2">
-									<div class="img-circle">
-										<i class="fa fa-briefcase"></i>
-									</div>
-								</div>
-								<div class="col-sm-10">
-									<h4>April 2014 - Now</h4>
-									<h5>Google Inc - Senior Web Designer</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
-								</div>
-							</div>
-							<div class="row work-experience">
-								<div class="col-sm-2">
-									<div class="img-circle">
-										<i class="fa fa-briefcase"></i>
-									</div>
-								</div>
-								<div class="col-sm-10">
-									<h4>April 2014 - Now</h4>
-									<h5>Google Inc - Senior Web Designer</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
-								</div>
-							</div>
-							<h3>השכלה</h3>
-							<div class="row work-experience">
-								<div class="col-sm-2">
-									<div class="img-circle">
-										<i class="fa fa-graduation-cap"></i>
-									</div>
-								</div>
-								<div class="col-sm-10">
-									<h4>April 2014 - Now</h4>
-									<h5>Google Inc - Senior Web Designer</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
-								</div>
-							</div>
-							<div class="row work-experience">
-								<div class="col-sm-2">
-									<div class="img-circle">
-										<i class="fa fa-graduation-cap"></i>
-									</div>
-								</div>
-								<div class="col-sm-10">
-									<h4>April 2014 - Now</h4>
-									<h5>Google Inc - Senior Web Designer</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum.</p>
-								</div>
-							</div>
+                            <div id="userProfile" runat="server" style="display:table-row">
+                            </div>
+							
+                            <div id="userSkills" runat="server" style="display:table-row">
+                            </div>
+							
+                            <div id="workExperience" runat="server" style="display:table-row">
+                            </div>
+							
+                            <div id="education" runat="server" style="display:table-row">
+                            </div>
+
 							<!--<p>&nbsp;</p>
 							<p><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-arrow-down"></i> הורד קורות חיים</a></p>-->
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
-							<h2>שתף קורות חיים</h2>
-							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.aspx&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
-							</ul>
+                            <div id="socialNW" runat="server"></div>
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="widget-contact">
-							<h2>יצירת קשר</h2>
-							<ul>
-								<li><i class="fa fa-user"></i>סוזי ג'ונסון</li>
-								<li><i class="fa fa-briefcase"></i>מנהלת פרוייקט</li>
-								<li><i class="fa fa-birthday-cake"></i>10/08/1983</li>
-								<li><i class="fa fa-map-marker"></i>תל אביב</li>
-								<li><i class="fa fa-phone"></i>054-5873492</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:suzi.jhonson@gmail.com">שלח אימייל</a></li>
-							</ul>
+                            <h2>יצירת קשר</h2>
+                            <div id="contactDetails" runat="server"></div>
 						</div>
 						<hr>
-						<div class="sidebar-widget" id="skills">
-							<h2>כישורי מפתח</h2>
-							<a class="badge">Photoshop</a>
-							<a class="badge">HTML5</a>
-							<a class="badge">CSS3</a>
-							<a class="badge">Javascript</a>
-							<a class="badge">jQuery</a>
-							<a class="badge">User Experience</a>
-							<a class="badge">User Interface</a>
-							<a class="badge">UX</a>
-							<a class="badge">UI</a>
-							<a class="badge">Front End Development</a>
-							<a class="badge">Responsive Design</a>
+						<div id="skills" class="sidebar-widget" runat="server">
 						</div>
 					</div>
 				</div>
@@ -389,7 +299,7 @@
 		<script src="js/magic.js"></script>
 
 		<!-- jQuery Settings -->
-		<script src="js/settings.js"></script>
+		<script src="js/settings.js" charset="utf-8"></script>
 
 
 	</body>

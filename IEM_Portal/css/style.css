@@ -1120,7 +1120,7 @@ header {
 	}
 
 		#widget-contact ul li i {
-			color: #14b1bb;
+			color: #14b1bb; 
 			width: 25px;
 		}
 
@@ -1994,4 +1994,11 @@ header {
 			padding-left: 35px;
 			position: relative;
 		}
+        .testt{
+            text-align:right !important;
+        }
+        div.dd_chk_drop {
+            text-align:right !important;
+        }
+
 	}

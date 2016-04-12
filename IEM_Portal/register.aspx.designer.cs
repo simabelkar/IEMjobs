@@ -10,78 +10,96 @@
 namespace IEM_Portal {
     
     
-    public partial class resume {
+    public partial class register {
         
         /// <summary>
-        /// title control.
+        /// registerError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl registerError;
         
         /// <summary>
-        /// userProfile control.
+        /// registerFname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userProfile;
+        protected global::System.Web.UI.WebControls.TextBox registerFname;
         
         /// <summary>
-        /// userSkills control.
+        /// registerFnameVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userSkills;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator registerFnameVal;
         
         /// <summary>
-        /// workExperience control.
+        /// registerLname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl workExperience;
+        protected global::System.Web.UI.WebControls.TextBox registerLname;
         
         /// <summary>
-        /// education control.
+        /// registerLnameVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl education;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator registerLnameVal;
         
         /// <summary>
-        /// socialNW control.
+        /// registerUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl socialNW;
+        protected global::System.Web.UI.WebControls.TextBox registerUsername;
         
         /// <summary>
-        /// contactDetails control.
+        /// registerUsernameVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contactDetails;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator registerUsernameVal;
         
         /// <summary>
-        /// skills control.
+        /// registerPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl skills;
+        protected global::System.Web.UI.WebControls.TextBox registerPassword;
+        
+        /// <summary>
+        /// registerPasswordVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator registerPasswordVal;
+        
+        /// <summary>
+        /// registerSubmitBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registerSubmitBtn;
     }
 }

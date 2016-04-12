@@ -69,7 +69,7 @@
 				<div id="menu-open" class="pull-left">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
 				</div>
-				<div id="searchbox" class="pull-right">
+				<!--<div id="searchbox" class="pull-right">
 					<form>
 						<div class="form-group">
 							<label class="sr-only" for="searchfield">Searchbox</label>
@@ -79,8 +79,18 @@
 				</div>
 				<div id="search" class="pull-right">
 					<a><i class="fa fa-search fa-lg"></i></a>
-				</div>
-			</div>
+				</div>-->
+                <form runat="server">
+                    <div class="pull-right">
+                        <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                        <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
+                        <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
+                    </div>
+                    <div class="pull-left text-left">
+                        <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
+                    </div>
+                </form>
+           </div>
 		</header>
 
 		<!-- ============ HEADER END ============ -->
@@ -622,7 +632,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-6">
 						<h2>עדיין לא רשום?</h2>
-                        <a class="link-register">הירשם עכשיו</a>
+                        <a class="btn btn-lg btn-default link-register">הירשם עכשיו</a>
 						<p>&nbsp;</p>
 					</div>
 				</div>
@@ -663,83 +673,6 @@
 		</footer>
 
 		<!-- ============ FOOTER END ============ -->
-
-		<!-- ============ LOGIN START ============ -->
-
-		<div class="popup" id="login">
-			<div class="popup-form">
-				<div class="popup-header">
-					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>התחבר</h2>
-				</div>
-				<form>
-					<!--<ul class="social-login">
-						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
-						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
-						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
-					</ul>-->
-					<hr>
-					<div class="form-group">
-						<label for="login-username">שם משתמש</label>
-						<input type="text" class="form-control" id="login-username">
-					</div>
-					<div class="form-group">
-						<label for="login-password">סיסמא</label>
-						<input type="password" class="form-control" id="login-password">
-					</div>
-					<button type="submit" class="btn btn-primary">התחבר</button>
-				</form>
-			</div>
-		</div>
-
-		<!-- ============ LOGIN END ============ -->
-
-		<!-- ============ REGISTER START ============ -->
-
-		<div class="popup" id="register">
-			<div class="popup-form">
-				<div class="popup-header">
-					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>הרשמה</h2>
-				</div>
-				<form>
-					<!---<ul class="social-login">
-						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
-						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
-						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
-					</ul>-->
-					<hr>
-					<div class="form-group">
-						<label for="register-name">שם פרטי</label>
-						<input type="text" class="form-control" id="register-name">
-					</div>
-					<div class="form-group">
-						<label for="register-surname">שם משפחה</label>
-						<input type="text" class="form-control" id="register-surname">
-					</div>
-					<div class="form-group">
-						<label for="register-email">אימייל</label>
-						<input type="email" class="form-control" id="register-email">
-					</div>
-					<hr>
-					<div class="form-group">
-						<label for="register-username">שם משתמש</label>
-						<input type="text" class="form-control" id="register-username">
-					</div>
-					<div class="form-group">
-						<label for="register-password1">סיסמא</label>
-						<input type="password" class="form-control" id="register-password1">
-					</div>
-					<div class="form-group">
-						<label for="register-password2">הקלד סיסמא שנית</label>
-						<input type="password" class="form-control" id="register-password2">
-					</div>
-					<button type="submit" class="btn btn-primary">הירשם</button>
-				</form>
-			</div>
-		</div>
-
-		<!-- ============ REGISTER END ============ -->
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>

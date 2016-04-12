@@ -93,23 +93,27 @@
 						<h1>פרסם משרה</h1>
 						<h4>מצא מועמד מתאים</h4>
                         <p>&nbsp;</p>
-						<div class="jumbotron">
+						<!--<div class="jumbotron">
 							<h3>רשום כבר?</h3>
 							<p>אם אין לך חשבון אתה יכול להירשם בלחיצה על "הרשמה" בקלות ובחינם!
                             <br />
                             אם נרשמת כבר אנא התחבר על מנת לפרסם משרה</p>
 							<p><a href="#" class="btn btn-primary link-register">הירשם</a></p>
-						</div>
+						</div>-->
 					</div>
 				</div>
 
-                <div class="error">
-                    <div id="errorlable">
-                        <label runat="server" name="errormessagelable" id="postjoberror"></label>
-                    </div>
-                </div>
+				<form id="postJobForm" runat="server">
 
-				<form id="postjobform" runat="server">
+                    <!--error message-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="alert alert-danger" id="postJobError" runat="server" style="display:none;">
+                                
+                            </div>
+                        </div>
+                    </div>
+
 					<div class="row">
                         <!------job details-------->
 						<div class="col-sm-6">
@@ -118,88 +122,69 @@
                             <!--job title (required), limit: 100 characters-->
                             <div class="form-group" id="job-title-group">
                                 <label>כותרת המשרה <span style="color:red;">*</span></label>
-                                <asp:TextBox ID="jobtitle" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מנתח/ת מערכות מידע" required="required" />
-                                <asp:RegularExpressionValidator ID="valjobtitle" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="jobtitle"
+                                <asp:TextBox ID="jobTitle" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="לדוגמה: מנתח/ת מערכות מידע" required="required" />
+                                <asp:RegularExpressionValidator ID="jobTitleValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobTitle"
                                     ErrorMessage="לא ניתן להזין יותר מ100 תווים"
-                                    ValidationExpression=".{,99}.*" />
+                                    ValidationExpression="^.{1,100}$" />
                             </div>
 
                             <!--job description (required), limit: 255 characters-->
                             <div class="form-group" id="job-description-group">
                                 <label>תיאור המשרה <span style="color:red;">*</span></label>
-                                <asp:TextBox ID="jobdescription" runat="server" CssClass="textarea form-control" TextMode="MultiLine" required="required"/>
-                                <asp:RegularExpressionValidator ID="valjobdescription" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="jobdescription"
+                                <asp:TextBox ID="jobDescription" runat="server" CssClass="form-control" TextMode="MultiLine" required="required"/>
+                                <asp:RegularExpressionValidator ID="jobDescriptionValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobDescription"
                                     ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression=".{,254}.*" />
+                                    ValidationExpression="^.{1,255}$" />
                             </div>
 
                             <!--job requirements, limit: 255 characters-->
                             <div class="form-group" id="job-requirements-group">
                                 <label>דרישות המשרה</label>
-                                <asp:TextBox ID="jobrequirement" runat="server" CssClass="textarea form-control" TextMode="MultiLine"/>
-                                <asp:RegularExpressionValidator ID="valjobrequirement" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="jobrequirement"
+                                <asp:TextBox ID="jobRequirement" runat="server" CssClass="form-control" TextMode="MultiLine"/>
+                                <asp:RegularExpressionValidator ID="jobRequirementValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobRequirement"
                                     ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression=".{,254}.*" />
+                                    ValidationExpression="^.{1,255}$" />
                             </div>
 
                             <!--job category (required), dropdown list-->
                             <div class="form-group" id="job-category-group">
-                                <label for="job-category">תחום המשרה</label>
-                                <select class="form-control" id="job-category">
-                                    <option disabled>בחר תחום משרה</option>
-                                    <option>מערכות מידע</option>
-                                    <option>תפעול</option>
-                                    <option>ניהול</option>
-                                    <option>ייעוץ</option>
-                                </select>
+                                <label>תחום המשרה <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="jobCategory" runat="server" CssClass="form-control"
+                                    AutoPostBack="true" onSelectedIndexChanged="Populate_Job_Sub_Category_List">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="jobCategoryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobCategory" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 
                             <!--job sub-category (required), dropdown list-->
                             <div class="form-group" id="job-sub-category-group">
-                                <label for="job-sub-category">תת תחום</label>
-                                <select class="form-control" id="job-sub-category">
-                                    <option disabled>בחר תת תחום</option>
-                                    <option>מנתח מערכות מידע</option>
-                                    <option>מהנדס בדיקות תוכנה</option>
-                                    <option>מיישם מערכות מידע</option>
-                                    <option>מהנדס ארגון ושיטות</option>
-                                    <option>מהנדס מוצר</option>
-                                    <option>מהנדס אנוש</option>
-                                    <option>מהנדס איכות</option>
-                                    <option>קניין</option>
-                                    <option>מנהל אגף</option>
-                                    <option>מנהל סניף</option>
-                                    <option>מנהל מחלקה</option>
-                                    <option>יועץ</option>
-                                </select>
+                                <label>תת תחום <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="jobSubCategory" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="--בחר תת תחום--" Value="0" />
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="jobSubCategoryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobSubCategory" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 
                             <!--job location (required), dropdown list-->
                             <div class="form-group" id="job-location-group">
-                                <label for="job-location">עיר <span style="color:red;">*</span></label>
-                                <select class="form-control" id="job-location">
-                                    <option disabled="disabled">בחר עיר</option>
-                                    <option>ירושלים</option>
-                                    <option>תל אביב</option>
-                                    <option>חיפה</option>
-                                    <option>אשדוד</option>
-                                    <option>אילת</option>
-                                </select>
+                                <label>עיר <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="jobLocation" runat="server" CssClass="form-control">   
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="jobLocationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                   ControlToValidate="jobLocation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 
                             <!--job scope (required), dropdown list-->
                             <div class="form-group" id="job-scope-group">
-                                <label for="job-scope">היקף משרה</label>
-                                <select class="form-control" id="job-scope">
-                                    <option disabled="disabled">בחר היקף משרה</option>
-                                    <option>משרה מלאה</option>
-                                    <option>משרה חלקית</option>
-                                    <option>משמרות</option>
-                                    <option>לפי שעות</option>
-                                </select>
+                                <label>היקף משרה <span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="jobScope" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="jobScopeValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="jobScope" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 						</div>
 
@@ -209,48 +194,52 @@
 
                             <!--company name (required), limit: 50 characters-->
 							<div class="form-group" id="company-name-group">
-								<label>שם החברה</label>
-								<asp:TextBox ID="companyname" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="הקלד את שם החברה" required="required"/>
-							    <asp:RegularExpressionValidator ID="valcompanyname" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="companyname"
+								<label>שם החברה <span style="color:red;">*</span></label>
+								<asp:TextBox ID="companyName" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="הקלד את שם החברה" required="required"/>
+							    <asp:RegularExpressionValidator ID="companyNameValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="companyName"
                                     ErrorMessage="לא ניתן להזין יותר מ50 תווים"
-                                    ValidationExpression=".{,49}.*" />
+                                    ValidationExpression="^.{1,50}$" />
                             </div>
 
                             <!--company description, limit: 255 characters-->
 							<div class="form-group" id="company-description-group">
 								<label>תיאור</label>
-								<asp:TextBox ID="companydescription" runat="server" CssClass="textarea form-control" TextMode="MultiLine" />
-                                <asp:RegularExpressionValidator ID="valcompanydescription" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="companydescription"
+								<asp:TextBox ID="companyDescription" runat="server" CssClass="form-control" TextMode="MultiLine" />
+                                <asp:RegularExpressionValidator ID="companyDescriptionValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="companyDescription"
                                     ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression=".{,254}.*" />
+                                    ValidationExpression="^.{1,255}$" />
 							</div>
 
-                            <!--company email (required), limit: 255 characters and email address format-->
+                            <!--company email (required), limit: email address format-->
                             <div class="form-group" id="company-email-group">
                                 <label">אימייל למשלוח קורות חיים <span style="color:red;">*</span></label>
-                                <asp:TextBox ID="companyemail" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="you@yourdomain.com" required="required"/>
-                                <asp:RegularExpressionValidator ID="valcompanyemail" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="companyemail"
+                                <asp:TextBox ID="companyEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="you@yourdomain.com" required="required"/>
+                                <asp:RegularExpressionValidator ID="companyEmailValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="companyEmail"
                                     ErrorMessage="כתובת מייל לא חוקית"
-                                    ValidationExpression="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" />
+                                    ValidationExpression="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" />
                             </div>
 
-                            <!--company website, limit: 255 characters and website address format-->
+                            <!--company website, limit: website address format-->
 							<div class="form-group" id="company-website-group">
 								<label>אתר החברה</label>
-								<asp:TextBox ID="companywebsite" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="http://"/>
-							    <asp:RegularExpressionValidator ID="valcompanywebsite" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postjobvalidation"
-                                    ControlToValidate="companywebsite"
-                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression="http://*" />
+								<asp:TextBox ID="companyWebsite" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="http://"/>
+							    <asp:RegularExpressionValidator ID="companyWebsiteValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="companyWebsite"
+                                    ErrorMessage="כתובת האתר לא חוקית"
+                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
                             </div>
 
-                            <!--company logo, image-->
+                            <!--company logo (URL), limit: 255 characters-->
 							<div class="form-group" id="company-logo-group">
-								<label for="company-logo">לוגו</label>
-								<input type="file" id="company-logo">
+								<label>לוגו</label>
+                                <asp:TextBox ID="companyLogo" runat="server" CssClass="form-control" TextMode="Url" placeholder="image URL: 60X60" />
+                                <asp:RegularExpressionValidator ID="companyLogoValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                    ControlToValidate="companyLogo"
+                                    ErrorMessage="לא ניתן להזין יותר 255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
 							</div>
 						</div>
 					</div>
@@ -262,7 +251,7 @@
                             <a href="#" class="btn btn-primary btn-lg" style="background-color:grey;">צפה במשרה <i class="fa fa-arrow-left"></i></a>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <asp:Button ID="postjobbutton" runat="server" OnClick="Post_A_Job"  Text="פרסם משרה" CssClass="btn btn-primary btn-lg" ValidationGroup="postjobvalidation" />
+                            <asp:Button ID="postJobButton" runat="server" OnClick="Post_A_Job"  Text="פרסם משרה" CssClass="btn btn-primary btn-lg" ValidationGroup="postJobValidation" />
                         </div>
 					</div>
 
