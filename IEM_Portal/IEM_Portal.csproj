@@ -229,9 +229,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
