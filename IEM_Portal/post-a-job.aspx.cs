@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Data.OleDb;
 
 namespace IEM_Portal
 {
@@ -39,11 +40,13 @@ namespace IEM_Portal
                     String SQLquery_JobsCategories = "INSERT INTO Jobs_Categories (job_id,category_id,sub_category_id) VALUES (@jobID,@jobCategory,@jobSubCategory)";
                     String SQLquery_JobsCities = "INSERT INTO Jobs_Cities (job_id,city_id) VALUES (@jobID, @cityID) ";
                     String SQLquery_JobsScopes = "INSERT INTO Jobs_Scopes (job_id,scope_id) VALUES (@jobID,@jobScope)";
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
+                    //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
+                    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source" + Server.MapPath("./App_Data/IEMJobs_DB.mdf"));
                     con.Open();
 
 
-                    SqlCommand cmd = new SqlCommand(SQLquery_Companies, con);
+                    //SqlCommand cmd = new SqlCommand(SQLquery_Companies, con);
+                    OleDbCommand cmd = new OleDbCommand(SQLquery_Companies, con);
                     //save company parameters
                     cmd.Parameters.AddWithValue("@companyName", companyName.Text);
                     cmd.Parameters.AddWithValue("@companyDesc", companyDescription.Text);
@@ -58,7 +61,8 @@ namespace IEM_Portal
                     int id = Convert.ToInt32(cmd.ExecuteScalar());
                     
 
-                    cmd = new SqlCommand(SQLquery_Jobs, con);
+                    //cmd = new SqlCommand(SQLquery_Jobs, con);
+                    cmd = new OleDbCommand(SQLquery_Jobs, con);
                     //save job parameters
                     //cmd.Parameters.AddWithValue("@ID", newGuid.ToString());
                     cmd.Parameters.AddWithValue("@jobTitle",jobTitle.Text);
@@ -70,20 +74,23 @@ namespace IEM_Portal
                     id = Convert.ToInt32(cmd.ExecuteScalar());
 
 
-                    cmd = new SqlCommand(SQLquery_JobsCategories, con);
+                    //cmd = new SqlCommand(SQLquery_JobsCategories, con);
+                    cmd = new OleDbCommand(SQLquery_JobsCategories, con);
                     //JobsCategories parameters
                     cmd.Parameters.AddWithValue("@jobCategory", jobCategory.SelectedItem.Value);
                     cmd.Parameters.AddWithValue("@jobSubCategory", jobSubCategory.SelectedItem.Value);
                     cmd.Parameters.AddWithValue("@jobID", id);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new SqlCommand(SQLquery_JobsCities, con);
+                    //cmd = new SqlCommand(SQLquery_JobsCities, con);
+                    cmd = new OleDbCommand(SQLquery_JobsCities, con); 
                     //JobsCities parameters
                     cmd.Parameters.AddWithValue("@jobID", id);
                     cmd.Parameters.AddWithValue("@cityID", jobLocation.SelectedItem.Value);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new SqlCommand(SQLquery_JobsScopes, con);
+                    //cmd = new SqlCommand(SQLquery_JobsScopes, con);
+                    cmd = new OleDbCommand(SQLquery_JobsScopes, con);
                     //Jobscope parameters
                     cmd.Parameters.AddWithValue("@jobID", id);
                     cmd.Parameters.AddWithValue("@jobScope",jobScope.SelectedItem.Value);
