@@ -697,9 +697,9 @@
                                     ControlToValidate="resumeEducation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 						</div>
-
+                        
                         <!--average, limit: 0-100-->
-                        <div class="col-sm-1">
+                        <!--<div class="col-sm-1">
                             <div class="form-group" id="resume-avarage-group">
                                 <label>ממוצע</label>
                                 <asp:TextBox ID="resumeAvarage" runat="server" CssClass="form-control" TextMode="SingleLine" />
@@ -708,7 +708,7 @@
                                     ErrorMessage="ציון לא חוקי"
                                     ValidationExpression="^(?:(?!0)\d{1,2}|100)$" />
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="row">

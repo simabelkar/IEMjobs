@@ -135,7 +135,7 @@ namespace IEM_Portal
 
                 //save User_Education in case one of the fields is inserted
                 if (resumeSchool.Text != "" && resumeEducationStratDate.Text != "" && resumeEducation.SelectedItem.Value.ToString() != "0")
-                    Insert_Education(Session["UserID"].ToString(), resumeSchool.Text, resumeEducationStratDate.Text, resumeEducationEndDate.Text, resumeEducation.SelectedItem.Value, resumeNotes.Text, resumeAvarage.Text);
+                    Insert_Education(Session["UserID"].ToString(), resumeSchool.Text, resumeEducationStratDate.Text, resumeEducationEndDate.Text, resumeEducation.SelectedItem.Value, resumeNotes.Text);
                 
                 //TODO - add another education
 
@@ -229,7 +229,7 @@ namespace IEM_Portal
             }
         }
         
-        private void Insert_Education(String userId, String school, String startDate, String endDate, String qualification, String notes, String avarage)
+        private void Insert_Education(String userId, String school, String startDate, String endDate, String qualification, String notes)
         {
             if (school.Equals("") || startDate.Equals("") || qualification.Equals("0"))
             {
@@ -244,7 +244,7 @@ namespace IEM_Portal
                         endDate = "היום";
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                     con.Open();
-                    String insertEducation = "INSERT INTO User_Education (user_id,school_name,start_date,end_date,qualification,notes,avarage) VALUES (@userId,@schoolName,@startDate,@endDate,@qualification,@notes,@avarage)";
+                    String insertEducation = "INSERT INTO User_Education (user_id,school_name,start_date,end_date,qualification,notes) VALUES (@userId,@schoolName,@startDate,@endDate,@qualification,@notes)";
                     SqlCommand setUserEducationCmd = new SqlCommand(insertEducation, con);
                     setUserEducationCmd.Parameters.AddWithValue("@userId", userId);
                     setUserEducationCmd.Parameters.AddWithValue("@schoolName", school);
@@ -252,7 +252,6 @@ namespace IEM_Portal
                     setUserEducationCmd.Parameters.AddWithValue("@endDate", endDate);
                     setUserEducationCmd.Parameters.AddWithValue("@qualification", qualification);
                     setUserEducationCmd.Parameters.AddWithValue("@notes", notes);
-                    setUserEducationCmd.Parameters.AddWithValue(@avarage,avarage);
                     setUserEducationCmd.ExecuteNonQuery();
                     con.Close();
                 }
