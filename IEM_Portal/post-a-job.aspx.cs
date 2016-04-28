@@ -39,7 +39,7 @@ namespace IEM_Portal
                     String SQLquery_JobsCategories = "INSERT INTO Jobs_Categories (job_id,category_id,sub_category_id) VALUES (@jobID,@jobCategory,@jobSubCategory)";
                     String SQLquery_JobsCities = "INSERT INTO Jobs_Cities (job_id,city_id) VALUES (@jobID, @cityID) ";
                     String SQLquery_JobsScopes = "INSERT INTO Jobs_Scopes (job_id,scope_id) VALUES (@jobID,@jobScope)";
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstringname"].ConnectionString);
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                     con.Open();
 
 
