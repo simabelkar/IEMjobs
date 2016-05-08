@@ -739,9 +739,9 @@
 					</div>
 					<!-- Education End -->
 
-                    <!--fix:no DB field for this option-->
+                    
 					<!-- Resume File Start -->
-					<div class="row">
+					<!--<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
 							<h2>קובץ קורות חיים</h2>
@@ -755,7 +755,7 @@
 								<p class="help-block">העלה קובץ קורות חיים על מנת שמעסיקים יוכלו לצפות. גודל מקסימלי: 64 MB</p>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<!-- Resume File Start -->
 
 					<div class="row">

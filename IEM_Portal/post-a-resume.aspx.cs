@@ -244,7 +244,7 @@ namespace IEM_Portal
                         endDate = "היום";
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                     con.Open();
-                    String insertEducation = "INSERT INTO User_Education (user_id,school_name,start_date,end_date,qualification,notes) VALUES (@userId,@schoolName,@startDate,@endDate,@qualification,@notes)";
+                    String insertEducation = "INSERT INTO User_Education (user_id,school_name,start_date,end_date,qualification_id,notes) VALUES (@userId,@schoolName,@startDate,@endDate,@qualification,@notes)";
                     SqlCommand setUserEducationCmd = new SqlCommand(insertEducation, con);
                     setUserEducationCmd.Parameters.AddWithValue("@userId", userId);
                     setUserEducationCmd.Parameters.AddWithValue("@schoolName", school);
