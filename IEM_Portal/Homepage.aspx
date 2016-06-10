@@ -48,6 +48,7 @@
 					<li><a href="post-a-job.aspx">פרסם משרה</a></li>
 					<li><a href="candidates.aspx">מועמדים</a></li>
 					<li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
+                    <li><a href="edit-resume.aspx">עדכן קורות חיים</a></li>
                     <li><a href="resume.aspx">פרופיל משתמש</a></li>
 					<li><a class="link-register">הירשם</a></li>
 					<li><a class="link-login">התחבר</a></li>
@@ -76,10 +77,10 @@
 							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
 						</div>
 					</form>
-				</div>
+				</div>-->
 				<div id="search" class="pull-right">
 					<a><i class="fa fa-search fa-lg"></i></a>
-				</div>-->
+				</div>
                 <form runat="server">
                     <div class="pull-right">
                         <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>

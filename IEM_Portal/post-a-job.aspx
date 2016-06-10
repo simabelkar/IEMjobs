@@ -129,24 +129,24 @@
                                     ValidationExpression="^.{1,100}$" />
                             </div>
 
-                            <!--job description (required), limit: 255 characters-->
+                            <!--job description (required), limit: 500 characters-->
                             <div class="form-group" id="job-description-group">
                                 <label>תיאור המשרה <span style="color:red;">*</span></label>
                                 <asp:TextBox ID="jobDescription" runat="server" CssClass="form-control" TextMode="MultiLine" required="required"/>
                                 <asp:RegularExpressionValidator ID="jobDescriptionValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="jobDescription"
-                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression="^.{1,255}$" />
+                                    ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                    ValidationExpression="^.{1,500}$" />
                             </div>
 
-                            <!--job requirements, limit: 255 characters-->
+                            <!--job requirements, limit: 500 characters-->
                             <div class="form-group" id="job-requirements-group">
                                 <label>דרישות המשרה</label>
                                 <asp:TextBox ID="jobRequirement" runat="server" CssClass="form-control" TextMode="MultiLine"/>
                                 <asp:RegularExpressionValidator ID="jobRequirementValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="jobRequirement"
-                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression="^.{1,255}$" />
+                                    ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                    ValidationExpression="^.{1,500}$" />
                             </div>
 
                             <!--job category (required), dropdown list-->
@@ -202,14 +202,14 @@
                                     ValidationExpression="^.{1,50}$" />
                             </div>
 
-                            <!--company description, limit: 255 characters-->
+                            <!--company description, limit: 500 characters-->
 							<div class="form-group" id="company-description-group">
 								<label>תיאור</label>
 								<asp:TextBox ID="companyDescription" runat="server" CssClass="form-control" TextMode="MultiLine" />
                                 <asp:RegularExpressionValidator ID="companyDescriptionValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="companyDescription"
-                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                    ValidationExpression="^.{1,255}$" />
+                                    ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                    ValidationExpression="^.{1,500}$" />
 							</div>
 
                             <!--company email (required), limit: email address format-->
@@ -247,9 +247,9 @@
                     <!--submit button-->
                     <div class="row">
                         <p>&nbsp;</p>
-                        <div class="col-sm-6 text-left">
+                        <!--<div class="col-sm-6 text-left">
                             <a href="#" class="btn btn-primary btn-lg" style="background-color:grey;">צפה במשרה <i class="fa fa-arrow-left"></i></a>
-                        </div>
+                        </div>-->
                         <div class="col-sm-6 text-right">
                             <asp:Button ID="postJobButton" runat="server" OnClick="Post_A_Job"  Text="פרסם משרה" CssClass="btn btn-primary btn-lg" ValidationGroup="postJobValidation" />
                         </div>

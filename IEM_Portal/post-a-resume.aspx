@@ -182,9 +182,9 @@
 						<div class="col-sm-6">
 							<h2>פרטים אישיים</h2>
 						</div>
-						<div class="col-sm-6 text-right">
+						<!--<div class="col-sm-6 text-right">
 							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> LinkedIn Import</a>
-						</div>
+						</div>-->
 					</div>
 
                     <!------User details------>
@@ -211,10 +211,6 @@
                             <div class="form-group" id="resume-photo-group">
                                 <label>תמונה</label>
                                 <asp:TextBox ID="resumePhoto" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL"/>
-                                <asp:RegularExpressionValidator ID="resumePhotoValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                    ControlToValidate="resumePhoto"
-                                    ErrorMessage="לא ניתן להזין יותר 255 תווים"
-                                    ValidationExpression="^.{1,255}$" />
                             </div>
                         </div>
 					</div>
@@ -224,11 +220,11 @@
                         <div class="col-sm-3">
                             <div class="form-group" id="resume-birthday-group">
                                 <label>תאריך לידה</label>
-                                <asp:TextBox ID="resumeBirthday" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="DD/MM/YYYY"/>
-                                <asp:RegularExpressionValidator ID="resumeBirthdayValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                <asp:TextBox ID="resumeBirthday" runat="server" CssClass="form-control" TextMode="Date" placeholder="DD/MM/YYYY"/>
+                                <!--<asp:RegularExpressionValidator ID="resumeBirthdayValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                     ControlToValidate="resumeBirthday"
                                     ErrorMessage="תאריך לא חוקי"
-                                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" />
+                                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" />-->
                             </div>
                         </div>
                         <!--phone, limit: phone format-->
@@ -236,10 +232,10 @@
                             <div class="form-group" id="resume-phone-group">
                                 <label>טלפון</label>
                                 <asp:TextBox ID="resumePhone" runat="server" CssClass="form-control" TextMode="Phone" placeholder="1234567899"/>
-                                <asp:RegularExpressionValidator ID="resumePhoneValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                <!--<asp:RegularExpressionValidator ID="resumePhoneValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                      ControlToValidate="resumePhone"
                                      ErrorMessage="פורמט לא חוקי" 
-                                    ValidationExpression="^([0-9]{10})"/>
+                                    ValidationExpression="^([0-9]{10})"/>-->
                             </div>
                         </div>
 
@@ -260,7 +256,7 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-email-group">
 								<label>אימייל</label>
-							    <asp:TextBox ID="resumeEmail" runat="server" CssClass="form-control" TextMode="SingleLine" disabled="disabled"/>
+							    <asp:TextBox ID="resumeEmail" runat="server" CssClass="form-control" TextMode="Email" disabled="disabled"/>
                             </div>
 						</div>
 
@@ -269,7 +265,7 @@
                             <div class="form-group" id="resume-skills-group" style="text-align:right !important; direction:rtl !important;">
                                 <label>מיומנויות</label>
                                 <asp:DropDownCheckBoxes id="resumeSkills" runat="server" class="form-control" UseSelectAllNode="True">
-                                    <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox" DropDownBoxCssClass="checkbox"/>  
+                                    <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>  
                                     <Texts SelectBoxCaption="--בחר מיומנויות--" /> 
                                 </asp:DropDownCheckBoxes>
                             </div>
@@ -302,7 +298,7 @@
                         </div>
 					</div>
 
-                    <!--summary, limit: 255 characters-->
+                    <!--summary, limit: 500 characters-->
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group" id="resume-content-group">
@@ -310,8 +306,8 @@
                                 <asp:TextBox ID="resumeSummary" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="קצת על עצמי" />
                                 <asp:RegularExpressionValidator ID="resumeSummaryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                     ControlToValidate="resumeSummary"
-                                    ErrorMessage="לא ניתן להזין יותר 255 תווים"
-                                    ValidationExpression="^.{1,255}$" />
+                                    ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                    ValidationExpression="^.{1,500}$" />
                             </div>
                         </div>
                     </div>
@@ -369,7 +365,7 @@
 						</div>
 					</div>
 
-                    <!--add another social NW-->
+                    <!--add another highlight-->
 					<div class="row">
 						<div class="col-sm-12">
 							<p><a id="add-highlight">+ הוסף דגש</a></p>
@@ -392,10 +388,7 @@
 							<div class="form-group" id="resume-social-network-url-group">
 								<label>URL</label>
 							    <asp:TextBox ID="resumeSocialNetworkURL" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL" />
-                                <asp:RegularExpressionValidator ID="resumeSocialNetworkURLValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                    ControlToValidate="resumeSocialNetworkURL"
-                                    ErrorMessage="כתובת האתר לא חוקית"
-                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
+
                             </div>
 						</div>
 					</div>
@@ -413,10 +406,6 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-social-network-url-group2">
 							    <table style="width:100%;"><tr><td><asp:TextBox ID="resumeSocialNetworkURL2" runat="server" CssClass="form-control" TextMode="Url" placeholder="URL" /></td><td style="width:12%;"><a id="Del-Social2">- מחק רשת</a></td></tr></table>
-                                <asp:RegularExpressionValidator ID="resumeSocialNetworkURLValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                    ControlToValidate="resumeSocialNetworkURL2"
-                                    ErrorMessage="כתובת האתר לא חוקית"
-                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
                             </div>
 						</div>
 					</div>
@@ -490,15 +479,15 @@
 						    </div>
                         </div>
                         <div class="row">
-                            <!--responsibilities, limit: 255 characters-->
+                            <!--responsibilities, limit: 500 characters-->
 						    <div class="col-sm-12">
 							    <div class="form-group" id="resume-responsibilities-group">
 								    <label>תיאור התפקיד</label>
                                     <asp:TextBox ID="resumeResponsibilities" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
                                     <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                         ControlToValidate="resumeResponsibilities"
-                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                        ValidationExpression="^.{1,255}$" />
+                                        ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                        ValidationExpression="^.{1,500}$" />
 							    </div>
 						    </div>
 					    </div>
@@ -554,15 +543,15 @@
 						    </div>
                         </div>
                         <div class="row">
-                            <!--responsibilities, limit: 255 characters-->
+                            <!--responsibilities, limit: 500 characters-->
 						    <div class="col-sm-12">
 							    <div class="form-group" id="resume-responsibilities-group1">
 								    <label>תיאור התפקיד</label>
                                     <asp:TextBox ID="resumeResponsibilities1" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
                                     <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                         ControlToValidate="resumeResponsibilities1"
-                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                        ValidationExpression="^.{1,255}$" />
+                                        ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                        ValidationExpression="^.{1,500}$" />
 							    </div>
 						    </div>
 					    </div>
@@ -619,15 +608,15 @@
 						    </div>
                         </div>
                         <div class="row">
-                            <!--responsibilities, limit: 255 characters-->
+                            <!--responsibilities, limit: 500 characters-->
 						    <div class="col-sm-12">
 							    <div class="form-group" id="resume-responsibilities-group2">
 								    <label>תיאור התפקיד</label>
                                     <asp:TextBox ID="resumeResponsibilities2" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="לדוגמה: פיתוח אתרי אינטרנט" />
                                     <asp:RegularExpressionValidator ID="resumeResponsibilitiesValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                         ControlToValidate="resumeResponsibilities2"
-                                        ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                        ValidationExpression="^.{1,255}$" />
+                                        ErrorMessage="לא ניתן להזין יותר מ500 תווים"
+                                        ValidationExpression="^.{1,500}$" />
 							    </div>
 						    </div>
 					    </div>
@@ -690,25 +679,14 @@
                         <!--qualification, limit: 20 characters-->
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-qualifications-group">
-								<label>סמכות</label>
+								<label>סוג תעודה</label>
                                 <asp:DropDownList ID="resumeEducation" runat="server" CssClass="form-control">
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="resumeEducationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
                                     ControlToValidate="resumeEducation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
                             </div>
 						</div>
-                        
-                        <!--average, limit: 0-100-->
-                        <!--<div class="col-sm-1">
-                            <div class="form-group" id="resume-avarage-group">
-                                <label>ממוצע</label>
-                                <asp:TextBox ID="resumeAvarage" runat="server" CssClass="form-control" TextMode="SingleLine" />
-                                <asp:RegularExpressionValidator ID="resumeAvarageValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                    ControlToValidate="resumeAvarage"
-                                    ErrorMessage="ציון לא חוקי"
-                                    ValidationExpression="^(?:(?!0)\d{1,2}|100)$" />
-                            </div>
-                        </div>-->
+                       
                     </div>
 
                     <div class="row">

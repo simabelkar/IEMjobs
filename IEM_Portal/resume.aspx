@@ -102,27 +102,33 @@
 
 		<section id="jobsSection">
 			<div class="container">
-				<div class="row">
+                <!-- error message -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger" id="resumeError" runat="server" style="display:none;"></div>
+                    </div>
+                </div>
+				<div class="row" id="mainProfile" runat="server" style="display:none;">
 					<div class="col-sm-8">
 						<article>
 							<h2>פרופיל משתמש</h2>
-                            <div id="userProfile" runat="server" style="display:table-row">
+                            <div class="col-sm-12" id="userProfile" runat="server" style="display:table-row;">
                             </div>
 							
-                            <div id="userSkills" runat="server" style="display:table-row">
+                            <div class="col-sm-12" id="userSkills" runat="server" style="display:table-row;">
                             </div>
 							
-                            <div id="workExperience" runat="server" style="display:table-row">
+                            <div class="col-sm-12" id="workExperience" runat="server" style="display:table-row;">
                             </div>
 							
-                            <div id="education" runat="server" style="display:table-row">
+                            <div class="col-sm-12" id="education" runat="server" style="display:table-row;">
                             </div>
 
 							<!--<p>&nbsp;</p>
 							<p><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-arrow-down"></i> הורד קורות חיים</a></p>-->
 						</article>
 					</div>
-					<div class="col-sm-4" id="sidebar">
+					<div class="col-sm-4" id="sidebar" runat="server" style="display:none;">
 						<div class="sidebar-widget" id="share">
                             <div id="socialNW" runat="server"></div>
 						</div>

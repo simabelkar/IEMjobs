@@ -53,9 +53,12 @@ namespace IEM_Portal
                         String checkUserEduc = "SELECT COUNT (*) FROM User_Education WHERE user_id='" + Session["UserID"].ToString() + "'";
                         SqlCommand educCmd = new SqlCommand(checkUserEduc, con);
                         int educ = Convert.ToInt32(educCmd.ExecuteScalar().ToString());
+                        String checkUserHighlight = "SELECT COUNT (*) FROM User_Highlights WHERE user_id='" + Session["UserID"].ToString() + "'";
+                        SqlCommand highlightCmd = new SqlCommand(checkUserHighlight, con);
+                        int highlight = Convert.ToInt32(highlightCmd.ExecuteScalar().ToString());
                         con.Close();
                         //user already post resume
-                        if ((socialNW >= 1) || (skills >= 1) || (exp >= 1) || educ >= 1)
+                        if ((socialNW >= 1) || (skills >= 1) || (exp >= 1) || (educ >= 1) || (highlight >= 1) )
                         {
                             postResumeError.Style.Remove("display");
                             postResumeError.InnerHtml = "לא ניתן לבצע את הפעולה שנית";
@@ -96,50 +99,74 @@ namespace IEM_Portal
 
         protected void Post_Resume(object sender, EventArgs e)
         {
+            bool isSuccess;
             //all field validation pass
-            if ((resumeTitleValidator.IsValid) && (resumeSummaryValidator.IsValid) && (resumePhotoValidator.IsValid) && (resumeBirthdayValidator.IsValid) &&
-                (resumePhoneValidator.IsValid) && (resumeCategoryValidator.IsValid) && (resumeLocationValidator.IsValid) &&
-                (resumeSocialNetworkURLValidator.IsValid) && (resumeEmployerValidator.IsValid) && (resumeJobTitleValidator.IsValid) &&
-                (resumeResponsibilitiesValidator.IsValid) && (resumeSchoolValidator.IsValid) && (resumeEducationValidator.IsValid) && 
-                (resumeNotesValidator.IsValid))
+            if (//personal details
+                resumeLocationValidator.IsValid && resumeTitleValidator.IsValid && resumeCategoryValidator.IsValid && 
+                resumeSummaryValidator.IsValid && resumeHighlightValidator.IsValid && resumeHighlightValidator2.IsValid && 
+                resumeHighlightValidator3.IsValid && resumeHighlightValidator4.IsValid &&
+                //job experience
+                resumeEmployerValidator.IsValid && resumeEmployerValidator1.IsValid && resumeEmployerValidator2.IsValid && 
+                resumeJobTitleValidator.IsValid && resumeJobTitleValidator1.IsValid && resumeJobTitleValidator2.IsValid &&
+                resumeResponsibilitiesValidator.IsValid && resumeResponsibilitiesValidator1.IsValid && resumeResponsibilitiesValidator2.IsValid &&
+                //education history
+                resumeSchoolValidator.IsValid && resumeEducationValidator.IsValid && resumeNotesValidator.IsValid
+                )
+                
             {
                 
-                //save Users parameter
-                Insert_User(resumeTitle.Text,resumeLocation.SelectedItem.Value,resumeBirthday.Text,resumePhone.Text,resumeSummary.Text,resumePhoto.Text);
+                //update Users parameter
+                isSuccess = Insert_User(resumeTitle.Text, resumeLocation.SelectedItem.Value, resumeBirthday.Text, resumePhone.Text, resumeSummary.Text, resumePhoto.Text);
+
+                //if insert_user failed do not insert any other details to DB
+                if (isSuccess)
+                {
+                    //insert user skills from DDL
+                    Insert_Skills();
+
+                    //insert user highlights1
+                    if (!resumeHighlight1.Equals(""))
+                        Insert_Highlight(resumeHighlight1.Text);
+                    //insert user highlights2
+                    if (!resumeHighlight2.Equals(""))
+                        Insert_Highlight(resumeHighlight2.Text);
+                    //insert user highlights3
+                    if (!resumeHighlight3.Equals(""))
+                        Insert_Highlight(resumeHighlight3.Text);
+                    //insert user highlights4
+                    if (!resumeHighlight4.Equals(""))
+                        Insert_Highlight(resumeHighlight4.Text);
+
+                    //TODO - add resumeCategory to DB
+
+                    //save User_social_NW1 
+                    if (resumeSocialNetwork.SelectedItem.Value != "0" && resumeSocialNetworkURL.Text != "")
+                        Insert_Social_NW(Session["UserID"].ToString(), resumeSocialNetwork.SelectedItem.Value, resumeSocialNetworkURL.Text);
+                    //add another social_NW2
+                    if (resumeSocialNetwork2.SelectedItem.Value != "0" && resumeSocialNetworkURL2.Text != "")
+                        Insert_Social_NW(Session["UserID"].ToString(), resumeSocialNetwork2.SelectedItem.Value, resumeSocialNetworkURL2.Text);
+
+                    //save User_Experience1
+                    if (resumeEmployer.Text != "" && resumeExperienceStartDate.Text != "" && resumeJobTitle.Text != "" && resumeResponsibilities.Text != "")
+                        Insert_Experience(Session["UserID"].ToString(), resumeEmployer.Text, resumeExperienceStartDate.Text, resumeExperienceEndDate.Text, resumeJobTitle.Text, resumeResponsibilities.Text);
+                    //save User_Experience2
+                    if (resumeEmployer1.Text != "" && resumeExperienceEndDate1.Text != "" && resumeJobTitle1.Text != "" && resumeResponsibilities1.Text != "")
+                        Insert_Experience(Session["UserID"].ToString(), resumeEmployer1.Text, resumeExperienceStartDate1.Text, resumeExperienceEndDate1.Text, resumeJobTitle1.Text, resumeResponsibilities1.Text);
+                    //save User_Experience3
+                    if (resumeEmployer2.Text != "" && resumeExperienceEndDate2.Text != "" && resumeJobTitle2.Text != "" && resumeResponsibilities2.Text != "")
+                        Insert_Experience(Session["UserID"].ToString(), resumeEmployer2.Text, resumeExperienceStartDate2.Text, resumeExperienceEndDate2.Text, resumeJobTitle2.Text, resumeResponsibilities2.Text);
 
 
-                //save User_Skills (user_id,skill_id)
-                Insert_Skills();
+                    //TODO - save User_Jobs (user_id,job_id)
 
-                //TODO - add resumeCategory to DB
+                    //save User_Education in case one of the fields is inserted
+                    if (resumeSchool.Text != "" && resumeEducationStratDate.Text != "" && resumeEducation.SelectedItem.Value.ToString() != "0")
+                        Insert_Education(Session["UserID"].ToString(), resumeSchool.Text, resumeEducationStratDate.Text, resumeEducationEndDate.Text, resumeEducation.SelectedItem.Value, resumeNotes.Text);
 
-                //save User_social_NW1 
-                if (resumeSocialNetwork.SelectedItem.Value != "0" && resumeSocialNetworkURL.Text != "")
-                    Insert_Social_NW(Session["UserID"].ToString(), resumeSocialNetwork.SelectedItem.Value, resumeSocialNetworkURL.Text);
-                //add another social_NW2
-                if (resumeSocialNetwork2.SelectedItem.Value != "0" && resumeSocialNetworkURL2.Text != "")
-                    Insert_Social_NW(Session["UserID"].ToString(), resumeSocialNetwork2.SelectedItem.Value, resumeSocialNetworkURL2.Text);
-                
-                //save User_Experience1
-                if (resumeEmployer.Text != "" && resumeExperienceStartDate.Text != "" && resumeJobTitle.Text != "" && resumeResponsibilities.Text != "")
-                    Insert_Experience(Session["UserID"].ToString(),resumeEmployer.Text,resumeExperienceStartDate.Text,resumeExperienceEndDate.Text,resumeJobTitle.Text,resumeResponsibilities.Text);
-                //save User_Experience2
-                if (resumeEmployer1.Text != "" && resumeExperienceEndDate1.Text != "" && resumeJobTitle1.Text != "" && resumeResponsibilities1.Text != "")
-                    Insert_Experience(Session["UserID"].ToString(), resumeEmployer1.Text, resumeExperienceStartDate1.Text, resumeExperienceEndDate1.Text, resumeJobTitle1.Text, resumeResponsibilities1.Text);
-                //save User_Experience3
-                if (resumeEmployer2.Text != "" && resumeExperienceEndDate2.Text != "" && resumeJobTitle2.Text != "" && resumeResponsibilities2.Text != "")
-                    Insert_Experience(Session["UserID"].ToString(), resumeEmployer2.Text, resumeExperienceStartDate2.Text, resumeExperienceEndDate2.Text, resumeJobTitle2.Text, resumeResponsibilities2.Text);
-                
-                
-                //TODO - save User_Jobs (user_id,job_id)
+                    //TODO - add another education
 
-                //save User_Education in case one of the fields is inserted
-                if (resumeSchool.Text != "" && resumeEducationStratDate.Text != "" && resumeEducation.SelectedItem.Value.ToString() != "0")
-                    Insert_Education(Session["UserID"].ToString(), resumeSchool.Text, resumeEducationStratDate.Text, resumeEducationEndDate.Text, resumeEducation.SelectedItem.Value, resumeNotes.Text);
-                
-                //TODO - add another education
-
-                //Response.Redirect("resume.aspx");
+                    Response.Redirect("resume.aspx");
+                }
                 
 
             }
@@ -151,8 +178,9 @@ namespace IEM_Portal
         }
 
         /************************* Check parameters during Post_Resume() *************************/
-        private void Insert_User(String jobTitle, String cityID, String birthday, String phone, String summary, String photoURL)
+        private bool Insert_User(String jobTitle, String cityID, String birthday, String phone, String summary, String photoURL)
         {
+            bool isSuccess = true;
             try
             {
                 String updateUsers = "UPDATE Users SET user_curr_job_title=@userCurrJobTitle ,city_id=@cityID,user_birthday=@userBirthday,user_phone=@userPhone,user_summary=@userSummary,user_photo=@userPhoto WHERE user_email='" + Session["Username"].ToString() + "'";
@@ -170,9 +198,11 @@ namespace IEM_Portal
             }
             catch (Exception ex)
             {
+                isSuccess = false;
                 postResumeError.Style.Remove("display");
-                postResumeError.InnerHtml = ex.Message.ToString();
+                postResumeError.InnerHtml = "Insert_User: " + ex.Message.ToString();
             }
+            return isSuccess;
         }
 
         private void Insert_Social_NW(String userId,String socialNwId, String socialNwURL)
@@ -190,7 +220,7 @@ namespace IEM_Portal
             }
             catch (Exception ex) {
                 postResumeError.Style.Remove("display");
-                postResumeError.InnerHtml = ex.Message.ToString();
+                postResumeError.InnerHtml = "Insert_Social_NW: " + ex.Message.ToString();
             }
         }
 
@@ -224,7 +254,7 @@ namespace IEM_Portal
                 catch (Exception ex)
                 {
                     postResumeError.Style.Remove("display");
-                    postResumeError.InnerHtml = ex.Message.ToString();
+                    postResumeError.InnerHtml = "Insert_Experience: " + ex.Message.ToString();
                 }
             }
         }
@@ -240,8 +270,6 @@ namespace IEM_Portal
             {
                 try
                 {
-                    if (endDate.Equals(""))
-                        endDate = "היום";
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                     con.Open();
                     String insertEducation = "INSERT INTO User_Education (user_id,school_name,start_date,end_date,qualification_id,notes) VALUES (@userId,@schoolName,@startDate,@endDate,@qualification,@notes)";
@@ -258,7 +286,7 @@ namespace IEM_Portal
                 catch (Exception ex)
                 {
                     postResumeError.Style.Remove("display");
-                    postResumeError.InnerHtml = ex.Message.ToString();
+                    postResumeError.InnerHtml = "Insert_Education: " + ex.Message.ToString();
                 }
             }
         }
@@ -286,7 +314,25 @@ namespace IEM_Portal
             catch (Exception ex)
             {
                 postResumeError.Style.Remove("display");
-                postResumeError.InnerHtml = ex.Message.ToString();
+                postResumeError.InnerHtml = "Insert_Skills: " + ex.Message.ToString();
+            }
+        }
+
+        private void Insert_Highlight(String highlight)
+        {
+            try {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
+                con.Open();
+                String insertHighlight = "INSERT INTO User_Highlights (user_id,highlight) VALUES (@userId,@highlight)";
+                SqlCommand setUserHighlightCmd = new SqlCommand(insertHighlight, con);
+                setUserHighlightCmd.Parameters.AddWithValue("@userId", Session["UserID"].ToString());
+                setUserHighlightCmd.Parameters.AddWithValue("@highlight", highlight);
+                setUserHighlightCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                postResumeError.Style.Remove("display");
+                postResumeError.InnerHtml = "Insert_Highlight: " + ex.Message.ToString();
             }
         }
 
@@ -383,7 +429,6 @@ namespace IEM_Portal
                     resumeSkills.DataTextField = "skill";
                     resumeSkills.DataValueField = "skill_id";
                     resumeSkills.DataBind();
-                    resumeSkills.Items.Insert(0, new ListItem("--בחר מיומנויות--", "0"));
                 }
                 catch (Exception ex)
                 {

@@ -43,6 +43,9 @@
       <HintPath>bin\DropDownCheckBoxes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MSCaptcha">
+      <HintPath>..\..\..\..\..\..\Downloads\Captcha4Sample\bin\MSCaptcha.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,6 +77,7 @@
     <Content Include="css\jquery.nouislider.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style.css" />
+    <Content Include="edit-resume.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="homepage.aspx" />
@@ -170,6 +174,14 @@
     <Compile Include="candidates.aspx.designer.cs">
       <DependentUpon>candidates.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Captcha.cs" />
+    <Compile Include="edit-resume.aspx.cs">
+      <DependentUpon>edit-resume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit-resume.aspx.designer.cs">
+      <DependentUpon>edit-resume.aspx</DependentUpon>
+    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +244,7 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

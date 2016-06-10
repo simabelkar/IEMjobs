@@ -35,7 +35,7 @@ namespace IEM_Portal
                 try
                 {
                     String SQLquery_Companies = "INSERT INTO Companies (company_name,company_desc,company_email,company_site,company_logo) VALUES (@companyName,@companyDesc,@companyEmail,@companyWebsite,@companyLogo)";
-                    String SQLquery_Jobs = "INSERT INTO Jobs  (job_title,job_desc,job_req,company_id) VALUES (@jobTitle,@jobDesc,@jobReq,@companyId)";
+                    String SQLquery_Jobs = "INSERT INTO Jobs  (job_title,job_desc,job_req,company_id, timestamp) VALUES (@jobTitle,@jobDesc,@jobReq,@companyId,@timeStamp)";
                     String SQLquery_JobsCategories = "INSERT INTO Jobs_Categories (job_id,category_id,sub_category_id) VALUES (@jobID,@jobCategory,@jobSubCategory)";
                     String SQLquery_JobsCities = "INSERT INTO Jobs_Cities (job_id,city_id) VALUES (@jobID, @cityID) ";
                     String SQLquery_JobsScopes = "INSERT INTO Jobs_Scopes (job_id,scope_id) VALUES (@jobID,@jobScope)";
@@ -57,7 +57,7 @@ namespace IEM_Portal
                     cmd.CommandText = "SELECT IDENT_CURRENT('Companies');";
                     int id = Convert.ToInt32(cmd.ExecuteScalar());
                     
-
+                    DateTime currentTime = DateTime.Now;
                     cmd = new SqlCommand(SQLquery_Jobs, con);
                     //save job parameters
                     //cmd.Parameters.AddWithValue("@ID", newGuid.ToString());
@@ -65,6 +65,7 @@ namespace IEM_Portal
                     cmd.Parameters.AddWithValue("@jobDesc", jobDescription.Text);
                     cmd.Parameters.AddWithValue("@jobReq", jobRequirement.Text);
                     cmd.Parameters.AddWithValue("@companyId", id);
+                    cmd.Parameters.AddWithValue("@timeStamp", currentTime);
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "SELECT IDENT_CURRENT('Jobs');";
                     id = Convert.ToInt32(cmd.ExecuteScalar());

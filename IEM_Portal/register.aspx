@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="IEM_Portal.register" %>
+<%@ Register Assembly="MSCaptcha" Namespace="MSCaptcha" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 
@@ -14,6 +15,7 @@
 
 		<!-- Main Stylesheet -->
 		<link href="css/style.css" rel="stylesheet">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -74,6 +76,16 @@
                         ErrorMessage="הסיסמא חייבת להכיל בין 6 ל10 תווים"
                         ValidationExpression="^[a-zA-Z0-9'@&#.\s]{6,10}$" />
             </div>
+            <div>
+                <cc1:CaptchaControl ID="CaptchaControl1" runat="server" Height="50px" 
+                        Width="180px" CaptchaLength="5" BackColor="White" 
+                        EnableViewState="False" />
+                <br />
+                <asp:label ID="label1" Text="אנא הכנס את התווים שבתמונה:  " runat="server"></asp:label>
+                <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
+            </div>
+            <br />
+            <br />
             <asp:Button ID="registerSubmitBtn" runat="server" OnClick="registerSubmitBtn_Click" Text="הרשם" CssClass="btn btn-primary" ValidationGroup="registerValidation" />
 		</form>
 	</div>

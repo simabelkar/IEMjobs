@@ -63,6 +63,8 @@ namespace IEM_Portal
                         jobDetails.InnerHtml = details;
                     }
                 }
+                con.Close();
+                con.Open();
                 SqlCommand companyCmd = new SqlCommand(selectCompany, con);
                 dr = companyCmd.ExecuteReader();
                 if (dr.HasRows)
@@ -81,7 +83,7 @@ namespace IEM_Portal
                             companyDetails += "<p>" + dr.GetString(0) + "</p>";
 
                         if (dr["company_site"] != DBNull.Value)
-                            companyDetails += "<p><a href=\"" + dr.GetString(2) + "\" class=\"btn btn-primary\">קרא עוד</a></p>";
+                            companyDetails += "<p><a href=\"" + dr.GetString(2) + "\" class=\"btn btn-primary\">לאתר החברה</a></p>";
 
                         company.InnerHtml = companyDetails;
                     }

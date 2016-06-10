@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Web.Security;
 
 namespace IEM_Portal
 {
@@ -37,8 +38,10 @@ namespace IEM_Portal
                     String checkPassword = "SELECT user_password FROM Users WHERE user_email='" + loginUsername.Text + "'";
                     SqlCommand passCmd = new SqlCommand(checkPassword, con);
                     string passwordquer = passCmd.ExecuteScalar().ToString();
+                    //hash the inserted PWD
+                    String hashedPWD = hashPassword(loginPassword.Text);
                     //password is correct
-                    if (passwordquer == loginPassword.Text)
+                    if (passwordquer == hashedPWD)
                     {
                         String selectFname = "SELECT user_fname FROM Users WHERE user_email='" + loginUsername.Text + "'";
                         SqlCommand fnameCmd = new SqlCommand(selectFname, con);
@@ -52,7 +55,7 @@ namespace IEM_Portal
                         int userId = Convert.ToInt32(getUserIDCmd.ExecuteScalar());
                         Session["UserID"] = userId;
 
-                        Response.Redirect(Session["Dest_Page"].ToString());
+                        Response.Redirect(Session["Dest_Page"].ToString(),false);
                     }
                     //password is not correct
                     else
@@ -74,6 +77,15 @@ namespace IEM_Portal
                 loginError.InnerHtml = ex.Message.ToString();
                 loginError.Visible = true;
             }
+        }
+
+        protected String hashPassword(String origPwd)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(origPwd);
+            System.Security.Cryptography.SHA256Managed sha256HashString = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256HashString.ComputeHash(bytes);
+            String hex = BitConverter.ToString(hash);
+            return hex.Replace("-", "");
         }
     }
 }

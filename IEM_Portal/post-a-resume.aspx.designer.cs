@@ -67,15 +67,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox resumePhoto;
         
         /// <summary>
-        /// resumePhotoValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumePhotoValidator;
-        
-        /// <summary>
         /// resumeBirthday control.
         /// </summary>
         /// <remarks>
@@ -292,15 +283,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox resumeSocialNetworkURL;
         
         /// <summary>
-        /// resumeSocialNetworkURLValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeSocialNetworkURLValidator;
-        
-        /// <summary>
         /// resumeSocialNetwork2 control.
         /// </summary>
         /// <remarks>
@@ -317,15 +299,6 @@ namespace IEM_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox resumeSocialNetworkURL2;
-        
-        /// <summary>
-        /// resumeSocialNetworkURLValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeSocialNetworkURLValidator2;
         
         /// <summary>
         /// resumeEmployer control.
@@ -596,24 +569,6 @@ namespace IEM_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator resumeEducationValidator;
-        
-        /// <summary>
-        /// resumeAvarage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox resumeAvarage;
-        
-        /// <summary>
-        /// resumeAvarageValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeAvarageValidator;
         
         /// <summary>
         /// resumeNotes control.
