@@ -43,8 +43,9 @@
       <HintPath>bin\DropDownCheckBoxes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MSCaptcha">
-      <HintPath>..\..\..\..\..\..\Downloads\Captcha4Sample\bin\MSCaptcha.dll</HintPath>
+    <Reference Include="MSCaptcha, Version=4.0.4250.31585, Culture=neutral, PublicKeyToken=b9ff12f28cdcf412, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MSCaptcha.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -161,6 +162,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="login.aspx" />
+    <Content Include="MSCaptcha.dll" />
     <Content Include="post-a-job.aspx" />
     <Content Include="post-a-resume.aspx" />
     <Content Include="register.aspx" />
