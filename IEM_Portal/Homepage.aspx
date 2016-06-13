@@ -50,8 +50,8 @@
 					<li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
                     <li><a href="edit-resume.aspx">עדכן קורות חיים</a></li>
                     <li><a href="resume.aspx">פרופיל משתמש</a></li>
-					<li><a class="link-register">הירשם</a></li>
-					<li><a class="link-login">התחבר</a></li>
+					<li><a href="register.aspx">הירשם</a></li>
+					<li><a href="login.aspx">התחבר</a></li>
 				</ul>		
 			</div>
 			<!-- end Menu -->
@@ -59,8 +59,9 @@
 
 		<!-- ============ NAVBAR END ============ -->
 
+        <form runat="server">
 		<!-- ============ HEADER START ============ -->
-
+        
 		<header>
 			<div id="header-background"></div>
 			<div class="container">
@@ -70,30 +71,19 @@
 				<div id="menu-open" class="pull-left">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
 				</div>
-				<!--<div id="searchbox" class="pull-right">
-					<form>
-						<div class="form-group">
-							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
-						</div>
-					</form>
-				</div>-->
-				<div id="search" class="pull-right">
-					<a><i class="fa fa-search fa-lg"></i></a>
-				</div>
-                <form runat="server">
-                    <div class="pull-right">
-                        <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
-                        <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
-                        <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
-                    </div>
-                    <div class="pull-left text-left">
-                        <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
-                    </div>
-                </form>
+                <!--login button\user name-->
+                <div class="pull-right">
+                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                    <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
+                    <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
+                </div>
+                <!--register button-->
+                <div class="pull-left text-left">
+                    <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
+                </div>
            </div>
 		</header>
-
+        
 		<!-- ============ HEADER END ============ -->
 
 		<!-- ============ SLIDES START ============ -->
@@ -623,25 +613,8 @@
             </div>
         </section>
         <!-- ============ TESTIMONIALS END ============ -->
-
-		<!-- ============ REGISTER START ============ -->
-
-		<section id="register_section" class="color2">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-5">
-					</div>
-					<div class="col-sm-offset-1 col-sm-6">
-						<h2>עדיין לא רשום?</h2>
-                        <a class="btn btn-lg btn-default link-register">הירשם עכשיו</a>
-						<p>&nbsp;</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ REGISTER END ============ -->
-
+        
+        </form>
 
 		<!-- ============ FOOTER START ============ -->
 

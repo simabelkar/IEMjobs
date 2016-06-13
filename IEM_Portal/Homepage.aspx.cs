@@ -16,20 +16,20 @@ namespace IEM_Portal
         {
             Session["Dest_Page"] = "homepage.aspx";
 
-            //displayName is not null
+            //------ manage login logout ------ 
             if(Session["Name"] != null)
             {
                 String name = Session["Name"].ToString();
+                //user is not logged in
                 if((name == "") || (name == "אורח") )
                 {
-                    //loggedin user is empty
                     Session["Name"] = "אורח";
                     loggedInUser.InnerHtml = Session["Name"].ToString();
                     //display loginBtn and registerBtn 
                     loginBtn.Style.Remove("display");
                     registerBtn.Style.Remove("display");
                 }
-                //username is display
+                //user is logged in
                 else
                 {
                     loggedInUser.InnerHtml = Session["Name"].ToString();
@@ -46,6 +46,7 @@ namespace IEM_Portal
                 Session["Name"] = "אורח";
                 loggedInUser.InnerHtml = Session["Name"].ToString();
             }
+            //------ end manage login logout ------
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)

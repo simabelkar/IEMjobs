@@ -24,9 +24,11 @@ namespace IEM_Portal
                 Populate_Educations_List();
             }
 
+            //------ manage login logout ------
             if (Session["Name"] != null)
             {
                 String Name = Session["Name"].ToString();
+                //user is not logged in
                 if ((Name == "") || (Name == "אורח"))
                 {
                     Session["Dest_Page"] = "post-a-resume.aspx";
@@ -35,6 +37,13 @@ namespace IEM_Portal
                 //user is logged in
                 else
                 {
+                    loggedInUser.InnerHtml = Session["Name"].ToString();
+                    //remove loginBtn and registerBtn 
+                    loginBtn.Style.Add("display", "none");
+                    registerBtn.Style.Add("display", "none");
+                    //add logoutBtn
+                    logoutBtn.Style.Remove("display");
+
                     try
                     {
                         //check if user already post resume
@@ -93,6 +102,7 @@ namespace IEM_Portal
                     }
                 }
             }
+            //------ end manage login logout ------
 
 
         }
@@ -175,6 +185,18 @@ namespace IEM_Portal
                 postResumeError.Style.Remove("display");
                 postResumeError.InnerHtml = "חובה למלא את כל השדות מסומנים באדום";
             }
+        }
+
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = "אורח";
+            Response.Redirect("homepage.aspx");
+            //remove logoutBtn
+            logoutBtn.Style.Add("display", "none");
+            //add loginBtn and registerBtn 
+            loginBtn.Style.Remove("display");
+            registerBtn.Style.Remove("display");
         }
 
         /************************* Check parameters during Post_Resume() *************************/

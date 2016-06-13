@@ -21,6 +21,36 @@ namespace IEM_Portal
                 Populate_Job_Location_List();
                 Populate_Job_Scope_List();
             }
+
+            //------ manage login logout ------ 
+            if (Session["Name"] != null)
+            {
+                String name = Session["Name"].ToString();
+                //user is not logged in
+                if ((name == "") || (name == "אורח"))
+                {
+                    Session["Dest_Page"] = "jobs.aspx";
+                    Response.Redirect("login.aspx");
+                }
+                //user is logged in
+                else
+                {
+                    loggedInUser.InnerHtml = Session["Name"].ToString();
+                    //remove loginBtn and registerBtn 
+                    loginBtn.Style.Add("display", "none");
+                    registerBtn.Style.Add("display", "none");
+                    //add logoutBtn
+                    logoutBtn.Style.Remove("display");
+                }
+            }
+            //displayName is null
+            else
+            {
+                Session["Name"] = "אורח";
+                loggedInUser.InnerHtml = Session["Name"].ToString();
+            }
+            //------ end manage login logout ------
+
         }
 
         protected void Search_Jobs(object sender, EventArgs e)
@@ -109,6 +139,16 @@ namespace IEM_Portal
 
         }
 
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = "אורח";
+            Response.Redirect("homepage.aspx");
+            //remove logoutBtn
+            logoutBtn.Style.Add("display", "none");
+            //add loginBtn and registerBtn 
+            loginBtn.Style.Remove("display");
+            registerBtn.Style.Remove("display");
+        }
 
         /************************* Check boxes selection *************************/
         protected void jobSearchCategory_SelectedIndexChanged(object sender, EventArgs e)

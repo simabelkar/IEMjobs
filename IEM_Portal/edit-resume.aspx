@@ -24,68 +24,203 @@
     </head>
 
     <body>
-        <form id="form1" runat="server">
-            <!-- ============ PAGE LOADER START ============ -->
-		    <div id="loader">
-			    <i class="fa fa-cog fa-4x fa-spin"></i>
-		    </div>
-		    <!-- ============ PAGE LOADER END ============ -->
+        
+        <!-- ============ PAGE LOADER START ============ -->
+		<div id="loader">
+			<i class="fa fa-cog fa-4x fa-spin"></i>
+		</div>
+		<!-- ============ PAGE LOADER END ============ -->
 
-            <!-- ============ NAVBAR START ============ -->
-            <div class="fm-container">
-                <div class="menu">
-                    <!--close button-->
-				    <div class="button-close text-right">
-					    <a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
+        <!-- ============ NAVBAR START ============ -->
+        <div class="fm-container">
+            <div class="menu">
+                <!--close button-->
+				<div class="button-close text-right">
+					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
+				</div>
+                <!--menu options-->
+				<ul class="nav">
+					<li><a href="#home">דף הבית</a></li>
+					<li><a href="jobs.aspx">משרות</a></li>
+					<li><a href="post-a-job.aspx">פרסם משרה</a></li>
+					<li><a href="candidates.aspx">מועמדים</a></li>
+					<li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
+                    <li class="active"><a href="edit-resume.aspx">עדכן קורות חיים</a></li>
+                    <li><a href="resume.aspx">פרופיל משתמש</a></li>
+					<li><a href="register.aspx">הירשם</a></li>
+					<li><a href="login.aspx">התחבר</a></li>
+				</ul>		
+			</div>
+			<!-- end Menu -->
+        </div>
+		<!-- ============ NAVBAR END ============ -->
+            	
+        <form runat="server">	
+        <!-- ============ HEADER START ============ -->
+
+		<header>
+			<div id="header-background"></div>
+			<div class="container">
+				<div class="pull-right">
+					<div id="logo"><a href="homepage.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
+				</div>
+				<div id="menu-open" class="pull-left">
+					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
+				</div>
+                <!--login button\user name-->
+                <div class="pull-right">
+                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                    <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
+                    <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
+                </div>
+                <!--register button-->
+                <div class="pull-left text-left">
+                    <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
+                </div>
+			</div>
+		</header>
+
+		<!-- ============ HEADER END ============ -->
+
+        <!-- ============ TITLE START ============ -->
+
+		<section id="titleSection">
+			<div class="container">
+				<div class="row text-center">
+					<h1>עדכן קורות חיים</h1>
+					<h4>הגדל את סיכוייך למציאת עבודה</h4>
+                    <p>&nbsp;</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ TITLE END ============ -->
+
+        <!-- ============ EDIT RESUME START ============ -->
+
+        <section id="editResume">
+            <div class="container">
+                <!--error message-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger" id="editResumeError" runat="server" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Resume Details Start -->
+			    <div class="row">
+				    <div class="col-sm-6">
+					    <h2>פרטים אישיים</h2>
 				    </div>
-                    <!--menu options-->
-				    <ul class="nav">
-					    <li class="active"><a href="#home">דף הבית</a></li>
-					    <li><a href="jobs.aspx">משרות</a></li>
-					    <li><a href="post-a-job.aspx">פרסם משרה</a></li>
-					    <li><a href="candidates.aspx">מועמדים</a></li>
-					    <li><a href="post-a-resume.aspx">פרסם קורות חיים</a></li>
-                        <li><a href="resume.aspx">פרופיל משתמש</a></li>
-					    <li><a class="link-register">הירשם</a></li>
-					    <li><a class="link-login">התחבר</a></li>
-				    </ul>		
 			    </div>
-			    <!-- end Menu -->
+                <!------ User details ------>
+                <!--(fName,lName,photo, birthday,phone,city,email,skills,currentPos,jobCategory,Summary)-->
+			    <div id="personalDetails" runat="server">
+                
+                </div>
+                <!--(4 highlight)-->
+			    <div id="highlights" runat="server">
+
+                </div>
+                <!--(2 social networks)-->
+			    <div id="socialNW" runat="server">
+
+                </div>
+                <!--(3 Experiences: employerName,startDate,endDate,jobTitle,resp.)-->
+			    <div id="Experience" runat="server">
+
+                </div>
+                <!--(2 Educations: schoolName,startDate,endDate,qualification,notes)-->
+                <div id="Educations" runat="server">
+
+                </div>
+                <!------ User Details End ------>
             </div>
-		    <!-- ============ NAVBAR END ============ -->
-            		
-            <!-- ============ HEADER START ============ -->
-		    <header>
-			    <div id="header-background"></div>
-			    <div class="container">
-				    <div class="pull-right">
-					    <div id="logo"><a href="homepage.aspx"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
-				    </div>
-				    <div id="menu-open" class="pull-left">
-					    <a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
-				    </div>
-				    <!--<div id="searchbox" class="pull-right">
-						<div class="form-group">
-							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+            
+        </section>
+
+        <!-- ============ EDIT RESUME END ============ -->
+
+        <!-- ============ FOOTER START ============ -->
+
+		<footer>
+			<div id="prefooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" id="social-networks">
+							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
+							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
 						</div>
-				    </div>
-				    <div id="search" class="pull-right">
-					    <a><i class="fa fa-search fa-lg"></i></a>
-				    </div>-->
-                    <div class="pull-right">
-                        <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
-                        <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
-                        <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
-                    </div>
-                    <div class="pull-left text-left">
-                        <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
-                    </div>
-			    </div>
-		    </header>
-		    <!-- ============ HEADER END ============ -->
-
-
+					</div>
+				</div>
+			</div>
+			<div id="credits">
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-sm-12">
+							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
+							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- ============ FOOTER END ============ -->
         </form>
+
+        <!-- Modernizr Plugin -->
+		<script src="js/modernizr.custom.79639.js"></script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+
+		<!-- Bootstrap Plugins -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Retina Plugin -->
+		<script src="js/retina.min.js"></script>
+
+		<!-- ScrollReveal Plugin -->
+		<script src="js/scrollReveal.min.js"></script>
+
+		<!-- Flex Menu Plugin -->
+		<script src="js/jquery.flexmenu.js"></script>
+
+		<!-- Slider Plugin -->
+		<script src="js/jquery.ba-cond.min.js"></script>
+		<script src="js/jquery.slitslider.js"></script>
+
+		<!-- Carousel Plugin -->
+		<script src="js/owl.carousel.min.js"></script>
+
+		<!-- Parallax Plugin -->
+		<script src="js/parallax.js"></script>
+
+		<!-- Counterup Plugin -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<script src="js/waypoints.min.js"></script>
+
+		<!-- No UI Slider Plugin -->
+		<script src="js/jquery.nouislider.all.min.js"></script>
+
+		<!-- Bootstrap Wysiwyg Plugin -->
+		<script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+
+		<!-- Flickr Plugin -->
+		<script src="js/jflickrfeed.min.js"></script>
+
+		<!-- Fancybox Plugin -->
+		<script src="js/fancybox.pack.js"></script>
+
+		<!-- Magic Form Processing -->
+		<script src="js/magic.js"></script>
+
+		<!-- jQuery Settings -->
+		<script src="js/settings.js" charset="utf-8"></script>
     </body>
 </html>

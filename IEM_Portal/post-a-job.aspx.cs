@@ -21,6 +21,29 @@ namespace IEM_Portal
                 Populate_Job_Location_List();
                 Populate_Job_Scope_List();
             }
+
+            //------ manage login logout ------
+            if (Session["Name"] != null)
+            {
+                String Name = Session["Name"].ToString();
+                //user is not logged in
+                if ((Name == "") || (Name == "אורח"))
+                {
+                    Session["Dest_Page"] = "post-a-job.aspx";
+                    Response.Redirect("login.aspx");
+                }
+                //user is logged in
+                else
+                {
+                    loggedInUser.InnerHtml = Session["Name"].ToString();
+                    //remove loginBtn and registerBtn 
+                    loginBtn.Style.Add("display", "none");
+                    registerBtn.Style.Add("display", "none");
+                    //add logoutBtn
+                    logoutBtn.Style.Remove("display");
+                }
+            }
+            //------ end manage login logout ------
         }
 
         protected void Post_A_Job(object sender, EventArgs e)
@@ -110,6 +133,18 @@ namespace IEM_Portal
             }
         }
 
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = "אורח";
+            Response.Redirect("homepage.aspx");
+            //remove logoutBtn
+            logoutBtn.Style.Add("display", "none");
+            //add loginBtn and registerBtn 
+            loginBtn.Style.Remove("display");
+            registerBtn.Style.Remove("display");
+        }
+
+        /************************* Populate Drop Down lists during Page_Load() *************************/
         protected void Populate_Job_Category_List()
         {
             String SQLquery = "SELECT category, category_id FROM Categories ORDER BY category_id";

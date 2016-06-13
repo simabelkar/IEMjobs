@@ -20,8 +20,44 @@ namespace IEM_Portal
             jobId = Request.QueryString["Job_ID"];
             companyId = Request.QueryString["Company_ID"];
             display_job_details();
+
+            //------ manage login logout ------
+            if (Session["Name"] != null)
+            {
+                String Name = Session["Name"].ToString();
+                //user is not logged in
+                if ((Name == "") || (Name == "אורח"))
+                {
+                    Session["Dest_Page"] = "job-details.aspx";
+                    Response.Redirect("login.aspx");
+                }
+                //user is logged in
+                else
+                {
+                    loggedInUser.InnerHtml = Session["Name"].ToString();
+                    //remove loginBtn and registerBtn 
+                    loginBtn.Style.Add("display", "none");
+                    registerBtn.Style.Add("display", "none");
+                    //add logoutBtn
+                    logoutBtn.Style.Remove("display");
+                }
+            }
+            //------ end manage login logout ------
         }
 
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = "אורח";
+            Response.Redirect("homepage.aspx");
+            //remove logoutBtn
+            logoutBtn.Style.Add("display", "none");
+            //add loginBtn and registerBtn 
+            loginBtn.Style.Remove("display");
+            registerBtn.Style.Remove("display");
+        }
+
+        /************************* display parameters during Page_Loag() *************************/
         private void display_job_details()
         {
             try
@@ -95,5 +131,6 @@ namespace IEM_Portal
                 //TODO
             }
         }
+
     }
 }
