@@ -1997,6 +1997,13 @@ header {
         .testt{
             text-align:right !important;
         }
+        .DDcheckbox {
+ 			color: #888;
+ 			text-transform: none;
+             text-align:right;
+             direction:rtl;
+             align-items:baseline;
+ 		}
         div.dd_chk_drop {
             text-align:right !important;
         }

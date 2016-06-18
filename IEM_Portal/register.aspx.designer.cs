@@ -67,15 +67,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox registerUsername;
         
         /// <summary>
-        /// registerUsernameVal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator registerUsernameVal;
-        
-        /// <summary>
         /// registerPassword control.
         /// </summary>
         /// <remarks>

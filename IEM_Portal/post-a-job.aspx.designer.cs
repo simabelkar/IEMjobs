@@ -229,15 +229,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox companyEmail;
         
         /// <summary>
-        /// companyEmailValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyEmailValidator;
-        
-        /// <summary>
         /// companyWebsite control.
         /// </summary>
         /// <remarks>
@@ -247,15 +238,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox companyWebsite;
         
         /// <summary>
-        /// companyWebsiteValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyWebsiteValidator;
-        
-        /// <summary>
         /// companyLogo control.
         /// </summary>
         /// <remarks>
@@ -263,15 +245,6 @@ namespace IEM_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox companyLogo;
-        
-        /// <summary>
-        /// companyLogoValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator companyLogoValidator;
         
         /// <summary>
         /// postJobButton control.

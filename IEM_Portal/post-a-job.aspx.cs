@@ -52,8 +52,7 @@ namespace IEM_Portal
             //all field validation pass
             if((jobTitleValidator.IsValid) && (jobDescriptionValidator.IsValid) && (jobRequirementValidator.IsValid) && 
                 (jobCategoryValidator.IsValid) && (jobSubCategoryValidator.IsValid) && (jobLocationValidator.IsValid) && 
-                (jobScopeValidator.IsValid) && (companyNameValidator.IsValid) && (companyDescriptionValidator.IsValid) && 
-                (companyEmailValidator.IsValid) && (companyWebsiteValidator.IsValid) && (companyLogoValidator.IsValid))
+                (jobScopeValidator.IsValid) && (companyNameValidator.IsValid) && (companyDescriptionValidator.IsValid))
             {
                 try
                 {

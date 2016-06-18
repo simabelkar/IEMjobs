@@ -27,7 +27,7 @@ namespace IEM_Portal
         /************************* Populate Drop Down lists during Page_Load() *************************/
         protected void Populate_Education_List()
         {
-            String SQLquery = "SELECT education, education_id FROM Educations ORDER BY education_id";
+            String SQLquery = "SELECT qualification, qualification_id FROM Educations ORDER BY qualification_id";
             DataTable subject = new DataTable();
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString))
             {
@@ -36,8 +36,8 @@ namespace IEM_Portal
                     SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
                     adapter.Fill(subject);
                     candidateSearchEducation.DataSource = subject;
-                    candidateSearchEducation.DataTextField = "education";
-                    candidateSearchEducation.DataValueField = "education_id";
+                    candidateSearchEducation.DataTextField = "qualification";
+                    candidateSearchEducation.DataValueField = "qualification_id";
                     candidateSearchEducation.DataBind();
                 }
                 catch (Exception ex)
@@ -143,24 +143,24 @@ namespace IEM_Portal
         protected String candidateSearchLocation_SelectedValue()
         {
             bool isFirst = true;
-            String selected_cities = "(";
+            String selected_regions = "(";
             foreach (ListItem selectedItem in (candidateSearchLocation as ListControl).Items)
             {
                 if (selectedItem.Selected)
                 {
                     if (isFirst)
                     {
-                        selected_cities += "'" + selectedItem.Value + "' ";
+                        selected_regions += "'" + selectedItem.Value + "' ";
                         isFirst = false;
                     }
                     else
-                        selected_cities += ",'" + selectedItem.Value + "' ";
+                        selected_regions += ",'" + selectedItem.Value + "' ";
                 }
             }
-            selected_cities += ")";
-            if (selected_cities.Equals("()"))
+            selected_regions += ")";
+            if (selected_regions.Equals("()"))
                 return "";
-            return " Users.city_id IN " + selected_cities + " ";
+            return " Cities.region_id  IN " + selected_regions + " ";
         }
 
         protected String candidateSearchEducation_SelectedValue()
@@ -196,6 +196,8 @@ namespace IEM_Portal
             String SQLQuery = "SELECT Users.user_fname, Users.user_lname, Users.user_curr_job_title, Users.user_photo, Cities.city " +
                             "FROM Users " +
                             "INNER JOIN Cities ON Users.city_id = Cities.city_id " +
+                            "INNER JOIN User_Education ON Users.user_id = User_Education.user_id " +
+                            "INNER JOIN Educations ON Educations.qualification_id = User_Education.qualification_id " +
                             "WHERE" + locationCondition + "AND" + educationCondition + 
                             "ORDER BY Users.user_fname ASC";
             if (!locationCondition.Equals("") && !educationCondition.Equals(""))
@@ -234,10 +236,8 @@ namespace IEM_Portal
                         //TODO
                         //modify date and user job category
                         Html += "<div class=\"hidden-xs hidden-sm hidden-md col-lg-3\">" +
-                                "<p class=\"candidate-date\">עודכן לפני 3 שבועות</p>" +
                                 "<p class=\"candidate-tags\">" +
                                 "<span class=\"badge\">ניהול</span>" +
-                                "<span class=\"badge\">תפעול</span>" +
                                 "</p></div>";
 
                         Html += "</div>" + "</a>";

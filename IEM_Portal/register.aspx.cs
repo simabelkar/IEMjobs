@@ -65,8 +65,7 @@ namespace IEM_Portal
             else
             {
                 //all parameters are valid
-                if ((registerFnameVal.IsValid) && (registerLnameVal.IsValid) && registerUsernameVal.IsValid &&
-                    (registerPasswordVal.IsValid))
+                if ((registerFnameVal.IsValid) && (registerLnameVal.IsValid) && (registerPasswordVal.IsValid))
                 {
                     String hashPwd = hashPassword(registerPassword.Text);
                     try
