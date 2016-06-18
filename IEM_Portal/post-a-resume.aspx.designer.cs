@@ -103,6 +103,15 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.TextBox resumeBirthday;
         
         /// <summary>
+        /// resumeBirthdayValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeBirthdayValidator;
+        
+        /// <summary>
         /// resumePhone control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,15 @@ namespace IEM_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox resumePhone;
+        
+        /// <summary>
+        /// resumePhoneValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumePhoneValidator;
         
         /// <summary>
         /// resumeLocation control.

@@ -63,6 +63,10 @@
 			<div class="form-group">
 				<label>אימייל</label>
 				<asp:TextBox ID="registerUsername" runat="server" CssClass="form-control" TextMode="Email" required="required" />
+                <asp:RegularExpressionValidator ID="registerUsernameVal" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="registerValidation"
+                        ControlToValidate="registerUsername"
+                        ErrorMessage="כתובת מייל לא חוקית"
+                        ValidationExpression="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" />
 			</div>
 			<div class="form-group">
 				<label>סיסמא</label>

@@ -215,30 +215,30 @@
                             <div class="form-group" id="company-email-group">
                                 <label">אימייל למשלוח קורות חיים <span style="color:red;">*</span></label>
                                 <asp:TextBox ID="companyEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="you@yourdomain.com" required="required"/>
-                                <!--<asp:RegularExpressionValidator ID="companyEmailValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                <asp:RegularExpressionValidator ID="companyEmailValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="companyEmail"
                                     ErrorMessage="כתובת מייל לא חוקית"
-                                    ValidationExpression="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" />-->
+                                    ValidationExpression="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" />
                             </div>
 
                             <!--company website, limit: website address format-->
 							<div class="form-group" id="company-website-group">
 								<label>אתר החברה</label>
-								<asp:TextBox ID="companyWebsite" runat="server" CssClass="form-control" TextMode="Url" placeholder="http://"/>
-							    <!--<asp:RegularExpressionValidator ID="companyWebsiteValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+								<asp:TextBox ID="companyWebsite" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="http://"/>
+							    <asp:RegularExpressionValidator ID="companyWebsiteValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="companyWebsite"
                                     ErrorMessage="כתובת האתר לא חוקית"
-                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />-->
+                                    ValidationExpression="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" />
                             </div>
 
                             <!--company logo (URL), limit: 255 characters-->
 							<div class="form-group" id="company-logo-group">
 								<label>לוגו</label>
                                 <asp:TextBox ID="companyLogo" runat="server" CssClass="form-control" TextMode="Url" placeholder="image URL: 60X60" />
-                                <!--<asp:RegularExpressionValidator ID="companyLogoValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
+                                <asp:RegularExpressionValidator ID="companyLogoValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postJobValidation"
                                     ControlToValidate="companyLogo"
                                     ErrorMessage="לא ניתן להזין יותר 255 תווים"
-                                    ValidationExpression="^.{1,255}$" />-->
+                                    ValidationExpression="^.{1,255}$" />
 							</div>
 						</div>
 					</div>
@@ -249,7 +249,7 @@
                         <!--<div class="col-sm-6 text-left">
                             <a href="#" class="btn btn-primary btn-lg" style="background-color:grey;">צפה במשרה <i class="fa fa-arrow-left"></i></a>
                         </div>-->
-                        <div class="col-sm-6 text-left">
+                        <div class="col-sm-6 text-right">
                             <asp:Button ID="postJobButton" runat="server" OnClick="Post_A_Job"  Text="פרסם משרה" CssClass="btn btn-primary btn-lg" ValidationGroup="postJobValidation" />
                         </div>
 					</div>

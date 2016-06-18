@@ -70,6 +70,17 @@
 				<div id="menu-open" class="pull-left">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
 				</div>
+				<div id="searchbox" class="pull-right">
+					<form>
+						<div class="form-group">
+							<label class="sr-only" for="searchfield">Searchbox</label>
+							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+						</div>
+					</form>
+				</div>
+				<div id="search" class="pull-right">
+					<a><i class="fa fa-search fa-lg"></i></a>
+				</div>
 			</div>
 		</header>
 
@@ -101,6 +112,19 @@
                             <!--title-->
                             <h2>חיפוש מועמד</h2>
                             <form runat="server">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group" id="job-search-group">
+                                            <label for="job-search" class="sr-only">Search</label>
+                                            <input type="text" class="form-control" id="job-search" placeholder="Type and press enter">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr>
+                                    </div>
+                                </div>
                                 <!--error message-->
                                 <div class="row">
                                     <div class="col-xs-12">
@@ -177,7 +201,7 @@
 						<div id="candidatesList" class="jobs" runat="server">
 						</div>
 
-						<!--<nav>
+						<nav>
 							<ul class="pagination">
 								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
 								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -187,7 +211,7 @@
 								<li><a href="#">5</a></li>
 								<li><a href="#" aria-label="Next"><span aria-hidden="true">&laquo;</span></a></li>
 							</ul>
-						</nav>-->
+						</nav>
 
 					</div>
                     <!--candidate list end-->
@@ -231,7 +255,82 @@
 
 		<!-- ============ FOOTER END ============ -->
 
+		<!-- ============ LOGIN START ============ -->
 
+        <div class="popup" id="login">
+            <div class="popup-form">
+                <div class="popup-header">
+                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
+                    <h2>התחבר</h2>
+                </div>
+                <form>
+                    <!--<ul class="social-login">
+                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
+                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
+                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
+                </ul>-->
+                    <hr>
+                    <div class="form-group">
+                        <label for="login-username">שם משתמש</label>
+                        <input type="text" class="form-control" id="login-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">סיסמא</label>
+                        <input type="password" class="form-control" id="login-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">התחבר</button>
+                </form>
+            </div>
+        </div>
+
+		<!-- ============ LOGIN END ============ -->
+
+		<!-- ============ REGISTER START ============ -->
+
+        <div class="popup" id="register">
+            <div class="popup-form">
+                <div class="popup-header">
+                    <a class="close"><i class="fa fa-remove fa-lg"></i></a>
+                    <h2>הרשמה</h2>
+                </div>
+                <form>
+                    <!---<ul class="social-login">
+                    <li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
+                    <li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
+                    <li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
+                </ul>-->
+                    <hr>
+                    <div class="form-group">
+                        <label for="register-name">שם פרטי</label>
+                        <input type="text" class="form-control" id="register-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-surname">שם משפחה</label>
+                        <input type="text" class="form-control" id="register-surname">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">אימייל</label>
+                        <input type="email" class="form-control" id="register-email">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="register-username">שם משתמש</label>
+                        <input type="text" class="form-control" id="register-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password1">סיסמא</label>
+                        <input type="password" class="form-control" id="register-password1">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password2">הקלד סיסמא שנית</label>
+                        <input type="password" class="form-control" id="register-password2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">הירשם</button>
+                </form>
+            </div>
+        </div>
+
+		<!-- ============ REGISTER END ============ -->
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>

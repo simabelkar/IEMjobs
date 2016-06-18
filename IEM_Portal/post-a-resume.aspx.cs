@@ -462,7 +462,7 @@ namespace IEM_Portal
 
         protected void Populate_Educations_List()
         {
-            String SQLquery = "SELECT qualification_id,qualification FROM Educations";
+            String SQLquery = "SELECT education_id,education FROM Educations";
             DataTable subject = new DataTable();
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString))
             {
@@ -471,10 +471,10 @@ namespace IEM_Portal
                     SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
                     adapter.Fill(subject);
                     resumeEducation.DataSource = subject;
-                    resumeEducation.DataTextField = "qualification";
-                    resumeEducation.DataValueField = "qualification_id";
+                    resumeEducation.DataTextField = "education";
+                    resumeEducation.DataValueField = "education_id";
                     resumeEducation.DataBind();
-                    resumeEducation.Items.Insert(0, new ListItem("--בחר תעודה--", "0"));
+                    resumeEducation.Items.Insert(0, new ListItem("--בחר סמכות--", "0"));
                 }
                 catch (Exception ex)
                 {

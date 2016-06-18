@@ -860,13 +860,6 @@ header {
 			text-transform: none;
 		}
 
-        .DDcheckbox {
-			color: #888;
-			text-transform: none;
-            text-align:right;
-            direction:rtl;
-            align-items:baseline;
-		}
 	.form-control {
 		box-shadow: none;
 		height: 45px;
@@ -2004,7 +1997,7 @@ header {
         .testt{
             text-align:right !important;
         }
-        .dd_chk_drop {
+        div.dd_chk_drop {
             text-align:right !important;
         }
 
