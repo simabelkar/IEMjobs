@@ -229,7 +229,7 @@ namespace IEM_Portal
             try
             {
                 //userEducation
-                String selectEducation = "SELECT a.*, b.education FROM User_Education a INNER JOIN Educations b ON a.qualification_id=b.education_id WHERE user_id='" + Session["UserID"].ToString() + "'";
+                String selectEducation = "SELECT a.*, b.qualification FROM User_Education a INNER JOIN Educations b ON a.qualification_id=b.qualification_id WHERE user_id='" + Session["UserID"].ToString() + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand educationCmd = new SqlCommand(selectEducation, con);

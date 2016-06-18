@@ -46,8 +46,8 @@
                 </div>
             </div>
 		    <div class="form-group">
-			    <label>שם משתמש</label>
-                <asp:TextBox ID="loginUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required" />
+			    <label>אימייל</label>
+                <asp:TextBox ID="loginUsername" runat="server" CssClass="form-control" TextMode="email" required="required" />
 		    </div>
 		    <div class="form-group">
 			    <label>סיסמא</label>

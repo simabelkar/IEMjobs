@@ -220,10 +220,6 @@
                         <div class="form-group" id="resume-birthday-group">
                             <label>תאריך לידה</label>
                             <asp:TextBox ID="resumeBirthday" runat="server" CssClass="form-control" TextMode="Date" placeholder="DD/MM/YYYY"/>
-                            <!--<asp:RegularExpressionValidator ID="resumeBirthdayValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                ControlToValidate="resumeBirthday"
-                                ErrorMessage="תאריך לא חוקי"
-                                ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" />-->
                         </div>
                     </div>
                     <!--phone, limit: phone format-->
@@ -231,10 +227,6 @@
                         <div class="form-group" id="resume-phone-group">
                             <label>טלפון</label>
                             <asp:TextBox ID="resumePhone" runat="server" CssClass="form-control" TextMode="Phone" placeholder="1234567899"/>
-                            <!--<asp:RegularExpressionValidator ID="resumePhoneValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                    ControlToValidate="resumePhone"
-                                    ErrorMessage="פורמט לא חוקי" 
-                                ValidationExpression="^([0-9]{10})"/>-->
                         </div>
                     </div>
 
@@ -263,8 +255,8 @@
                     <div class="col-sm-6">
                         <div class="form-group" id="resume-skills-group" style="text-align:right !important; direction:rtl !important;">
                             <label>מיומנויות</label>
-                            <asp:DropDownCheckBoxes id="resumeSkills" runat="server" class="form-control" UseSelectAllNode="True">
-                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>  
+                            <asp:DropDownCheckBoxes id="resumeSkills" runat="server" class="form-control" >
+                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="DDcheckbox" />  
                                 <Texts SelectBoxCaption="--בחר מיומנויות--" /> 
                             </asp:DropDownCheckBoxes>
                         </div>
@@ -718,10 +710,10 @@
 
 				<div class="row">
                     <p>&nbsp;</p>
-                    <div class="col-sm-6 text-left">
+                    <!--<div class="col-sm-6 text-left">
                         <a href="resume.aspx" class="btn btn-primary btn-lg" style="background-color:grey;">צפה בפרופיל <i class="fa fa-arrow-left"></i></a>
-                    </div>
-                    <div class="col-sm-6 text-right">
+                    </div>-->
+                    <div class="col-sm-6 text-left">
                         <asp:Button ID="postResumeButton" runat="server" OnClick="Post_Resume" Text="פרסם קורות חיים" CssClass="btn btn-primary btn-lg" ValidationGroup="postResumeValidation" />
                     </div>
 				</div>
