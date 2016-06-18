@@ -58,7 +58,8 @@
 		</div>
 
 		<!-- ============ NAVBAR END ============ -->
-
+        
+        <form runat="server">
 		<!-- ============ HEADER START ============ -->
 
 		<header>
@@ -70,6 +71,16 @@
 				<div id="menu-open" class="pull-left">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
 				</div>
+                <!--login button\user name-->
+                <div class="pull-right">
+                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                    <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
+                    <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
+                </div>
+                <!--register button-->
+                <div class="pull-left text-left">
+                    <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
+                </div>
 			</div>
 		</header>
 
@@ -100,7 +111,6 @@
                         <div class="sidebar-widget" id="jobsearch">
                             <!--title-->
                             <h2>חיפוש מועמד</h2>
-                            <form runat="server">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <hr>
@@ -119,18 +129,18 @@
                                     <div class="col-xs-6">
                                         <h5>השכלה</h5>
                                         <div class="form-group">
-                                            <asp:DropDownCheckBoxes ID="candidateSearchEducation" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                            <asp:DropDownCheckBoxes ID="candidateSearchEducation" runat="server" class="form-control" UseSelectAllNode="True" >
                                                 <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
                                                 <Texts SelectBoxCaption="--בחר השכלה--" />
                                             </asp:DropDownCheckBoxes>
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
-                                        <h5>זמינות</h5>
+                                        <h5>מיומנויות</h5>
                                         <div class="form-group">
-                                            <asp:DropDownCheckBoxes ID="candidateSearchScope" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                            <asp:DropDownCheckBoxes ID="candidateSearchSkills" runat="server" class="form-control" UseSelectAllNode="True" >
                                                 <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
-                                                <Texts SelectBoxCaption="--בחר זמינות--" />
+                                                <Texts SelectBoxCaption="--בחר מיומנויות--" />
                                             </asp:DropDownCheckBoxes>
                                         </div>
                                     </div>
@@ -143,18 +153,9 @@
                                 <!--row2-->
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <h5>תפקיד</h5>
-                                        <div class="form-group">
-                                            <asp:DropDownCheckBoxes ID="candidateSearchSubCategory" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
-                                                <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
-                                                <Texts SelectBoxCaption="--בחר תפקיד--" />
-                                            </asp:DropDownCheckBoxes>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
                                         <h5>איזור</h5>
                                         <div class="form-group">
-                                            <asp:DropDownCheckBoxes ID="candidateSearchLocation" runat="server" class="form-control" UseButtons="True" UseSelectAllNode="True" >
+                                            <asp:DropDownCheckBoxes ID="candidateSearchLocation" runat="server" class="form-control" UseSelectAllNode="True" >
                                                 <Style SelectBoxWidth="100%" DropDownBoxBoxWidth="100%" DropDownBoxBoxHeight="250" SelectBoxCssClass="checkbox"/>
                                                 <Texts SelectBoxCaption="--בחר איזור--" />
                                             </asp:DropDownCheckBoxes>
@@ -171,7 +172,7 @@
                                         <asp:Button ID="searchCandidatesBotton" runat="server" OnClick="Search_Candidates" Text="חפש" CssClass="btn btn-primary" /> 
                                     </div>
                                 </div>
-                            </form>
+                            
                         </div>
                         <!-- Find a Candidate End -->
                     </div>
@@ -202,7 +203,7 @@
 		</section>
 
 		<!-- ============ JOBS END ============ -->
-
+            </form>
 
 		<!-- ============ FOOTER START ============ -->
 

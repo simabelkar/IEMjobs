@@ -18,10 +18,49 @@ namespace IEM_Portal
             if (!IsPostBack)
             {
                 Populate_Education_List();
-                Populate_Job_Scope_List();
-                Populate_Sub_Category_List();
+                Populate_Skills_List();
                 Populate_Regions_List();
             }
+
+            //------ manage login logout ------ 
+            if (Session["Name"] != null)
+            {
+                String name = Session["Name"].ToString();
+                //user is not logged in
+                if ((name == "") || (name == "אורח"))
+                {
+                    Session["Dest_Page"] = "candidates.aspx";
+                    Response.Redirect("login.aspx");
+                }
+                //user is logged in
+                else
+                {
+                    loggedInUser.InnerHtml = Session["Name"].ToString();
+                    //remove loginBtn and registerBtn 
+                    loginBtn.Style.Add("display", "none");
+                    registerBtn.Style.Add("display", "none");
+                    //add logoutBtn
+                    logoutBtn.Style.Remove("display");
+                }
+            }
+            //displayName is null
+            else
+            {
+                Session["Name"] = "אורח";
+                loggedInUser.InnerHtml = Session["Name"].ToString();
+            }
+            //------ end manage login logout ------
+        }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = "אורח";
+            Response.Redirect("homepage.aspx");
+            //remove logoutBtn
+            logoutBtn.Style.Add("display", "none");
+            //add loginBtn and registerBtn 
+            loginBtn.Style.Remove("display");
+            registerBtn.Style.Remove("display");
         }
 
         /************************* Populate Drop Down lists during Page_Load() *************************/
@@ -47,9 +86,9 @@ namespace IEM_Portal
             }
         }
 
-        protected void Populate_Job_Scope_List()
+        protected void Populate_Skills_List()
         {
-            String SQLquery = "SELECT scope, scope_id FROM Scopes ORDER BY scope_id";
+            String SQLquery = "SELECT skill, skill_id FROM Skills ORDER BY skill";
             DataTable subject = new DataTable();
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString))
             {
@@ -57,32 +96,10 @@ namespace IEM_Portal
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
                     adapter.Fill(subject);
-                    candidateSearchScope.DataSource = subject;
-                    candidateSearchScope.DataTextField = "scope";
-                    candidateSearchScope.DataValueField = "scope_id";
-                    candidateSearchScope.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    //TODO
-                }
-            }
-        }
-
-        protected void Populate_Sub_Category_List()
-        {
-            String SQLquery = "SELECT sub_category, sub_category_id FROM Sub_Categories ORDER BY category_id";
-            DataTable subject = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
-                    adapter.Fill(subject);
-                    candidateSearchSubCategory.DataSource = subject;
-                    candidateSearchSubCategory.DataTextField = "sub_category";
-                    candidateSearchSubCategory.DataValueField = "sub_category_id";
-                    candidateSearchSubCategory.DataBind();
+                    candidateSearchSkills.DataSource = subject;
+                    candidateSearchSkills.DataTextField = "skill";
+                    candidateSearchSkills.DataValueField = "skill_id";
+                    candidateSearchSkills.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -113,33 +130,7 @@ namespace IEM_Portal
             }
         }
 
-        /*protected String candidateSearchScope_SelectedValue()
-        {
-        }*/
-
-        /*protected String candidateSearchSubCategory_SelectedValue()
-        {
-            bool isFirst = true;
-            String selected_subCategories = "(";
-            foreach (ListItem selectedItem in (candidateSearchSubCategory as ListControl).Items)
-            {
-                if (selectedItem.Selected)
-                {
-                    if (isFirst)
-                    {
-                        selected_subCategories += "'" + selectedItem.Value + "' ";
-                        isFirst = false;
-                    }
-                    else
-                        selected_subCategories += ",'" + selectedItem.Value + "' ";
-                }
-            }
-            selected_subCategories += ")";
-            if (selected_subCategories.Equals("()"))
-                return "";
-            return " Jobs_Categories.sub_category_id IN " + selected_subCategories + " ";
-        }*/
-
+        /************************* Check boxes selection *************************/        
         protected String candidateSearchLocation_SelectedValue()
         {
             bool isFirst = true;
@@ -150,17 +141,17 @@ namespace IEM_Portal
                 {
                     if (isFirst)
                     {
-                        selected_regions += "'" + selectedItem.Value + "' ";
+                        selected_regions += selectedItem.Value;
                         isFirst = false;
                     }
                     else
-                        selected_regions += ",'" + selectedItem.Value + "' ";
+                        selected_regions += "," + selectedItem.Value;
                 }
             }
             selected_regions += ")";
             if (selected_regions.Equals("()"))
                 return "";
-            return " Cities.region_id  IN " + selected_regions + " ";
+            return " AND Cities.region_id  IN " + selected_regions + " ";
         }
 
         protected String candidateSearchEducation_SelectedValue()
@@ -173,35 +164,59 @@ namespace IEM_Portal
                 {
                     if (isFirst)
                     {
-                        selected_qualifications += "'" + selectedItem.Value + "' ";
+                        selected_qualifications += selectedItem.Value;
                         isFirst = false;
                     }
                     else
-                        selected_qualifications += ",'" + selectedItem.Value + "' ";
+                        selected_qualifications += "," + selectedItem.Value;
                 }
             }
             selected_qualifications += ")";
             if (selected_qualifications.Equals("()"))
                 return "";
-            return " User_Education.qualification_id IN " + selected_qualifications + " ";
+            return " AND user_id in(SELECT distinct user_id from User_Education WHERE User_Education.qualification_id IN " + selected_qualifications + ") ";
         }
+
+        private String candidateSearchSkills_SelectedValues()
+        {
+            bool isFirst = true;
+            String selected_skills = "(";
+            foreach (ListItem selectedItem in (candidateSearchSkills as ListControl).Items)
+            {
+                if (selectedItem.Selected)
+                {
+                    if (isFirst)
+                    {
+                        selected_skills += selectedItem.Value;
+                        isFirst = false;
+                    }
+                    else
+                        selected_skills += "," + selectedItem.Value;
+                }
+            }
+            selected_skills += ")";
+            if (selected_skills.Equals("()"))
+                return "";
+            return " AND user_id in(SELECT distinct user_id from User_Skills WHERE User_Skills.skill_id IN " + selected_skills + ") ";
+        }
+
+
 
         protected void Search_Candidates(object sender, EventArgs e)
         {
             String Html = "";
-            String categoryClass = "";
-            String locationCondition = candidateSearchLocation_SelectedValue();
             String educationCondition = candidateSearchEducation_SelectedValue();
+            String skillCondition = candidateSearchSkills_SelectedValues();
+            String locationCondition = candidateSearchLocation_SelectedValue();
 
-            String SQLQuery = "SELECT Users.user_fname, Users.user_lname, Users.user_curr_job_title, Users.user_photo, Cities.city " +
+            String SQLQuery = "SELECT Users.user_fname, Users.user_lname, Users.user_curr_job_title, Users.user_photo, Cities.city,Users.user_id " +
                             "FROM Users " +
                             "INNER JOIN Cities ON Users.city_id = Cities.city_id " +
-                            "INNER JOIN User_Education ON Users.user_id = User_Education.user_id " +
-                            "INNER JOIN Educations ON Educations.qualification_id = User_Education.qualification_id " +
-                            "WHERE" + locationCondition + "AND" + educationCondition + 
+                            "WHERE 1=1" + 
+                            locationCondition + 
+                            educationCondition +  
+                            skillCondition + 
                             "ORDER BY Users.user_fname ASC";
-            if (!locationCondition.Equals("") && !educationCondition.Equals(""))
-            {
                 cadidateSearchError.Visible = false;
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
@@ -212,7 +227,7 @@ namespace IEM_Portal
                     while (dr.Read())
                     {
                         //link for user resume page
-                        Html += "<a href=\"resume.aspx\"" + "class=\"applied\">" +
+                        Html += "<a href=\"resume.aspx?User_ID=" + dr.GetInt32(5).ToString()+"\"" + "class=\"applied\">" +
                                 "<div class=\"row\">";
                         if (dr["user_photo"] != DBNull.Value)
                             //user photo
@@ -247,13 +262,8 @@ namespace IEM_Portal
                     Html = "לא נמצאו תוצאות התואמות לחיפוש";
                 con.Close();
                 candidatesList.InnerHtml = Html;
-            }
-            else
-            {
-                cadidateSearchError.Style.Remove("display");
-                cadidateSearchError.InnerHtml = "נא להזין את כל השדות לחיפוש";
-                candidatesList.InnerHtml = "";
-            }
         }
+
+        
     }
 }

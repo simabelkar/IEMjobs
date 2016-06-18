@@ -17,7 +17,6 @@ namespace IEM_Portal
             //load in 1st time only
             if (!IsPostBack)
             {
-                Populate_Job_Category_List();
                 Populate_City_List();
                 Populate_Skills_List();
                 Populate_Social_Network_List();
@@ -112,7 +111,7 @@ namespace IEM_Portal
             bool isSuccess;
             //all field validation pass
             if (//personal details
-                resumeLocationValidator.IsValid && resumeTitleValidator.IsValid && resumeCategoryValidator.IsValid && 
+                resumeLocationValidator.IsValid && resumeTitleValidator.IsValid && 
                 resumeSummaryValidator.IsValid && resumeHighlightValidator.IsValid && resumeHighlightValidator2.IsValid && 
                 resumeHighlightValidator3.IsValid && resumeHighlightValidator4.IsValid &&
                 //job experience
@@ -147,7 +146,6 @@ namespace IEM_Portal
                     if (!resumeHighlight4.Equals(""))
                         Insert_Highlight(resumeHighlight4.Text);
 
-                    //TODO - add resumeCategory to DB
 
                     //save User_social_NW1 
                     if (resumeSocialNetwork.SelectedItem.Value != "0" && resumeSocialNetworkURL.Text != "")
@@ -359,31 +357,7 @@ namespace IEM_Portal
         }
 
         /************************* Populate Drop Down lists during Page_Load() *************************/
-        protected void Populate_Job_Category_List()
-        {
-            String SQLquery = "SELECT category, category_id FROM Categories ORDER BY category_id";
-            DataTable subject = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
-                    adapter.Fill(subject);
-                    resumeCategory.DataSource = subject;
-                    resumeCategory.DataTextField = "category";
-                    resumeCategory.DataValueField = "category_id";
-                    resumeCategory.DataBind();
-                    resumeCategory.Items.Insert(0, new ListItem("--בחר תחום--", "0"));
-                }
-                catch (Exception ex)
-                {
-                    postResumeError.Style.Remove("display");
-                    postResumeError.InnerHtml = ex.Message.ToString();
-                }
-            }
-        }
-
-        protected void Populate_City_List()
+       protected void Populate_City_List()
         {
             String SQLquery = "SELECT city, city_id FROM Cities ORDER BY city";
             DataTable subject = new DataTable();

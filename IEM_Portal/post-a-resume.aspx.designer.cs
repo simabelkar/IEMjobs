@@ -166,24 +166,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeTitleValidator;
         
         /// <summary>
-        /// resumeCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList resumeCategory;
-        
-        /// <summary>
-        /// resumeCategoryValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator resumeCategoryValidator;
-        
-        /// <summary>
         /// resumeSummary control.
         /// </summary>
         /// <remarks>

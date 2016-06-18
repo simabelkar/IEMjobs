@@ -277,16 +277,6 @@
                         </div>
 					</div>
 
-                    <!--job category (required), dropdown list-->
-                    <div class="col-sm-6">
-                        <div class="form-group" id="resume-category-group">
-                            <label>תחום תפקיד <span style="color:red;">*</span></label>
-                            <asp:DropDownList ID="resumeCategory" runat="server" CssClass="form-control">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="resumeCategoryValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                ControlToValidate="resumeCategory" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
-                        </div>
-                    </div>
 				</div>
 
                 <!--summary, limit: 500 characters-->

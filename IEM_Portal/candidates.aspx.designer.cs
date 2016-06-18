@@ -13,6 +13,42 @@ namespace IEM_Portal {
     public partial class candidates {
         
         /// <summary>
+        /// loggedInUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedInUser;
+        
+        /// <summary>
+        /// loginBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor loginBtn;
+        
+        /// <summary>
+        /// logoutBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton logoutBtn;
+        
+        /// <summary>
+        /// registerBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor registerBtn;
+        
+        /// <summary>
         /// cadidateSearchError control.
         /// </summary>
         /// <remarks>
@@ -31,22 +67,13 @@ namespace IEM_Portal {
         protected global::Saplin.Controls.DropDownCheckBoxes candidateSearchEducation;
         
         /// <summary>
-        /// candidateSearchScope control.
+        /// candidateSearchSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes candidateSearchScope;
-        
-        /// <summary>
-        /// candidateSearchSubCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes candidateSearchSubCategory;
+        protected global::Saplin.Controls.DropDownCheckBoxes candidateSearchSkills;
         
         /// <summary>
         /// candidateSearchLocation control.

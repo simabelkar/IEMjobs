@@ -12,6 +12,7 @@ namespace IEM_Portal
 {
     public partial class resume : System.Web.UI.Page
     {
+        String User_ID;
         protected void Page_Load(object sender, EventArgs e)
         {
             //------ manage login logout ------
@@ -27,6 +28,11 @@ namespace IEM_Portal
                 //user is logged in
                 else
                 {
+                    //get the Job_ID and Company_ID from the URL
+                    User_ID = Request.QueryString["User_ID"];
+                    if (User_ID == null)
+                     User_ID = Session["UserID"].ToString();
+
                     loggedInUser.InnerHtml = Session["Name"].ToString();
                     //remove loginBtn and registerBtn 
                     loginBtn.Style.Add("display", "none");
@@ -40,18 +46,18 @@ namespace IEM_Portal
                         //check if the user already post resume (all must fields are filed)
                         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                         con.Open();
-                        String checkUserEduc = "SELECT COUNT (*) FROM User_Education WHERE user_id='" + Session["UserID"].ToString() + "'";
+                        String checkUserEduc = "SELECT COUNT (*) FROM User_Education WHERE user_id='" + User_ID + "'";
                         SqlCommand educCmd = new SqlCommand(checkUserEduc, con);
                         int educ = Convert.ToInt32(educCmd.ExecuteScalar().ToString());
-                        String checkUser = "SELECT * FROM Users WHERE user_id='" + Session["UserID"].ToString() + "'";
+                        String checkUser = "SELECT * FROM Users WHERE user_id='" + User_ID + "'";
                         SqlCommand userCmd = new SqlCommand(checkUser, con);
                         SqlDataReader dr = userCmd.ExecuteReader();
                         if (dr.Read())
                         {
                             //check required fields from user_education and users tables
-                            if (educ != null && educ != 0)
+                            if (educ > 0)
                                 isInserted += 1;
-                            if (dr["city_id"] != "" && dr["city_id"] != DBNull.Value)
+                            if (dr["city_id"] != DBNull.Value)
                                 isInserted += 1;
                         }
                     }
@@ -109,7 +115,7 @@ namespace IEM_Portal
             try
             {
                 String selectUser = "SELECT u.user_fname, u.user_lname, u.user_curr_job_title, u.user_photo, u.user_summary, u.user_birthday,u.user_phone, c.city, u.user_email " +
-                                    "FROM Users u inner join Cities c ON u.city_id = c.city_id WHERE user_email='" + Session["Username"].ToString() + "'";
+                                    "FROM Users u inner join Cities c ON u.city_id = c.city_id WHERE User_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand userCmd = new SqlCommand(selectUser, con);
@@ -162,7 +168,7 @@ namespace IEM_Portal
         {
             try
             {
-                String selectExperience = "SELECT * FROM User_Highlights WHERE user_id='" + Session["UserID"].ToString() + "'";
+                String selectExperience = "SELECT * FROM User_Highlights WHERE user_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand highlightCmd = new SqlCommand(selectExperience, con);
@@ -189,7 +195,7 @@ namespace IEM_Portal
         {
             try
             {
-                String selectExperience = "SELECT * FROM User_Experience WHERE user_id='" + Session["UserID"].ToString() + "'";
+                String selectExperience = "SELECT * FROM User_Experience WHERE user_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand experienceCmd = new SqlCommand(selectExperience, con);
@@ -229,7 +235,7 @@ namespace IEM_Portal
             try
             {
                 //userEducation
-                String selectEducation = "SELECT a.*, b.qualification FROM User_Education a INNER JOIN Educations b ON a.qualification_id=b.qualification_id WHERE user_id='" + Session["UserID"].ToString() + "'";
+                String selectEducation = "SELECT a.*, b.qualification FROM User_Education a INNER JOIN Educations b ON a.qualification_id=b.qualification_id WHERE user_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand educationCmd = new SqlCommand(selectEducation, con);
@@ -268,7 +274,7 @@ namespace IEM_Portal
         {
             try
             {
-                String selectSocialNW = "SELECT a.*,b.social_nw FROM User_Social_nw a inner join Social_nw b ON a.social_nw_id = b.social_nw_id WHERE user_id='" + Session["UserID"].ToString() + "'";
+                String selectSocialNW = "SELECT a.*,b.social_nw FROM User_Social_nw a inner join Social_nw b ON a.social_nw_id = b.social_nw_id WHERE user_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand socialNWCmd = new SqlCommand(selectSocialNW, con);
@@ -309,7 +315,7 @@ namespace IEM_Portal
             {
                 String selectSkills = "SELECT Skills.skill FROM User_Skills " +
                     "INNER JOIN Skills ON User_Skills.skill_id = Skills.skill_id " +
-                    "WHERE User_Skills.user_id='" + Session["UserID"].ToString() + "'";
+                    "WHERE User_Skills.user_id='" + User_ID + "'";
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
                 con.Open();
                 SqlCommand skillsCmd = new SqlCommand(selectSkills, con);
