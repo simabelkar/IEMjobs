@@ -138,8 +138,9 @@
 
 		<!-- ============ CONTENT END ============ -->
 
+        </form>
 
-		<!-- ============ FOOTER START ============ -->
+        		<!-- ============ FOOTER START ============ -->
 
 		<footer>
 			<div id="prefooter">
@@ -157,21 +158,9 @@
 					</div>
 				</div>
 			</div>
-			<div id="credits">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-sm-12">
-							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
-							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</footer>
 
 		<!-- ============ FOOTER END ============ -->
-        </form>
-
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>
