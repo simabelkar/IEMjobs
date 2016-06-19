@@ -135,7 +135,7 @@ namespace IEM_Portal
                         if (dr["user_photo"] != "" && dr["user_photo"] !=DBNull.Value )
                             profile += "<img src=\"" + dr.GetString(3) + "\" alt=\"" + "\" class=\"" + "pull-right" + "\" height=\"270\" width=\"220\"/>";
                         else
-                            profile += "<img src=\"" + "http://placehold.it/220x270.jpg" + "\" alt=\"" + "\" class=\"" + "pull-right" + "\" height=\"270\" width=\"220\"/>";
+                            profile += "<img src=\"" + "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSEU3t3GI2E9ewv00BuKS_81R3BiUr1SEH1gSKBe9eDKcpiG7yQbg" + "\" alt=\"" + "\" class=\"" + "pull-right" + "\" height=\"270\" width=\"220\"/>";
                         if (dr["user_summary"] != "" && dr["user_summary"] != DBNull.Value)
                             profile += "<p>" + dr.GetString(4) + "</p>";
                         userProfile.InnerHtml = profile;

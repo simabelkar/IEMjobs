@@ -49,15 +49,6 @@ namespace IEM_Portal {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor registerBtn;
         
         /// <summary>
-        /// registerLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl registerLink;
-        
-        /// <summary>
         /// postResumeError control.
         /// </summary>
         /// <remarks>
@@ -578,6 +569,132 @@ namespace IEM_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeNotesValidator;
+        
+        /// <summary>
+        /// resumeSchool1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeSchool1;
+        
+        /// <summary>
+        /// resumeSchoolValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeSchoolValidator1;
+        
+        /// <summary>
+        /// resumeEducationStratDate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeEducationStratDate1;
+        
+        /// <summary>
+        /// resumeEducationEndDate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeEducationEndDate1;
+        
+        /// <summary>
+        /// resumeEducation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList resumeEducation1;
+        
+        /// <summary>
+        /// resumeNotes1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeNotes1;
+        
+        /// <summary>
+        /// resumeNotesValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeNotesValidator1;
+        
+        /// <summary>
+        /// resumeSchool2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeSchool2;
+        
+        /// <summary>
+        /// resumeSchoolValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeSchoolValidator2;
+        
+        /// <summary>
+        /// resumeEducationStratDate2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeEducationStratDate2;
+        
+        /// <summary>
+        /// resumeEducationEndDate2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeEducationEndDate2;
+        
+        /// <summary>
+        /// resumeEducation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList resumeEducation2;
+        
+        /// <summary>
+        /// resumeNotes2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox resumeNotes2;
+        
+        /// <summary>
+        /// resumeNotesValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator resumeNotesValidator2;
         
         /// <summary>
         /// postResumeButton control.

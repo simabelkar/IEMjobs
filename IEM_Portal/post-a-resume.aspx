@@ -78,7 +78,24 @@
                 ExperienceCount = 2;
                 $('#add-experience1').show()
             });
-            
+
+            var EducationCount = 1;
+            $('.exprerience-education-add').hide();
+            $('#add-education1').click(function () {
+                $('#exprerience-education-add-' + EducationCount).show();
+                EducationCount = EducationCount + 1;
+                if (EducationCount == 3) { $('#add-education1').hide() }
+            });
+            $('#Del-Education1').click(function () {
+                $('#exprerience-education-add-1').hide();
+                EducationCount = 1;
+                $('#add-education1').show()
+            });
+            $('#Del-Education2').click(function () {
+                $('#exprerience-education-add-2').hide();
+                EducationCount = 2;
+                $('#add-education1').show()
+            });
         });
     </script>
 	</head>
@@ -155,15 +172,6 @@
 						<h1>פרסם קורות חיים</h1>
 						<h4>הגדל את סיכוייך למציאת עבודה</h4>
                         <p>&nbsp;</p>
-                        <!--<div id="registerLink" runat="server" class="jumbotron">
-							<h3>רשום כבר?</h3>
-                            <p>עלייך להתחבר למערכת על מנת לפרסם קורות חיים
-                                <br />
-                                אם אין לך חשבון אתה יכול להירשם בלחיצה על "הרשמה" בקלות ובחינם!
-                            <br />
-                             אם נרשמת כבר אנא התחבר</p>
-							<p><a href="login.aspx" class="btn btn-primary">התחבר</a></p>
-						</div>-->
 					</div>
 				</div>
 
@@ -414,7 +422,8 @@
 						<h2>ניסיון מעשי</h2>
 					</div>
 				</div>
-                <!------experience details------>
+
+                <!------experience details 1------>
 				<div class="experience-work">
                     <div class="row experience">
                         <!--employer name, limit: 50 characters-->
@@ -433,7 +442,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-start-date-group">
 								<label>תאריך התחלה</label>
-                                <asp:TextBox ID="resumeExperienceStartDate" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                <asp:TextBox ID="resumeExperienceStartDate" runat="server" class="form-control" TextMode="Date"/>
                             </div>
 						</div>
 
@@ -441,7 +450,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-end-date-group">
 								<label>תאריך סיום</label>
-                                <asp:TextBox ID="resumeExperienceEndDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                <asp:TextBox ID="resumeExperienceEndDate" runat="server" CssClass="form-control" TextMode="Date"/>
                             </div>
 						</div>
 					</div>
@@ -478,7 +487,8 @@
 						</div>
 					</div>
                 </div>
-                <!------experience details more------>
+
+                <!------experience details 2------>
                 <div class="experience-work experience-work-add" id="experience-work-add-1">
                     <div class="row experience">
                         <!--employer name, limit: 50 characters-->
@@ -497,7 +507,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-start-date-group1">
 								<label>תאריך התחלה</label>
-                                <asp:TextBox ID="resumeExperienceStartDate1" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                <asp:TextBox ID="resumeExperienceStartDate1" runat="server" class="form-control" TextMode="Date"/>
                             </div>
 						</div>
 
@@ -505,7 +515,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-end-date-group1">
 								<label>תאריך סיום</label>
-                                <asp:TextBox ID="resumeExperienceEndDate1" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                <asp:TextBox ID="resumeExperienceEndDate1" runat="server" CssClass="form-control" TextMode="Date"/>
                             </div>
 						</div>
 					</div>
@@ -543,7 +553,8 @@
 						</div>
 					</div>
                 </div>
-                <!------experience details more------>
+
+                <!------experience details 3 ------>
                 <div class="experience-work experience-work-add" id="experience-work-add-2">
                     <div class="row experience">
                         <!--employer name, limit: 50 characters-->
@@ -562,7 +573,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-start-date-group2">
 								<label>תאריך התחלה</label>
-                                <asp:TextBox ID="resumeExperienceStartDate2" runat="server" class="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010"/>
+                                <asp:TextBox ID="resumeExperienceStartDate2" runat="server" class="form-control" TextMode="Date" />
                             </div>
 						</div>
 
@@ -570,7 +581,7 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-end-date-group2">
 								<label>תאריך סיום</label>
-                                <asp:TextBox ID="resumeExperienceEndDate2" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
+                                <asp:TextBox ID="resumeExperienceEndDate2" runat="server" CssClass="form-control" TextMode="Date" />
                             </div>
 						</div>
 					</div>
@@ -608,6 +619,7 @@
 						</div>
 					</div>
                 </div>
+
                 <!--add experience-->
 				<div class="row">
 					<div class="col-sm-12">
@@ -621,78 +633,196 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<p>&nbsp;</p>
-						<h2>השכלה</h2>
+						<h2>השכלה<span style="color:red;">*</span></h2>
 					</div>
 				</div>
-                <!------education details------>
-				<div class="row education">
-                    <!--school name (required), limit: 50 characters-->
-					<div class="col-sm-6">
-						<div class="form-group" id="resume-school-group">
-							<label>שם מוסד הלימודים<span style="color:red;">*</span></label>
-                            <asp:TextBox ID="resumeSchool" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"/>
-                            <asp:RegularExpressionValidator ID="resumeSchoolValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                ControlToValidate="resumeSchool"
-                                ErrorMessage="לא ניתן להזין יותר מ50 תווים"
-                                ValidationExpression="^.{1,50}$" />
-						</div>
-					</div>
+                <!------education details 1 ------>
+                <div class="exprerience-education">
+				    <div class="row education">
+                        <!--school name (required), limit: 50 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-school-group">
+							    <label>שם מוסד הלימודים<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeSchool" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"/>
+                                <asp:RegularExpressionValidator ID="resumeSchoolValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSchool"
+                                    ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                    ValidationExpression="^.{1,50}$" />
+						    </div>
+					    </div>
 
-                    <!--start date (required), date format-->
-					<div class="col-sm-3">
-						<div class="form-group" id="resume-education-strat-date-group">
-							<label>תאריך התחלה<span style="color:red;">*</span></label>
-                            <asp:TextBox ID="resumeEducationStratDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: אפריל 2010" resuired="required"/>
-                        </div>
-					</div>
+                        <!--start date (required), date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-strat-date-group">
+							    <label>תאריך התחלה<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeEducationStratDate" runat="server" CssClass="form-control" TextMode="Date" resuired="required"/>
+                            </div>
+					    </div>
 
-                    <!--end date, date format-->
-					<div class="col-sm-3">
-						<div class="form-group" id="resume-education-end-date-group">
-							<label>תאריך סיום</label>
-                            <asp:TextBox ID="resumeEducationEndDate" runat="server" CssClass="form-control" TextMode="Date" placeholder="לדוגמה: יוני 2013"/>
-                        </div>
-					</div>
-
-				</div>
-                    
-				<div class="row">
-                    <!--qualification, limit: 20 characters-->
-					<div class="col-sm-6">
-						<div class="form-group" id="resume-qualifications-group">
-							<label>סוג תעודה</label>
-                            <asp:DropDownList ID="resumeEducation" runat="server" CssClass="form-control">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="resumeEducationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                ControlToValidate="resumeEducation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
-                        </div>
-					</div>
-                       
+                        <!--end date, date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-end-date-group">
+							    <label>תאריך סיום</label>
+                                <asp:TextBox ID="resumeEducationEndDate" runat="server" CssClass="form-control" TextMode="Date"/>
+                            </div>
+					    </div>
+				    </div>
+                    <div class="row">
+                        <!--qualification, limit: 20 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-qualifications-group">
+							    <label>סוג תעודה<span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="resumeEducation" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="resumeEducationValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeEducation" InitialValue="0" ErrorMessage="בחר ערך מהרשימה" />
+                            </div>
+					    </div>
+                    </div>
+                    <div class="row">
+                        <!--notes, limit: 255 characters-->
+					    <div class="col-sm-12">
+						    <div class="form-group" id="resume-notes-group">
+							    <label>הערות נוספות</label>
+							    <asp:TextBox ID="resumeNotes" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="הישגים נוספים" />
+                                <asp:RegularExpressionValidator ID="resumeNotesValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeNotes"
+                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
+                            </div>
+					    </div>
+				    </div>
+				    <div class="row">
+					    <div class="col-sm-12">
+						    <hr class="dashed">
+					    </div>
+				    </div>
                 </div>
 
-                <div class="row">
-                    <!--notes, limit: 255 characters-->
-					<div class="col-sm-12">
-						<div class="form-group" id="resume-notes-group">
-							<label>הערות נוספות</label>
-							<asp:TextBox ID="resumeNotes" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="הישגים נוספים" />
-                            <asp:RegularExpressionValidator ID="resumeNotesValidator" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
-                                ControlToValidate="resumeNotes"
-                                ErrorMessage="לא ניתן להזין יותר מ255 תווים"
-                                ValidationExpression="^.{1,255}$" />
-                        </div>
-					</div>
+                <!------education details 2 ------>
+				<div class="exprerience-education exprerience-education-add" id="exprerience-education-add-1">
+                    <div class="row education">
+                        <!--school name, limit: 50 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-school-group1">
+							    <label>שם מוסד הלימודים<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeSchool1" runat="server" CssClass="form-control" TextMode="SingleLine"/>
+                                <asp:RegularExpressionValidator ID="resumeSchoolValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSchool1"
+                                    ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                    ValidationExpression="^.{1,50}$" />
+						    </div>
+					    </div>
+                        <!--start date, date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-strat-date-group1">
+							    <label>תאריך התחלה<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeEducationStratDate1" runat="server" CssClass="form-control" TextMode="Date" />
+                            </div>
+					    </div>
+                        <!--end date, date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-end-date-group1">
+							    <label>תאריך סיום</label>
+                                <asp:TextBox ID="resumeEducationEndDate1" runat="server" CssClass="form-control" TextMode="Date" />
+                            </div>
+					    </div>
+                    </div>
+                    <div class="row">
+                        <!--qualification, limit: 20 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-qualifications-group1">
+							    <label>סוג תעודה<span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="resumeEducation1" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                            </div>
+					    </div>
+                    </div>
+                    <div class="row">
+                        <!--notes, limit: 255 characters-->
+					    <div class="col-sm-12">
+						    <div class="form-group" id="resume-notes-group1">
+							    <label>הערות נוספות</label>
+							    <asp:TextBox ID="resumeNotes1" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="הישגים נוספים" />
+                                <asp:RegularExpressionValidator ID="resumeNotesValidator1" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeNotes1"
+                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
+                            </div>
+					    </div>
+				    </div>
+                    <a id="Del-Education1">- מחק השכלה</a>
+                    <div class="row">
+					    <div class="col-sm-12">
+						    <hr class="dashed">
+					    </div>
+				    </div>
 				</div>
-				<div class="row">
-					<div class="col-sm-12">
-						<hr class="dashed">
-					</div>
+
+                <!------education details 3 ------> 
+                <div class="exprerience-education exprerience-education-add" id="exprerience-education-add-2">
+                    <div class="row education">
+                        <!--school name, limit: 50 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-school-group2">
+							    <label>שם מוסד הלימודים<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeSchool2" runat="server" CssClass="form-control" TextMode="SingleLine"/>
+                                <asp:RegularExpressionValidator ID="resumeSchoolValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeSchool2"
+                                    ErrorMessage="לא ניתן להזין יותר מ50 תווים"
+                                    ValidationExpression="^.{1,50}$" />
+						    </div>
+					    </div>
+                        <!--start date, date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-strat-date-group2">
+							    <label>תאריך התחלה<span style="color:red;">*</span></label>
+                                <asp:TextBox ID="resumeEducationStratDate2" runat="server" CssClass="form-control" TextMode="Date"/>
+                            </div>
+					    </div>
+                        <!--end date, date format-->
+					    <div class="col-sm-3">
+						    <div class="form-group" id="resume-education-end-date-group2">
+							    <label>תאריך סיום</label>
+                                <asp:TextBox ID="resumeEducationEndDate2" runat="server" CssClass="form-control" TextMode="Date"/>
+                            </div>
+					    </div>
+                    </div>
+                    <div class="row">
+                        <!--qualification, limit: 20 characters-->
+					    <div class="col-sm-6">
+						    <div class="form-group" id="resume-qualifications-group2">
+							    <label>סוג תעודה<span style="color:red;">*</span></label>
+                                <asp:DropDownList ID="resumeEducation2" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                            </div>
+					    </div>
+                    </div>
+                    <div class="row">
+                        <!--notes, limit: 255 characters-->
+					    <div class="col-sm-12">
+						    <div class="form-group" id="resume-notes-group2">
+							    <label>הערות נוספות</label>
+							    <asp:TextBox ID="resumeNotes2" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="הישגים נוספים" />
+                                <asp:RegularExpressionValidator ID="resumeNotesValidator2" runat="server" Font-Size="Small" ForeColor="Red" ValidationGroup="postResumeValidation"
+                                    ControlToValidate="resumeNotes2"
+                                    ErrorMessage="לא ניתן להזין יותר מ255 תווים"
+                                    ValidationExpression="^.{1,255}$" />
+                            </div>
+					    </div>
+				    </div>
+                    <a id="Del-Education2">- מחק השכלה</a>
+                    <div class="row">
+					    <div class="col-sm-12">
+						    <hr class="dashed">
+					    </div>
+				    </div>
 				</div>
-                    
+
                 <!--add education-->
 				<div class="row">
 					<div class="col-sm-12">
-						<p><a id="add-education">+ הוסף השכלה</a></p>
+						<p><a id="add-education1">+ הוסף השכלה</a></p>
 						<hr>
 					</div>
 				</div>

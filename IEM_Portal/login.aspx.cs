@@ -15,8 +15,6 @@ namespace IEM_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //loginUsername.Text = "simabelker@gmail.com";
-            //loginPassword.Text = "sima1012";
             loginError.Visible = false;
             loginError.InnerHtml = "";
         }

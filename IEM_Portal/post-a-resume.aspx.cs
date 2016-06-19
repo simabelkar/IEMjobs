@@ -119,9 +119,10 @@ namespace IEM_Portal
                 resumeJobTitleValidator.IsValid && resumeJobTitleValidator1.IsValid && resumeJobTitleValidator2.IsValid &&
                 resumeResponsibilitiesValidator.IsValid && resumeResponsibilitiesValidator1.IsValid && resumeResponsibilitiesValidator2.IsValid &&
                 //education history
-                resumeSchoolValidator.IsValid && resumeEducationValidator.IsValid && resumeNotesValidator.IsValid
+                resumeSchoolValidator.IsValid && resumeEducationValidator.IsValid && resumeNotesValidator.IsValid &&
+                resumeSchoolValidator1.IsValid && resumeNotesValidator1.IsValid &&
+                resumeSchoolValidator2.IsValid && resumeNotesValidator2.IsValid
                 )
-                
             {
                 
                 //update Users parameter
@@ -134,16 +135,16 @@ namespace IEM_Portal
                     Insert_Skills();
 
                     //insert user highlights1
-                    if (!resumeHighlight1.Equals("") && resumeHighlight1!=null )
+                    if (!resumeHighlight1.Text.Equals(""))
                         Insert_Highlight(resumeHighlight1.Text);
                     //insert user highlights2
-                    if (!resumeHighlight2.Equals("") && resumeHighlight2!=null)
+                    if (!resumeHighlight2.Text.Equals(""))
                         Insert_Highlight(resumeHighlight2.Text);
                     //insert user highlights3
-                    if (!resumeHighlight3.Equals("") && resumeHighlight3!= null)
+                    if (!resumeHighlight3.Text.Equals(""))
                         Insert_Highlight(resumeHighlight3.Text);
                     //insert user highlights4
-                    if (!resumeHighlight4.Equals("") && resumeHighlight4!= null)
+                    if (!resumeHighlight4.Text.Equals(""))
                         Insert_Highlight(resumeHighlight4.Text);
 
 
@@ -159,20 +160,24 @@ namespace IEM_Portal
                     if (resumeEmployer.Text != "" && resumeExperienceStartDate.Text != "" && resumeJobTitle.Text != "" && resumeResponsibilities.Text != "")
                         Insert_Experience(Session["UserID"].ToString(), resumeEmployer.Text, resumeExperienceStartDate.Text, resumeExperienceEndDate.Text, resumeJobTitle.Text, resumeResponsibilities.Text);
                     //save User_Experience2
-                    if (resumeEmployer1.Text != "" && resumeExperienceEndDate1.Text != "" && resumeJobTitle1.Text != "" && resumeResponsibilities1.Text != "")
+                    if (resumeEmployer1.Text != "" && resumeExperienceStartDate1.Text != "" && resumeJobTitle1.Text != "" && resumeResponsibilities1.Text != "")
                         Insert_Experience(Session["UserID"].ToString(), resumeEmployer1.Text, resumeExperienceStartDate1.Text, resumeExperienceEndDate1.Text, resumeJobTitle1.Text, resumeResponsibilities1.Text);
                     //save User_Experience3
-                    if (resumeEmployer2.Text != "" && resumeExperienceEndDate2.Text != "" && resumeJobTitle2.Text != "" && resumeResponsibilities2.Text != "")
+                    if (resumeEmployer2.Text != "" && resumeExperienceStartDate2.Text != "" && resumeJobTitle2.Text != "" && resumeResponsibilities2.Text != "")
                         Insert_Experience(Session["UserID"].ToString(), resumeEmployer2.Text, resumeExperienceStartDate2.Text, resumeExperienceEndDate2.Text, resumeJobTitle2.Text, resumeResponsibilities2.Text);
 
-
-                    //TODO - save User_Jobs (user_id,job_id)
-
-                    //save User_Education in case one of the fields is inserted
+                    //save User_Education1 in case one of the fields is inserted
                     if (resumeSchool.Text != "" && resumeEducationStratDate.Text != "" && resumeEducation.SelectedItem.Value.ToString() != "0")
                         Insert_Education(Session["UserID"].ToString(), resumeSchool.Text, resumeEducationStratDate.Text, resumeEducationEndDate.Text, resumeEducation.SelectedItem.Value, resumeNotes.Text);
 
-                    //TODO - add another education
+                    //save User_Education2 in case one of the fields is inserted
+                    if (resumeSchool1.Text != "" && resumeEducationStratDate1.Text != "" && resumeEducation1.SelectedItem.Value.ToString() != "0")
+                        Insert_Education(Session["UserID"].ToString(), resumeSchool1.Text, resumeEducationStratDate1.Text, resumeEducationEndDate1.Text, resumeEducation1.SelectedItem.Value, resumeNotes1.Text);
+
+                    //save User_Education3 in case one of the fields is inserted
+                    if (resumeSchool2.Text != "" && resumeEducationStratDate2.Text != "" && resumeEducation2.SelectedItem.Value.ToString() != "0")
+                        Insert_Education(Session["UserID"].ToString(), resumeSchool2.Text, resumeEducationStratDate2.Text, resumeEducationEndDate2.Text, resumeEducation2.SelectedItem.Value, resumeNotes2.Text);
+
 
                     Response.Redirect("resume.aspx");
                 }
@@ -445,11 +450,24 @@ namespace IEM_Portal
                 { 
                     SqlDataAdapter adapter = new SqlDataAdapter(SQLquery, con);
                     adapter.Fill(subject);
+
                     resumeEducation.DataSource = subject;
                     resumeEducation.DataTextField = "qualification";
                     resumeEducation.DataValueField = "qualification_id";
                     resumeEducation.DataBind();
                     resumeEducation.Items.Insert(0, new ListItem("--בחר תעודה--", "0"));
+
+                    resumeEducation1.DataSource = subject;
+                    resumeEducation1.DataTextField = "qualification";
+                    resumeEducation1.DataValueField = "qualification_id";
+                    resumeEducation1.DataBind();
+                    resumeEducation1.Items.Insert(0, new ListItem("--בחר תעודה--", "0"));
+
+                    resumeEducation2.DataSource = subject;
+                    resumeEducation2.DataTextField = "qualification";
+                    resumeEducation2.DataValueField = "qualification_id";
+                    resumeEducation2.DataBind();
+                    resumeEducation2.Items.Insert(0, new ListItem("--בחר תעודה--", "0"));
                 }
                 catch (Exception ex)
                 {

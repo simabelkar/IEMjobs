@@ -78,8 +78,18 @@ namespace IEM_Portal
                         insertCmd.Parameters.AddWithValue("@userFname", registerFname.Text);
                         insertCmd.Parameters.AddWithValue("@userLname", registerLname.Text);
                         insertCmd.ExecuteNonQuery();
-                        con.Close();
+                        
 
+                        //login user
+                        Session["Name"] = registerFname.Text;
+                        Session["Username"] = registerUsername.Text;
+                        //save user_id
+                        String getUserId = "SELECT user_id FROM Users WHERE user_email='" + Session["Username"].ToString() + "'";
+                        SqlCommand getUserIDCmd = new SqlCommand(getUserId, con);
+                        int userId = Convert.ToInt32(getUserIDCmd.ExecuteScalar());
+                        Session["UserID"] = userId;
+
+                        con.Close();
                         //redirect TODO
                         Response.Redirect("homepage.aspx",false);
 
