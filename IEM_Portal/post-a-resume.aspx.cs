@@ -134,16 +134,16 @@ namespace IEM_Portal
                     Insert_Skills();
 
                     //insert user highlights1
-                    if (!resumeHighlight1.Equals(""))
+                    if (!resumeHighlight1.Equals("") && resumeHighlight1!=null )
                         Insert_Highlight(resumeHighlight1.Text);
                     //insert user highlights2
-                    if (!resumeHighlight2.Equals(""))
+                    if (!resumeHighlight2.Equals("") && resumeHighlight2!=null)
                         Insert_Highlight(resumeHighlight2.Text);
                     //insert user highlights3
-                    if (!resumeHighlight3.Equals(""))
+                    if (!resumeHighlight3.Equals("") && resumeHighlight3!= null)
                         Insert_Highlight(resumeHighlight3.Text);
                     //insert user highlights4
-                    if (!resumeHighlight4.Equals(""))
+                    if (!resumeHighlight4.Equals("") && resumeHighlight4!= null)
                         Insert_Highlight(resumeHighlight4.Text);
 
 
@@ -153,6 +153,7 @@ namespace IEM_Portal
                     //add another social_NW2
                     if (resumeSocialNetwork2.SelectedItem.Value != "0" && resumeSocialNetworkURL2.Text != "")
                         Insert_Social_NW(Session["UserID"].ToString(), resumeSocialNetwork2.SelectedItem.Value, resumeSocialNetworkURL2.Text);
+
 
                     //save User_Experience1
                     if (resumeEmployer.Text != "" && resumeExperienceStartDate.Text != "" && resumeJobTitle.Text != "" && resumeResponsibilities.Text != "")

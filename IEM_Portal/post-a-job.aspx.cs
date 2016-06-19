@@ -82,7 +82,6 @@ namespace IEM_Portal
                     DateTime currentTime = DateTime.Now;
                     cmd = new SqlCommand(SQLquery_Jobs, con);
                     //save job parameters
-                    //cmd.Parameters.AddWithValue("@ID", newGuid.ToString());
                     cmd.Parameters.AddWithValue("@jobTitle",jobTitle.Text);
                     cmd.Parameters.AddWithValue("@jobDesc", jobDescription.Text);
                     cmd.Parameters.AddWithValue("@jobReq", jobRequirement.Text);
