@@ -74,12 +74,12 @@
 				</div>
                 <!--login button\user name-->
                 <div class="pull-right">
-                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;padding-left: 20px;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
                     <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
                     <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
                 </div>
                 <!--register button-->
-                <div class="pull-left text-left">
+                <div class="pull-left text-left" style="padding-left: 60px;">
                     <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
                 </div>
 			</div>

@@ -69,12 +69,12 @@
 				</div>
                 <!--login button\user name-->
                 <div class="pull-right">
-                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
+                    <label id="displayName" class="sr-only-focusable" style="color:white; font-size:1.5em;padding-left: 20px;">&nbsp&nbsp שלום <span id="loggedInUser" runat="server"></span></label>
                     <a id="loginBtn" runat="server" href="login.aspx" class="btn btn-lg btn-default">התחבר</a>
                     <asp:linkbutton ID="logoutBtn" runat="server" class ="btn btn-lg btn-default" Text="התנתק" onClick="logoutBtn_Click" Style="display:none;" />
                 </div>
                 <!--register button-->
-                <div class="pull-left text-left">
+                <div class="pull-left text-left" style="padding-left: 60px;">
                     <a id="registerBtn" runat="server" href="register.aspx" class="btn btn-lg btn-default">הרשם</a>
                 </div>
 			</div>
@@ -95,24 +95,31 @@
 		</section>
 
 		<!-- ============ TITLE END ============ -->
-
+        <!--under construction image-->
+                <div align="center">
+                    <img src="https://cdnd.icons8.com/wp-content/uploads/2015/06/Website-Under-Construction.jpg" alt="Under Construction" width="30%" />
+                </div>
         <!-- ============ EDIT RESUME START ============ -->
 
         <section id="editResume">
             <div class="container">
+                
+                
+
                 <!--error message-->
-                <div class="row">
+                <%--<div class="row">
                     <div class="col-sm-12">
                         <div class="alert alert-danger" id="editResumeError" runat="server" style="display:none;">
                         </div>
                     </div>
-                </div>
+                </div>--%>
+
                 <!-- Resume Details Start -->
-			    <div class="row">
+			    <%--<div class="row">
 				    <div class="col-sm-6">
 					    <h2>פרטים אישיים</h2>
 				    </div>
-			    </div>
+			    </div>--%>
                 <!------ User details ------>
                 <!--(fName,lName,photo, birthday,phone,city,email,skills,currentPos,jobCategory,Summary)-->
 			    <div id="personalDetails" runat="server">
