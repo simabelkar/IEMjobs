@@ -72,7 +72,6 @@ namespace IEM_Portal
                     cmd.Parameters.AddWithValue("@companyEmail", companyEmail.Text);
                     cmd.Parameters.AddWithValue("@companyWebsite", companyWebsite.Text);
                     cmd.Parameters.AddWithValue("@companyLogo", companyLogo.Text);
-                    //TODO - company photo
                     cmd.ExecuteNonQuery();
 
                     //get company ID

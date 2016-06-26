@@ -63,19 +63,13 @@ namespace IEM_Portal
             //select all jobs
             String SQLQuery = "SELECT Jobs.job_title, Companies.company_name, Companies.company_logo,Cities.city, Scopes.scope, Scopes.scope_id, Jobs.job_id, Companies.company_id " +
                         "FROM Jobs INNER JOIN Companies ON Jobs.company_id = Companies.company_id " +
-                        "JOIN Jobs_Categories ON Jobs.job_id = Jobs_Categories.job_id " +
                         "JOIN Jobs_Cities ON Jobs.job_id = Jobs_Cities.job_id " +
                         "JOIN Jobs_Scopes ON Jobs.job_id = Jobs_Scopes.job_id " +
-                        "JOIN Categories ON Jobs_Categories.category_id = Categories.category_id " +
                         "JOIN Cities ON Jobs_Cities.city_id = Cities.city_id " +
                         "JOIN Scopes ON Jobs_Scopes.scope_id = Scopes.scope_id " +
-                        "JOIN Sub_Categories ON Jobs_Categories.sub_category_id = Sub_Categories.sub_category_id " +
-                        "WHERE" + locationCondition + "AND" + scopeCondition + "AND" + subCategoryCondition + 
+                        "WHERE 1=1 " + locationCondition + scopeCondition + subCategoryCondition + 
                         "ORDER BY Jobs.job_id ASC";
 
-            if (!locationCondition.Equals("") && !scopeCondition.Equals("") &&
-                !subCategoryCondition.Equals(""))
-            {
                 jobSearchError.Visible = false;
                 
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["IEMJobsConnectionString"].ConnectionString);
@@ -129,13 +123,6 @@ namespace IEM_Portal
                     Html = "לא נמצאו תוצאות התואמות לחיפוש";
                 con.Close();
                 jobsList.InnerHtml = Html;
-            }
-            else
-            {
-                jobSearchError.Style.Remove("display");
-                jobSearchError.InnerHtml = "נא להזין את כל השדות לחיפוש";
-                jobsList.InnerHtml = "";
-            }
 
         }
 
@@ -210,7 +197,7 @@ namespace IEM_Portal
             selected_subCategories += ")";
             if (selected_subCategories.Equals("()"))
                 return "";
-            return " Jobs_Categories.sub_category_id IN " + selected_subCategories + " ";
+            return " AND jobs.job_id in(select distinct job_id from Jobs_Categories where sub_category_id IN " + selected_subCategories + ") ";
         }
 
         protected String jobSearchScope_SelectedValues()
@@ -223,17 +210,17 @@ namespace IEM_Portal
                 {
                     if (isFirst)
                     {
-                        selected_scopes += "'" + selectedItem.Value + "' ";
+                        selected_scopes += selectedItem.Value;
                         isFirst = false;
                     }
                     else
-                        selected_scopes += ",'" + selectedItem.Value  + "' ";
+                        selected_scopes += "," + selectedItem.Value;
                 }
             }
             selected_scopes += ")";
             if (selected_scopes.Equals("()"))
                 return "";
-            return " Scopes.scope_id IN " + selected_scopes + " ";
+            return " AND Jobs.job_id in (SELECT distinct job_id from Jobs_Scopes where Jobs_Scopes.scope_id IN " + selected_scopes + ") ";
         }
 
         private String jobSearchLocation_SelectedValues()
@@ -246,17 +233,17 @@ namespace IEM_Portal
                 {
                     if (isFirst)
                     {
-                        selected_cities += "'" + selectedItem.Value + "' ";
+                        selected_cities += selectedItem.Value;
                         isFirst = false;
                     }
                     else
-                        selected_cities += ",'" + selectedItem.Value + "' ";
+                        selected_cities += "," + selectedItem.Value;
                 }
             }
             selected_cities += ")";
             if (selected_cities.Equals("()"))
                 return "";
-            return " Cities.city_id IN " + selected_cities + " ";
+            return " AND Cities.city_id IN " + selected_cities + " ";
         }
 
         /************************* Populate Drop Down lists during Page_Load() *************************/

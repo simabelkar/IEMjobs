@@ -252,7 +252,7 @@ namespace IEM_Portal
                         //modify date and user job category
                         Html += "<div class=\"hidden-xs hidden-sm hidden-md col-lg-3\">" +
                                 "<p class=\"candidate-tags\">" +
-                                "<span class=\"badge\">ניהול</span>" +
+                                //"<span class=\"badge\">ניהול</span>" +
                                 "</p></div>";
 
                         Html += "</div>" + "</a>";
