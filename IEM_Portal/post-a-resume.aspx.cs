@@ -69,7 +69,8 @@ namespace IEM_Portal
                         if ((socialNW >= 1) || (skills >= 1) || (exp >= 1) || (educ >= 1) || (highlight >= 1) )
                         {
                             postResumeError.Style.Remove("display");
-                            postResumeError.InnerHtml = "לא ניתן לבצע את הפעולה שנית";
+                            Response.Redirect("edit-resume.aspx");
+                            //postResumeError.InnerHtml = "לא ניתן לבצע את הפעולה שנית";
                         }
                         //user did not post resume - fill user basic details automatically after login
                         else
